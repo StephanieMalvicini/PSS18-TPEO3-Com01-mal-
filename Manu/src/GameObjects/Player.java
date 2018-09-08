@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 public class Player extends Nave {
 	
 	public Player() {
+		health = 200;
 		speed = 2;
 		x = 218;
 		y = 680;
