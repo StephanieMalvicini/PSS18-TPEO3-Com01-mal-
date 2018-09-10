@@ -1,7 +1,7 @@
 package GameObjects;
 
 public class DestroyableObject extends GameObject{
-	int health;
+	protected int health;
 	
 	public int getHealth() {
 		return health;

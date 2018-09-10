@@ -1,7 +1,7 @@
 package GameObjects;
 
 public class GameObject {
-	int x, y;
+	protected int x, y;
 	
 	public int getX() {
 		return x;
