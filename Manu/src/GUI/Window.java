@@ -39,14 +39,17 @@ public class Window {
 	                if(e.getKeyCode() == KeyEvent.VK_LEFT){
 	                    controller.startLeft();
 	                }
+	                if(e.getKeyCode() == KeyEvent.VK_UP){
+		                    controller.startUp();
+		                }
+		         if(e.getKeyCode() == KeyEvent.VK_DOWN){
+		                    controller.startDown();
+		         }
 	            }
 	            @Override
 	            public void keyReleased(KeyEvent e) {
-	       	     if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-	       		     controller.endRight();
-		            }
-	       	     if(e.getKeyCode() == KeyEvent.VK_LEFT){
-	       		     controller.endLeft();
+	       	     if(e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_LEFT){
+	       		     controller.end();
 		            }
 	            }
 	            

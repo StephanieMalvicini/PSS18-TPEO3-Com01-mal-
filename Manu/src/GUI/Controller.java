@@ -13,6 +13,7 @@ public class Controller {
 	public void startRight() {
 		p.setDir(1,0);
 		
+		
 	}
 
 	public void startLeft() {
@@ -20,15 +21,27 @@ public class Controller {
 		
 	}
 
-	public void endRight() {
+	public void end() {
 		p.setDir(0,0);
 		
 	}
 
-	public void endLeft() {
-		p.setDir(0,0);
+
+	public void startDown() {
+		p.setDir(0, 1);
 		
 	}
+	
+	public void startUp() {
+		p.setDir(0, -1);
+		
+	}
+
+	
+	
+
+	
+
 	
 	
 

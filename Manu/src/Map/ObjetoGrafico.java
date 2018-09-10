@@ -13,6 +13,8 @@ public class ObjetoGrafico {
 		model = Window.newPlayer(object.getX(), object.getY());
 	}
 	
+	
+	
 	public void update() {
 		object.update();
 		int x = object.getX();
