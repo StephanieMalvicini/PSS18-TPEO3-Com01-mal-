@@ -7,22 +7,19 @@ import javax.swing.JLabel;
 
 import GUI.Controller;
 import GUI.Window;
-import GameObjects.Bullet;
-import GameObjects.GameObject;
-import GameObjects.Player;
-import GameObjects.Shooter;
+import GameObjects.*;
 
 public class Map {
 	
 	Collection<ObjetoGrafico> list;
-	Collection<ObjetoGrafico> shooters;
+	Collection<ShooterGraphiObject> shooters;
 	Collection<ObjetoGrafico> bullets;
 	Window wind;
 
 	public Map(Window w) {
 		list = new LinkedList<ObjetoGrafico>();
 		wind = w;
-		shooters = new LinkedList<ObjetoGrafico>();
+		shooters = new LinkedList<ShooterGraphiObject>();
 		bullets = new LinkedList<ObjetoGrafico>();
 
 		
@@ -31,15 +28,15 @@ public class Map {
 	
 	public void newShooter(int x, int y, Shooter o) {
 		JLabel l = wind.newObject(x, y, o.getSprite());
-		ObjetoGrafico ret =  new ObjetoGrafico(o, l);
+		ShooterGraphiObject ret =  new ShooterGraphiObject(o, l);
 
 		shooters.add(ret);
 	}
-	public void newBullet(int x, int y, Bullet o) {
+	public void newBullet(int x, int y, GameObject o) {
 		JLabel l = wind.newObject(x, y, o.getSprite());
 		ObjetoGrafico ret =  new ObjetoGrafico(o, l);
 
-		list.add(ret);
+		bullets.add(ret);
 	}
 	public void newObject(int x, int y, GameObject o) {
 		JLabel l = wind.newObject(x, y, o.getSprite());
@@ -59,14 +56,23 @@ public class Map {
 	
 
 	public void update() {
-		for(Object s : shooters) {
+		for(ShooterGraphiObject s : shooters) {
 			  Bullet b = s.isShooting();
 			  if (b != null) {
-				  newActor(s.getX(), s.getY(), b);
+				  newBullet(s.getObject().getX(), s.getObject().getY(), b);
 			  }
+			  s.update();
 		  }
+
+		for(ObjetoGrafico o : bullets) {
+			o.update();
+			if(o.getObject().getY() == 0)
+				o.destroy();
+		}
+
 		for(ObjetoGrafico o : list)
 			o.update();
+
 		try {
 			Thread.sleep(1);
 		} catch (InterruptedException e) {

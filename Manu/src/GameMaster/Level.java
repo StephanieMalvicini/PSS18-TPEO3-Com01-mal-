@@ -21,7 +21,7 @@ public class Level {
 		gui.addController(c);
 		//gui.addListener(new MyListener(c));
 		map = new Map(gui);
-		map.newActor(240, 800, jugador);
+		map.newShooter(240, 800, jugador);
 
 	
 		

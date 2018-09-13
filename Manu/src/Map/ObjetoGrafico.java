@@ -1,12 +1,13 @@
 package Map;
 
-import javax.swing.JLabel;
+import javax.swing.*;
+
 import GUI.*;
 import GameObjects.GameObject;
 
 public class ObjetoGrafico {
-	private GameObject object;
-	private JLabel model;
+	protected GameObject object;
+	protected JLabel model;
 	
 	public ObjetoGrafico(GameObject o, JLabel l) {
 		object = o;
@@ -17,6 +18,10 @@ public class ObjetoGrafico {
 	public JLabel getLabel(){
 		return model;
 	}
+
+	public GameObject getObject(){
+		return object;
+	}
 	
 	
 	
@@ -26,7 +31,11 @@ public class ObjetoGrafico {
 		int y = object.getY();
 		model.setBounds(x, y, 182, 200);
 	}
-	
-	
 
+
+	public void destroy() {
+		model.setIcon(new ImageIcon() {
+		});
+
+	}
 }
