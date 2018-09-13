@@ -1,6 +1,6 @@
 package GameObjects;
 
-public class DestroyableObject extends GameObject{
+public abstract class DestroyableObject extends GameObject{
 	protected int health;
 	
 	public int getHealth() {
@@ -11,6 +11,4 @@ public class DestroyableObject extends GameObject{
 		return health == 0;
 	}
 	
-	
-
 }

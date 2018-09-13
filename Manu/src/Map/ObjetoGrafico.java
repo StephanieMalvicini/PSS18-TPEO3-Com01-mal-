@@ -8,9 +8,14 @@ public class ObjetoGrafico {
 	private GameObject object;
 	private JLabel model;
 	
-	public ObjetoGrafico(GameObject o) {
+	public ObjetoGrafico(GameObject o, JLabel l) {
 		object = o;
-		model = Window.newPlayer(object.getX(), object.getY());
+		model = l;
+		//gui.newObject(object.getX(), object.getY(), 1)
+	}
+	
+	public JLabel getLabel(){
+		return model;
 	}
 	
 	

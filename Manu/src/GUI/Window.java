@@ -3,82 +3,126 @@ package GUI;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.net.URL;
 
 import javax.swing.*;
 
+import Assets.Configs;
+import Assets.Paths;
+
 public class Window {
 
-    private static Window ventana;
+    private static Window instance;
     private Controller controller;
-    private JFrame wind;
+    private JFrame frame;
     private JPanel panel;
-    private static Container container; // static wtf
+    private Container gameContainer;
+    private Container UIcontainer;
+    //private Collection<JLabel> objetos;
+
+    
+
+
     
     public static Window GetWindow()  {
-        if(ventana==null){
-           ventana = new Window();
+        if(instance ==null){
+           instance = new Window();
         }
-        return ventana;
+        return instance;
     }
     private Window() {
-        wind = new JFrame();
-        wind.setSize(new Dimension(600,960));
-        wind.setVisible(false);
-        wind.setBackground(Color.BLACK);
-        wind.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        wind.setLayout(null);
-        container = wind.getContentPane();
-        container.setBackground(Color.BLACK);
-        container.setBounds(0,0,0,0);
-	 wind.addKeyListener(new KeyListener() {
-	            @Override
-	            public void keyPressed(KeyEvent e) {
-	                if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-	                    controller.startRight();
-	                }
-	                if(e.getKeyCode() == KeyEvent.VK_LEFT){
-	                    controller.startLeft();
-	                }
-	                if(e.getKeyCode() == KeyEvent.VK_UP){
-		                    controller.startUp();
-		                }
-		         if(e.getKeyCode() == KeyEvent.VK_DOWN){
-		                    controller.startDown();
-		         }
-	            }
-	            @Override
-	            public void keyReleased(KeyEvent e) {
-	       	     if(e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_LEFT){
-	       		     controller.end();
-		            }
-	            }
-	            
-	            
-	            @Override public void keyTyped(KeyEvent e) {}
-	        });
+		frame = new JFrame();
+		//frame.setContentPane(new JLabel(new ImageIcon(Paths.BACKGROUND)));
+		Container c = frame.getContentPane();
+		frame.setLayout(null);
+		frame.setBounds(0,0, Configs.getConfigs().canvasWidth,Configs.getConfigs().canvasHeight);
+		c.setLayout(null);
+
+		Icon ic = new ImageIcon(Paths.BACKGROUND);
+		gameContainer = new JLabel(ic);
+		UIcontainer = new JLabel(new ImageIcon(Paths.OTROFONDO));
+
+
+
+		gameContainer.setBounds(Configs.getConfigs().panelWidth,0,Configs.getConfigs().canvasWidth,Configs.getConfigs().canvasHeight);
+		UIcontainer.setBounds(0,0,Configs.getConfigs().panelWidth,Configs.getConfigs().canvasHeight);
+
+		frame.setVisible(true);
+		gameContainer.setLayout(null);
+		UIcontainer.setLayout(null);
+
+		c.add(gameContainer);
+		c.add(UIcontainer);
+
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getRootPane().setSize(Configs.getConfigs().windowsSize);
+
+
+		frame.setSize(Configs.getConfigs().windowsSize);
+		frame.setResizable(false);
+		frame.addKeyListener(new KeyListener(){
+
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+                    controller.startRight();
+                }
+                if(e.getKeyCode() == KeyEvent.VK_LEFT){
+                    controller.startLeft();
+                }
+                if(e.getKeyCode() == KeyEvent.VK_UP){
+                    controller.startUp();
+                }
+                if(e.getKeyCode() == KeyEvent.VK_DOWN){
+                    controller.startDown();
+                }
+
+                if(e.getKeyCode() == KeyEvent.VK_SPACE){
+                    controller.Fire();
+                }
+            }
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if(e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_LEFT){
+                    controller.endMovement();
+                }
+                if(e.getKeyCode() == KeyEvent.VK_SPACE){
+                    controller.endFire();
+                }
+            }
+
+            @Override public void keyTyped(KeyEvent e) {}
+        });
+
+
 
     }
     public void update(){
-       wind.repaint(); 
+       frame.repaint();
     }
 
     public void Show() {
-        wind.setVisible(true);
+        frame.setVisible(true);
     }
     
-    public static JLabel newPlayer(int x, int y) {
+    public  JLabel newObject(int x, int y, URL s) {
 		
-	JLabel player = new JLabel("");
-	player.setIcon(new ImageIcon("C:\\Users\\Manu\\Desktop\\project\\nave.png"));
-	player.setBounds(x, y, 182, 200);
-	container.add(player);
+	JLabel object = new JLabel("");
+	object.setIcon(new ImageIcon(s));
+	object.setBounds(x, y, 182, 200);
+	gameContainer.add(object);
+	//objetos.add(object);
 	
-	return player;
+	return object;
     }
     
-    public void addController(Controller cont) {
-	    controller = cont;
-    }
+    public void addController(Controller cont) { controller = cont; }
+
+
+    //public void addListener(KeyListener k) { frame.addKeyListener(k); }
+
+  
+    
+    
 
     
     

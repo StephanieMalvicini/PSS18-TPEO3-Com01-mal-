@@ -1,7 +1,10 @@
 package GameObjects;
 
-public class GameObject {
+import java.net.URL;
+
+public abstract class GameObject {
 	protected int x, y;
+	protected static URL sprite;
 	
 	public int getX() {
 		return x;
@@ -11,7 +14,9 @@ public class GameObject {
 		return y;
 	}
 	
-	public void update() {
-		
+	public URL getSprite() {
+		return sprite;
 	}
+	
+	public abstract void update();
 }

@@ -1,39 +1,59 @@
 package GUI;
 
 import GameObjects.Player;
+import GameObjects.Vector2;
 
 public class Controller {
 	
-	Player p;
+	private Vector2 v;
+	private boolean isFiring;
 	
-	public Controller(Player p) {
-		this.p = p;
+	public Controller() {
+		v = new Vector2(0,0);
 	}
 
 	public void startRight() {
-		p.setDir(1,0);
+		v.setDirec(1,0);
+
 		
 		
 	}
 
 	public void startLeft() {
-		p.setDir(-1,0);
+		v.setDirec(-1,0);
 		
 	}
 
-	public void end() {
-		p.setDir(0,0);
+	public void endMovement() {
+		v.setDirec(0,0);
 		
 	}
 
 
 	public void startDown() {
-		p.setDir(0, 1);
+		v.setDirec(0, 1);
 		
 	}
 	
 	public void startUp() {
-		p.setDir(0, -1);
+		v.setDirec(0, -1);
+		
+	}
+	
+	public Vector2 getDirection() {
+		return v;
+	}
+
+	public boolean isFiring() {
+		return isFiring;
+	}
+	
+	public void Fire() {
+		isFiring = true;
+	}
+
+	public void endFire() {
+		isFiring = false;
 		
 	}
 
