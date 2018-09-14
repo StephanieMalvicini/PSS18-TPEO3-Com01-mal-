@@ -10,7 +10,7 @@ public class PlayerBullet extends Bullet {
 		this.y = y;
 		daño = d;
 		dir = new Vector2(0, -1);
-		speed = 1;
+		speed = 2;
 		sprite = Paths.LASER;
 	}
 	

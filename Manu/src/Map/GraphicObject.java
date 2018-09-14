@@ -5,11 +5,11 @@ import javax.swing.*;
 import GUI.*;
 import GameObjects.GameObject;
 
-public class ObjetoGrafico {
+public class GraphicObject {
 	protected GameObject object;
 	protected JLabel model;
 	
-	public ObjetoGrafico(GameObject o, JLabel l) {
+	public GraphicObject(GameObject o, JLabel l) {
 		object = o;
 		model = l;
 		//gui.newObject(object.getX(), object.getY(), 1)

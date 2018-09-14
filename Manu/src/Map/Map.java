@@ -5,22 +5,35 @@ import java.util.LinkedList;
 
 import javax.swing.JLabel;
 
-import GUI.Controller;
 import GUI.Window;
 import GameObjects.*;
 
-public class Map {
+public final class Map {
 	
-	Collection<ObjetoGrafico> list;
-	Collection<ShooterGraphiObject> shooters;
-	Collection<ObjetoGrafico> bullets;
+	Collection<GraphicObject> list;
+	Collection<GraphicObject> shooters;
+	Collection<GraphicObject> bullets;
 	Window wind;
+	private static Map instance;
 
-	public Map(Window w) {
-		list = new LinkedList<ObjetoGrafico>();
+	public static Map newInstance(Window w){
+		if (instance == null){
+			instance = new Map(w);
+		}
+		return instance;
+	}
+
+	public static Map getInstance() throws Exception {  //TODO: crear excepciones
+		if (instance == null)
+			throw new Exception();
+		return instance;
+	}
+
+	private Map(Window w) {
+		list = new LinkedList<GraphicObject>();
 		wind = w;
-		shooters = new LinkedList<ShooterGraphiObject>();
-		bullets = new LinkedList<ObjetoGrafico>();
+		shooters = new LinkedList<GraphicObject>();
+		bullets = new LinkedList<GraphicObject>();
 
 		
 		
@@ -34,13 +47,12 @@ public class Map {
 	}
 	public void newBullet(int x, int y, GameObject o) {
 		JLabel l = wind.newObject(x, y, o.getSprite());
-		ObjetoGrafico ret =  new ObjetoGrafico(o, l);
-
+		GraphicObject ret =  new GraphicObject(o, l);
 		bullets.add(ret);
 	}
 	public void newObject(int x, int y, GameObject o) {
 		JLabel l = wind.newObject(x, y, o.getSprite());
-		ObjetoGrafico ret =  new ObjetoGrafico(o, l);
+		GraphicObject ret =  new GraphicObject(o, l);
 		list.add(ret);
 	}
 
@@ -48,29 +60,24 @@ public class Map {
 		   wind.Show();
 	    }
 	  
-	  public void disparar() {
-	
-	  }
+
 	
 	
 	
 
 	public void update() {
-		for(ShooterGraphiObject s : shooters) {
-			  Bullet b = s.isShooting();
-			  if (b != null) {
-				  newBullet(s.getObject().getX(), s.getObject().getY(), b);
-			  }
+		for(GraphicObject s : shooters) {
+
 			  s.update();
 		  }
 
-		for(ObjetoGrafico o : bullets) {
+		for(GraphicObject o : bullets) {
 			o.update();
 			if(o.getObject().getY() == 0)
 				o.destroy();
 		}
 
-		for(ObjetoGrafico o : list)
+		for(GraphicObject o : list)
 			o.update();
 
 		try {

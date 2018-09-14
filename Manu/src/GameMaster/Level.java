@@ -20,7 +20,7 @@ public class Level {
 		gui = Window.GetWindow();
 		gui.addController(c);
 		//gui.addListener(new MyListener(c));
-		map = new Map(gui);
+		map = Map.newInstance(gui);
 		map.newShooter(240, 800, jugador);
 
 	
