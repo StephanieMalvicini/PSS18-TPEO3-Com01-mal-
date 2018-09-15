@@ -1,9 +1,11 @@
 package GameObjects;
 
+import GUI.IUpdatable;
+
 import javax.swing.*;
 import java.net.URL;
 
-public abstract class GameObject {
+public abstract class GameObject implements IUpdatable {
 	protected int x;
     protected int y;
 	protected Icon sprite;

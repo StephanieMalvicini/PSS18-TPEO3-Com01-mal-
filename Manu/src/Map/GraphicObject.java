@@ -2,9 +2,10 @@ package Map;
 
 import javax.swing.*;
 
+import GUI.IUpdatable;
 import GameObjects.GameObject;
 
-public class GraphicObject {
+public class GraphicObject implements IUpdatable {
 	protected GameObject object;
 	protected JLabel model;
 	

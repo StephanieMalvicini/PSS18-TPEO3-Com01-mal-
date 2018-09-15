@@ -6,6 +6,7 @@ import Map.Map;
 
 import javax.swing.*;
 import java.net.URL;
+import java.util.Vector;
 
 public class Player extends  Shooter{
 	//Controller c;
@@ -36,12 +37,12 @@ public class Player extends  Shooter{
 	}
 
 	//probablemente vaya mas arriba en jerarquia
-	public void setDirec(int x, int y) {
-		dir.setDirec(x,y);
+	public void setDirec(Vector2 vect) {
+		dir = vect;
 		
 	}
 
-	public void setSprite(ImageIcon s){
+	public void setSprite(Icon s){
 		sprite = s;
 	}
 
@@ -64,11 +65,7 @@ public class Player extends  Shooter{
 			loaded = false;
 			time = System.currentTimeMillis() + attackSpeed;
 			Bullet b = new PlayerBullet(dano, (int)x + gunPosition,(int) y);
-			try {
 				Map.getInstance().newBullet((x + gunPosition), y, b);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 			gunPosition = ((gunPosition + 80)%160) ;
 
 		}

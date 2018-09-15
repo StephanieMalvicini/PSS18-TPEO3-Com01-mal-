@@ -4,7 +4,24 @@ public class Vector2 {
 	private int x;
 	private int y;
 
-	
+    public static Vector2 Origin() {
+    	return new Vector2(0,0);
+    }
+
+	public static Vector2 DOWN() {
+    	return new Vector2(0,1);
+	}
+	public static Vector2 UP() {
+    	return new Vector2(0,-1);
+	}
+	public static Vector2 LEFT() {
+    	return new Vector2(-1,0);
+	}
+	public static Vector2 RIGHT() {
+    	return new Vector2(1,0);
+	}
+
+
 	public int getX() {
 		return x;
 	}
@@ -26,10 +43,15 @@ public class Vector2 {
 		
 	}
 	
-	public void setDirec(int x, int y) {
+	public void setDirec(Vector2 v) {
 		this.x = x;
 		this.y = y;
 		//versorizar();
+	}
+
+	public Vector2 sum(Vector2 other)
+	{
+		return new Vector2(x+other.getX(), y+other.getY());
 	}
 	
 

@@ -36,6 +36,8 @@ public class Window {
 		frame.setLayout(null);
 		frame.setBounds(0,0, Configs.getConfigs().canvasWidth,Configs.getConfigs().canvasHeight);
 		c.setLayout(null);
+		//frame.setUndecorated(true);
+		frame.setLocationRelativeTo(null);
 
 		Icon ic = new ImageIcon(Paths.BACKGROUND);
 		gameContainer = new JLabel(ic);

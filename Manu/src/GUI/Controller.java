@@ -6,12 +6,12 @@ import GameObjects.Vector2;
 
 import javax.swing.*;
 
-public class Controller {
+public class Controller implements IUpdatable{
 	
-	private Player v;
+	private Player player;
 	private boolean isFiring;
-	private ImageIcon r,l,d,u,lu,ru,n;
-	
+	private Icon r,l,d,u,lu,ru, rd, ld,c;
+	Icon[][] m;
 	public Controller(Player p) {
 		r = new ImageIcon(Paths.NAVEDER);
 		l = new ImageIcon(Paths.NAVEIZQ);
@@ -19,61 +19,54 @@ public class Controller {
 		u = new ImageIcon(Paths.NAVEU);
 		lu = new ImageIcon(Paths.NAVEIU);
 		ru = new ImageIcon(Paths.NAVEDU);
-		n = new ImageIcon(Paths.NAVE);
-		v = p;
+		rd = new ImageIcon(Paths.NAVED);
+		ld = new ImageIcon(Paths.NAVED);
+		c = new ImageIcon(Paths.NAVE);
+		player = p;
+
+		m = new ImageIcon[3][3];
+		m[0][0]=lu;
+		m[1][0]=u;
+		m[2][0]=ru;
+		m[0][1]=l;
+		m[1][1]=c;
+		m[2][1]=r;
+		m[0][2]=rd;
+		m[1][2]=d;
+		m[2][2]=ld;
 	}
 
-	public void startRight() {
-		v.setDirec(1,0);
-		v.setSprite(r);
-	}
-
-	public void startLeft() {
-
-		v.setDirec(-1,0);
-		v.setSprite(l);
-	}
-
-	public void endMovement() {
-
-		v.setDirec(0,0);
-		v.setSprite(n);
+	private Icon getIcon(Vector2 v){
+		return m[v.getX()-1][v.getY()-1];
+		//obtiene el icono asociado de la matriz en funcion del vector
 	}
 
 
-	public void startDown() {
-		v.setDirec(0, 1);
 
-		v.setSprite(d);
-
+	private void move(Vector2 vec){
+		player.setDirec(vec);
+		player.setSprite(getIcon(vec));
 	}
-	
-	public void startUp() {
 
-		v.setDirec(0, -1);
-		v.setSprite(u);
+	public void update()
+	{
+		Vector2 vec = armarVector();
 
 	}
 
-	public void startUpRight(){
-		v.setDirec(1,-1);
-		v.setSprite(ru);
-	}
+	private Vector2 armarVector()
+	{
+		var list = MyListener.Instance();
+		Vector2 vec = Vector2.Origin();
+		if(list.down) vec = vec.sum(Vector2.DOWN());
 
-	public void startUpleft(){
-		v.setDirec(-1,-1);
-		v.setSprite(lu);
-	}
+		if(list.up) vec = vec.sum(Vector2.UP());
 
-	public void startDownRight(){
-		v.setDirec(1,1);
-		v.setSprite(d);
-	}
+		if(list.left) vec = vec.sum(Vector2.LEFT());
 
-	public void startDownLeft(){
-		v.setDirec(-1,1);
-		v.setSprite(d);
+		if(list.right) vec = vec.sum(Vector2.RIGHT());
 
+		return vec;
 	}
 
 
@@ -83,11 +76,11 @@ public class Controller {
 	}
 	
 	public void Fire() {
-		v.fire();
+		player.fire();
 	}
 
 	public void endFire() {
-		v.stopFiring();
+		player.stopFiring();
 		
 	}
 

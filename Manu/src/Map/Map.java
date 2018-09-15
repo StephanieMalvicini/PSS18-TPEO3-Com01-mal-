@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 import javax.swing.JLabel;
 
+import GUI.IUpdatable;
 import GUI.Window;
 import GameObjects.*;
 
@@ -24,9 +25,9 @@ public final class Map {
 		return instance;
 	}
 
-	public static Map getInstance() throws Exception {  //TODO: crear excepciones
+	public static Map getInstance() {  //TODO: crear excepciones
 		if (instance == null)
-			throw new Exception();
+			throw new MapException("incicializa el mapa pete");
 		return instance;
 	}
 
@@ -35,9 +36,6 @@ public final class Map {
 		wind = w;
 		shooters = new LinkedList<GraphicObject>();
 		bullets = new LinkedList<GraphicObject>();
-
-		
-		
 	}
 	
 	public void newShooter(int x, int y, Shooter o) {
@@ -61,14 +59,17 @@ public final class Map {
 		   wind.Show();
 	    }
 	  
+	public void checkDestroy(GraphicObject g)
+	{
 
+	}
 	
 	
 	
 
 	public void update() {
-		for(GraphicObject s : shooters) {
 
+		for(GraphicObject s : shooters) {
 			  s.update();
 		  }
 
