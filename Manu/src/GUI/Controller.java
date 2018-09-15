@@ -4,65 +4,75 @@ import Assets.Paths;
 import GameObjects.Player;
 import GameObjects.Vector2;
 
+import javax.swing.*;
+
 public class Controller {
 	
-	Player v;
+	private Player v;
 	private boolean isFiring;
+	private ImageIcon r,l,d,u,lu,ru,n;
 	
 	public Controller(Player p) {
+		r = new ImageIcon(Paths.NAVEDER);
+		l = new ImageIcon(Paths.NAVEIZQ);
+		d = new ImageIcon(Paths.NAVED);
+		u = new ImageIcon(Paths.NAVEU);
+		lu = new ImageIcon(Paths.NAVEIU);
+		ru = new ImageIcon(Paths.NAVEDU);
+		n = new ImageIcon(Paths.NAVE);
 		v = p;
 	}
 
 	public void startRight() {
 		v.setDirec(1,0);
-		v.setSprite(Paths.NAVEDER);
+		v.setSprite(r);
 	}
 
 	public void startLeft() {
 
 		v.setDirec(-1,0);
-		v.setSprite(Paths.NAVEIZQ);
+		v.setSprite(l);
 	}
 
 	public void endMovement() {
 
 		v.setDirec(0,0);
-		v.setSprite(Paths.NAVE);
+		v.setSprite(n);
 	}
 
 
 	public void startDown() {
 		v.setDirec(0, 1);
 
-		v.setSprite(Paths.NAVED);
+		v.setSprite(d);
 
 	}
 	
 	public void startUp() {
 
 		v.setDirec(0, -1);
-		v.setSprite(Paths.NAVEU);
+		v.setSprite(u);
 
 	}
 
 	public void startUpRight(){
 		v.setDirec(1,-1);
-		v.setSprite(Paths.NAVEDU);
+		v.setSprite(ru);
 	}
 
 	public void startUpleft(){
 		v.setDirec(-1,-1);
-		v.setSprite(Paths.NAVEIU);
+		v.setSprite(lu);
 	}
 
 	public void startDownRight(){
 		v.setDirec(1,1);
-		v.setSprite(Paths.NAVEDER);
+		v.setSprite(d);
 	}
 
 	public void startDownLeft(){
 		v.setDirec(-1,1);
-		v.setSprite(Paths.NAVEIZQ);
+		v.setSprite(d);
 
 	}
 

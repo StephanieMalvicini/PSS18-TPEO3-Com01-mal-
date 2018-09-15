@@ -6,7 +6,7 @@ import java.net.URL;
 public abstract class GameObject {
 	protected int x;
     protected int y;
-	protected static Icon sprite;
+	protected Icon sprite;
 	
 	public int getX() {
 		return x;

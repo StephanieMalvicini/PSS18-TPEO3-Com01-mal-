@@ -41,8 +41,8 @@ public class Player extends  Shooter{
 		
 	}
 
-	public void setSprite(URL s){
-		sprite = new ImageIcon(s);
+	public void setSprite(ImageIcon s){
+		sprite = s;
 	}
 
 	public void fire(){

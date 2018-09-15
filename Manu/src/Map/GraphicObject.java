@@ -28,7 +28,7 @@ public class GraphicObject {
 		object.update();
 		int x = object.getX();
 		int y = object.getY();
-		//model.setIcon(object.getSprite());
+		model.setIcon(object.getSprite());
 		model.setBounds(x, y, 182, 200);
 	}
 
