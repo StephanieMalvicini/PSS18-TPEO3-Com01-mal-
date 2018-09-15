@@ -1,8 +1,5 @@
 package GameObjects;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 import Assets.Paths;
 import GUI.Controller;
 import Map.Map;
@@ -15,10 +12,11 @@ public class Player extends  Shooter{
 	private long time;
 	private int gunPosition;
 
-	
+
 	public Player(Controller cont) {
 		health = 200;
 		speed = 2;
+		time=0;
 		x = 218;
 		y = 680;
 		dir = new Vector2(0,0);
@@ -47,7 +45,7 @@ public class Player extends  Shooter{
 			loaded = false;
 			time = System.currentTimeMillis() + attackSpeed;
 			try {
-				Map.getInstance().newBullet((x + gunPosition), y,new PlayerBullet(dano, x + gunPosition, y));
+				Map.getInstance().newBullet((x + gunPosition), y,new PlayerBullet(dano, (int)x + gunPosition,(int) y));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -61,7 +59,7 @@ public class Player extends  Shooter{
 			loaded = false;
 			time = System.currentTimeMillis() + attackSpeed;
 			try {
-				Map.getInstance().newBullet(x + gunPosition, y,new PlayerBullet(dano, x, y));
+				Map.getInstance().newBullet(x + gunPosition, y,new PlayerBullet(dano, (int) x,(int) y));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

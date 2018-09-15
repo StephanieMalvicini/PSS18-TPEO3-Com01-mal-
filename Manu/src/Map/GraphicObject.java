@@ -2,7 +2,6 @@ package Map;
 
 import javax.swing.*;
 
-import GUI.*;
 import GameObjects.GameObject;
 
 public class GraphicObject {
@@ -23,7 +22,8 @@ public class GraphicObject {
 		return object;
 	}
 	
-	
+
+
 	
 	public void update() {
 		object.update();

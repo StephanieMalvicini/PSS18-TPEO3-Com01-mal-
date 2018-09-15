@@ -14,32 +14,41 @@ public class Controller {
 
 	public void startRight() {
 		v.setDirec(1,0);
-
-		
-		
 	}
 
 	public void startLeft() {
 		v.setDirec(-1,0);
-		
 	}
 
 	public void endMovement() {
 		v.setDirec(0,0);
-		
 	}
 
 
 	public void startDown() {
 		v.setDirec(0, 1);
-		
 	}
 	
 	public void startUp() {
 		v.setDirec(0, -1);
-		
 	}
-	
+
+	public void startUpRight(){
+		v.setDirec(1,-1);
+	}
+
+	public void startUpleft(){
+		v.setDirec(-1,-1);
+	}
+
+	public void startDownRight(){
+		v.setDirec(1,1);
+	}
+
+	public void startDownLeft(){
+		v.setDirec(-1,1);
+	}
+
 	public Vector2 getDirection() {
 		return v;
 	}

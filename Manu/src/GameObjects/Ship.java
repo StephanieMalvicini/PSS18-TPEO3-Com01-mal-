@@ -2,9 +2,6 @@ package GameObjects;
 
 import Assets.Configs;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 public class Ship extends DestroyableObject {
 	protected int speed;
 	

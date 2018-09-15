@@ -1,7 +1,6 @@
 package GUI;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.net.URL;
 
@@ -60,39 +59,6 @@ public class Window {
 
 		frame.setSize(Configs.getConfigs().windowsSize);
 		frame.setResizable(false);
-		frame.addKeyListener(new KeyListener(){
-
-            public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-                    controller.startRight();
-                }
-                if(e.getKeyCode() == KeyEvent.VK_LEFT){
-                    controller.startLeft();
-                }
-                if(e.getKeyCode() == KeyEvent.VK_UP){
-                    controller.startUp();
-                }
-                if(e.getKeyCode() == KeyEvent.VK_DOWN){
-                    controller.startDown();
-                }
-
-                if(e.getKeyCode() == KeyEvent.VK_SPACE){
-                    controller.Fire();
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_LEFT){
-                    controller.endMovement();
-                }
-                if(e.getKeyCode() == KeyEvent.VK_SPACE){
-                    controller.endFire();
-                }
-            }
-
-            @Override public void keyTyped(KeyEvent e) {}
-        });
-
 
 
     }
@@ -104,11 +70,11 @@ public class Window {
         frame.setVisible(true);
     }
     
-    public  JLabel newObject(int x, int y, URL s) {
+    public  JLabel newObject(float x, float y, URL s) {
 		
 	JLabel object = new JLabel("");
 	object.setIcon(new ImageIcon(s));
-	object.setBounds(x, y, 182, 200);
+	object.setBounds((int) x, (int)y, 182, 200);
 	gameContainer.add(object);
 	//objetos.add(object);
 	
@@ -118,7 +84,7 @@ public class Window {
     public void addController(Controller cont) { controller = cont; }
 
 
-    //public void addListener(KeyListener k) { frame.addKeyListener(k); }
+    public void addListener(KeyListener k) { frame.addKeyListener(k); }
 
   
     

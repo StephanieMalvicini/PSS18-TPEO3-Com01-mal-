@@ -3,7 +3,8 @@ package GameObjects;
 import java.net.URL;
 
 public abstract class GameObject {
-	protected int x, y;
+	protected int x;
+    protected int y;
 	protected static URL sprite;
 	
 	public int getX() {

@@ -14,6 +14,7 @@ public final class Map {
 	Collection<GraphicObject> shooters;
 	Collection<GraphicObject> bullets;
 	Window wind;
+
 	private static Map instance;
 
 	public static Map newInstance(Window w){
@@ -45,7 +46,7 @@ public final class Map {
 
 		shooters.add(ret);
 	}
-	public void newBullet(int x, int y, GameObject o) {
+	public void newBullet(float x, float y, GameObject o) {
 		JLabel l = wind.newObject(x, y, o.getSprite());
 		GraphicObject ret =  new GraphicObject(o, l);
 		bullets.add(ret);

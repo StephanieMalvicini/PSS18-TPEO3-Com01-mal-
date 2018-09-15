@@ -19,12 +19,10 @@ public class Level {
 		jugador = new Player(c);
 		gui = Window.GetWindow();
 		gui.addController(c);
-		//gui.addListener(new MyListener(c));
+		MyListener m = new MyListener(c);
+		gui.addListener(m);
 		map = Map.newInstance(gui);
 		map.newShooter(240, 800, jugador);
-
-	
-		
 	}
 
 	public void run(){
@@ -35,7 +33,4 @@ public class Level {
 			gui.update();
 		}
 	}
-	
-
 }
-	

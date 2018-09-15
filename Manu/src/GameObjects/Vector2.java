@@ -1,7 +1,9 @@
 package GameObjects;
 
 public class Vector2 {
-	private int x,y;
+	private int x;
+	private int y;
+
 	
 	public int getX() {
 		return x;
@@ -27,7 +29,7 @@ public class Vector2 {
 	public void setDirec(int x, int y) {
 		this.x = x;
 		this.y = y;
-		versorizar();
+		//versorizar();
 	}
 	
 
