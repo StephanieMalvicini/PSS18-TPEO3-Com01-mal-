@@ -70,10 +70,10 @@ public class Window {
         frame.setVisible(true);
     }
     
-    public  JLabel newObject(float x, float y, URL s) {
+    public  JLabel newObject(float x, float y, Icon s) {
 		
 	JLabel object = new JLabel("");
-	object.setIcon(new ImageIcon(s));
+	object.setIcon(s);
 	object.setBounds((int) x, (int)y, 182, 200);
 	gameContainer.add(object);
 	//objetos.add(object);

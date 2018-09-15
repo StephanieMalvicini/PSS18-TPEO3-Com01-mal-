@@ -1,11 +1,12 @@
 package GameObjects;
 
+import javax.swing.*;
 import java.net.URL;
 
 public abstract class GameObject {
 	protected int x;
     protected int y;
-	protected static URL sprite;
+	protected static Icon sprite;
 	
 	public int getX() {
 		return x;
@@ -15,7 +16,7 @@ public abstract class GameObject {
 		return y;
 	}
 	
-	public URL getSprite() {
+	public Icon getSprite() {
 		return sprite;
 	}
 	

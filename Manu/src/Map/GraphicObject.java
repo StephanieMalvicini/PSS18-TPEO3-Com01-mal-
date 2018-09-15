@@ -11,7 +11,6 @@ public class GraphicObject {
 	public GraphicObject(GameObject o, JLabel l) {
 		object = o;
 		model = l;
-		//gui.newObject(object.getX(), object.getY(), 1)
 	}
 	
 	public JLabel getLabel(){
@@ -29,6 +28,7 @@ public class GraphicObject {
 		object.update();
 		int x = object.getX();
 		int y = object.getY();
+		//model.setIcon(object.getSprite());
 		model.setBounds(x, y, 182, 200);
 	}
 

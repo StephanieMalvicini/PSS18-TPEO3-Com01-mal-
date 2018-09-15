@@ -2,6 +2,8 @@ package GameObjects;
 
 import Assets.Paths;
 
+import javax.swing.*;
+
 public class PlayerBullet extends Bullet {
 
 	
@@ -11,7 +13,7 @@ public class PlayerBullet extends Bullet {
 		daño = d;
 		dir = new Vector2(0, -1);
 		speed = 2;
-		sprite = Paths.LASER;
+		sprite = new ImageIcon(Paths.LASER);
 	}
 	
 	
