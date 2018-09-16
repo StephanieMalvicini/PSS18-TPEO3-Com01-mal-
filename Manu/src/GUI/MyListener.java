@@ -30,21 +30,17 @@ public class MyListener implements KeyListener {
 
         if(e.getKeyCode() == KeyEvent.VK_RIGHT){
             right=true;
-
         }
         if(e.getKeyCode() == KeyEvent.VK_LEFT){
-
                 left = true;
         }
         if(e.getKeyCode() == KeyEvent.VK_UP){
-
                 up = true;
         }
         if(e.getKeyCode() == KeyEvent.VK_DOWN){
-
                 down = true;
         }
-        if(e.getKeyCode() == KeyEvent.VK_SPACE){
+        if(e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_CONTROL){
             fire=true;
         }
     }
@@ -66,13 +62,11 @@ public class MyListener implements KeyListener {
         }
 
         if(e.getKeyCode() == KeyEvent.VK_DOWN){
-
             down = false;
         }
 
 
-
-        if(e.getKeyCode() == KeyEvent.VK_SPACE){
+        if(e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_CONTROL){
             fire = false;
         }
     }

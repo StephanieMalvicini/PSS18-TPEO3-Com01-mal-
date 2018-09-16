@@ -1,20 +1,30 @@
 package Map;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import javax.swing.JLabel;
 
+import Controllers.AbstractController;
+import Controllers.Controller;
 import GUI.IUpdatable;
 import GUI.Window;
 import GameObjects.*;
 
-public final class Map {
-	
-	Collection<GraphicObject> list;
-	Collection<GraphicObject> shooters;
-	Collection<GraphicObject> bullets;
+public final class Map extends SuperMap{
+
+	private HashMap<GameObject, GraphicObject> gameobject_to_graphicobject;
+	Collection<IUpdatable> list;
+
+	Queue<IUpdatable> toDestroy;
+	Queue<IUpdatable> toAdd;
 	Window wind;
+
+
+
 
 	private static Map instance;
 
@@ -32,69 +42,87 @@ public final class Map {
 	}
 
 	private Map(Window w) {
-		list = new LinkedList<GraphicObject>();
-		wind = w;
-		shooters = new LinkedList<GraphicObject>();
-		bullets = new LinkedList<GraphicObject>();
-	}
-	
-	public void newShooter(int x, int y, Shooter o) {
-		JLabel l = wind.newObject(x, y, o.getSprite());
-		ShooterGraphiObject ret =  new ShooterGraphiObject(o, l);
+		gameobject_to_graphicobject = new HashMap<>();
+		list = new LinkedList<>();
 
-		shooters.add(ret);
+		wind = w;
+		toDestroy = new LinkedBlockingQueue<>();
+		toAdd = new LinkedBlockingQueue<>();
 	}
-	public void newBullet(float x, float y, GameObject o) {
-		JLabel l = wind.newObject(x, y, o.getSprite());
-		GraphicObject ret =  new GraphicObject(o, l);
-		bullets.add(ret);
-	}
-	public void newObject(int x, int y, GameObject o) {
-		JLabel l = wind.newObject(x, y, o.getSprite());
-		GraphicObject ret =  new GraphicObject(o, l);
-		list.add(ret);
-	}
+
+
 
 	  public void run() {
 		   wind.Show();
 	    }
-	  
-	public void checkDestroy(GraphicObject g)
+
+
+
+	public void onUpdate(Bullet o)
 	{
 
 	}
-	
-	
-	
+
+
+	public void add(GameObject o)
+	{
+		JLabel l = wind.add(o.getUbication(), o.getSprite());
+		GraphicObject ret =  new GraphicObject(o, l);
+		toAdd.add(ret);
+		gameobject_to_graphicobject.put(o,ret);
+	}
 
 	public void update() {
 
-		for(GraphicObject s : shooters) {
-			  s.update();
-		  }
-
-		for(GraphicObject o : bullets) {
-			o.update();
-			if(o.getObject().getY() == 0)
-				o.destroy();
+		while(!toDestroy.isEmpty()){
+			toDestroy.remove().destroyMe(this);
+		}
+		while(!toAdd.isEmpty()){
+			list.add(toAdd.remove());
 		}
 
-		for(GraphicObject o : list)
-			o.update();
-
-		try {
-			Thread.sleep(10);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		for (IUpdatable o : list) {
+			o.update(this);
 		}
-		
-		
+
 	}
-	
-	
-	
-	
 
+	public void destroy(GraphicObject o){
+		list.remove(o);
+	}
+
+
+	public void add(IUpdatable upda)
+	{
+		list.add(upda);
+	}
+	public void remove(IUpdatable upda)
+	{
+		toDestroy.add(upda);
+	}
+
+	public void onUpdate(Ship ship) {
+	}
+
+	public void onUpdate(AbstractController controller) {
+	}
+
+	public void onUpdate(GraphicObject graphicObject) {
+	}
+
+	public void destroy(GameObject gam)
+	{
+		GraphicObject go = gameobject_to_graphicobject.getOrDefault(gam,null);
+		remove(go);
+	}
+
+	public void destroy(AbstractController controller) {
+
+	}
+
+	public void addController(AbstractController cont) {
+		add(cont);
+	}
 }
 
 

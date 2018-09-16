@@ -12,9 +12,10 @@ public class Paths {
     public static URL NAVEID = Paths.class.getResource("1.png");
     public static URL NAVEDU = Paths.class.getResource("ur.png");
     public static URL OTROFONDO= Paths.class.getResource("otrofondo.png");
-    public static URL ENEMY1 = Paths.class.getResource("otrofondo.png");
+    public static URL ENEMY1 = Paths.class.getResource("enemigo.png");
     public static URL NAVEU = Paths.class.getResource("u.png");
     public static URL NAVED = Paths.class.getResource("d.png");
+    public static URL ENEMYBULLET1 = Paths.class.getResource("enemyLaser.png");
 
 
 }

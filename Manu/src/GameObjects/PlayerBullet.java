@@ -7,18 +7,17 @@ import javax.swing.*;
 public class PlayerBullet extends Bullet {
 
 	
-	public PlayerBullet(int d, int x, int y) {
-		this.x = x;
-		this.y = y;
+	public PlayerBullet(int d,Vector2 ubication) {
+		setUbication(ubication);
 		daño = d;
 		dir = new Vector2(0, -1);
-		speed = 2;
+		speed = 6f;
 		sprite = new ImageIcon(Paths.LASER);
 	}
 	
 	
-	public int getDaño() {
-		// TODO Auto-generated method stub
+	public int getDaño()
+	{
 		return 0;
 	}
 

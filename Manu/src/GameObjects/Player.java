@@ -1,75 +1,64 @@
 package GameObjects;
 
 import Assets.Paths;
-import GUI.Controller;
-import Map.Map;
+import Map.*;
 
 import javax.swing.*;
-import java.net.URL;
-import java.util.Vector;
 
 public class Player extends  Shooter{
-	//Controller c;
-	private int dano;
-	private int attackSpeed;
-	private boolean loaded;
-	private long time;
-	private int gunPosition;
-	boolean isFiring;
+	protected final float playerSpeed = 0.5f;
+	protected int damage;
+	protected int attackSpeed;
+	protected boolean loaded;
+	protected long time;
+	protected int gunPosition;
+
+	// --------- alternar balas -----
+	protected float gunPhaseShift;
+	//-------------------------
+
+
+	protected static Vector2 initialPosition = new Vector2(218,680);
+	protected static int playerDamage = 20;
+	protected static int playerAttackSpeed = 300;
 
 
 	public Player() {
 		health = 200;
-		speed = 5;
+		speed = playerSpeed;
 		time=0;
-		x = 218;
-		y = 680;
-		dir = new Vector2(0,0);
-		//c = cont;
-		dano = 20;
+		ubication = initialPosition;
+		dir = Vector2.ORIGIN();
+		damage = playerDamage;
 		sprite = new ImageIcon(Paths.NAVE);
-		attackSpeed = 300;
-		boolean loaded = true;
-		gunPosition = 125 ;
+		attackSpeed = playerAttackSpeed;
+		loaded = true;
 		isFiring = false;
-
-
+		gunPosition = -7;
+		gunPhaseShift = 40;
 	}
 
 	//probablemente vaya mas arriba en jerarquia
-	public void setDirec(Vector2 vect) {
-		dir = vect;
-		
-	}
 
-	public void setSprite(Icon s){
-		sprite = s;
-	}
-
-	public void fire(){
-		isFiring = true;
-
-	}
-
-	public void stopFiring(){
-		isFiring = false;
-	}
-	
 
 	
-	public void update() {
-		//dir = c.getDirection();
+	public void update(Map map) {
 		if (time < System.currentTimeMillis())
 			loaded = true;
 		if (loaded && isFiring){
 			loaded = false;
 			time = System.currentTimeMillis() + attackSpeed;
-			Bullet b = new PlayerBullet(dano, (int)x + gunPosition,(int) y);
-				Map.getInstance().newBullet((x + gunPosition), y, b);
-			gunPosition = ((gunPosition + 80)%160) ;
+
+
+			Vector2 ubBullet = getUbication().sum(Vector2.RIGHT(gunPosition+gunPhaseShift));
+			Bullet b = new PlayerBullet(damage,ubBullet);
+			Map.getInstance().add(b);
+			gunPhaseShift *= -1;
 
 		}
-		super.update();
+
+		super.update(map);
+
 
 	}
 	

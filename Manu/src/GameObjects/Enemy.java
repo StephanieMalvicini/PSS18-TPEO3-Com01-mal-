@@ -1,4 +1,12 @@
 package GameObjects;
 
-public class Enemy {
+import Assets.Paths;
+
+import javax.swing.*;
+
+
+public class Enemy extends Ship{
+
+
+
 }

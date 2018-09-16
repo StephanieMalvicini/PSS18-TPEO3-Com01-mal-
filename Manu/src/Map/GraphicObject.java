@@ -3,6 +3,7 @@ package Map;
 import javax.swing.*;
 
 import GUI.IUpdatable;
+import GUI.Window;
 import GameObjects.GameObject;
 
 public class GraphicObject implements IUpdatable {
@@ -25,18 +26,26 @@ public class GraphicObject implements IUpdatable {
 
 
 	
-	public void update() {
-		object.update();
+	public void update(Map map) {
+		map.onUpdate(this);
+		object.update(map);
+
 		int x = object.getX();
 		int y = object.getY();
+
 		model.setIcon(object.getSprite());
 		model.setBounds(x, y, 182, 200);
 	}
 
+	@Override
+	public void destroyMe(Map map) {
+		map.destroy(this);
+		destroy();
+	}
+
 
 	public void destroy() {
-		model.setIcon(new ImageIcon() {
-		});
-
+		model.setVisible(false);
+		Window.GetWindow().removeComponent(model);
 	}
 }

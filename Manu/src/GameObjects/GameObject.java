@@ -6,21 +6,30 @@ import javax.swing.*;
 import java.net.URL;
 
 public abstract class GameObject implements IUpdatable {
-	protected int x;
-    protected int y;
+	protected Vector2 ubication;
 	protected Icon sprite;
 	
-	public int getX() {
-		return x;
-	}
-	
-	public int getY() {
-		return y;
-	}
-	
+
 	public Icon getSprite() {
 		return sprite;
 	}
-	
-	public abstract void update();
+
+	public Vector2 getUbication() {
+		return ubication;
+	}
+	public Vector2Int getRawUbication() {
+		return Vector2Int.Implicit(ubication);
+	}
+
+	public void setUbication(Vector2 ubication) {
+		this.ubication = ubication;
+	}
+
+	public int getX() {
+		return Math.round(ubication.getX());
+	}
+	public int getY() {
+		return Math.round(ubication.getY());
+	}
+
 }

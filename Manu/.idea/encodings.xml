@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/GameObjects/Bullet.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/GameObjects/EnemyFighterBullet.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/GameObjects/PlayerBullet.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/Main/MetodoMain.java" charset="windows-1252" />
   </component>

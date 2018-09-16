@@ -2,17 +2,20 @@ package GUI;
 
 import java.awt.*;
 import java.awt.event.KeyListener;
-import java.net.URL;
 
 import javax.swing.*;
 
 import Assets.Configs;
 import Assets.Paths;
+import Controllers.Controller;
+import GameObjects.Vector2;
+import GameObjects.Vector2Int;
+import Map.Map;
 
 public class Window {
 
     private static Window instance;
-    private Controller controller;
+
     private JFrame frame;
     private JPanel panel;
     private Container gameContainer;
@@ -72,30 +75,29 @@ public class Window {
         frame.setVisible(true);
     }
     
-    public  JLabel newObject(float x, float y, Icon s) {
-		
-	JLabel object = new JLabel("");
-	object.setIcon(s);
-	object.setBounds((int) x, (int)y, 182, 200);
-	gameContainer.add(object);
-	//objetos.add(object);
-	
-	return object;
+    public  JLabel add(float x, float y, Icon s) {
+		JLabel object = new JLabel(s);
+		object.setBounds((int) x, (int)y, 182, 200);
+		gameContainer.add(object);
+		return object;
+    }
+
+    public  JLabel add(Vector2 ubication, Icon s) {
+    	var v = Vector2Int.Implicit(ubication);
+		JLabel object = new JLabel(s);
+		object.setBounds(v.getX(),v.getY(), s.getIconWidth(),s.getIconHeight());
+		gameContainer.add(object);
+		return object;
     }
     
-    public void addController(Controller cont) { controller = cont; }
+
 
 
     public void addListener(KeyListener k) { frame.addKeyListener(k); }
 
-  
-    
-    
 
-    
-    
-    
-    
-    
-    
+	public void removeComponent(JComponent model)
+	{
+		frame.remove(model);
+	}
 }
