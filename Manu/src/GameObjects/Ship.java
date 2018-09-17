@@ -16,6 +16,8 @@ public class Ship extends DestroyableObject {
 		float x = ubication.getX();
 		float y = ubication.getY();
 
+
+		//TODO restrain positions per subtype
 		x += dir.getX() * speed;
 		if(x < -12) //treshold del sprite, adecuar al sprite final
 			x = -12;

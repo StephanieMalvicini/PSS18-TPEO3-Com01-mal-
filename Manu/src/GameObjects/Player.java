@@ -6,7 +6,7 @@ import Map.*;
 import javax.swing.*;
 
 public class Player extends  Shooter{
-	protected final float playerSpeed = 0.5f;
+	protected final float playerSpeed = 0.8f;
 	protected int damage;
 	protected int attackSpeed;
 	protected boolean loaded;

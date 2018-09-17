@@ -37,7 +37,7 @@ public class EnemyBehaviour extends Behaviour {
     @Override
     public boolean fire() {
         double r = Math.random();
-        if (r<0.15) return true;
+        if (r<0.15 ) return true;
         else return false;
     }
 
@@ -47,12 +47,9 @@ public class EnemyBehaviour extends Behaviour {
         i++;
         float t = i/lerping;
 
-        if(i%50==0)
-        {
-            ampy*=1.001;
-        }
+
         var x = (float) (Math.sin(t)) * ampx;
-        var y = (float) (Math.cos(t) *ampy*Math.sin(t));
+        var y = (float) (Math.cos(t) *ampy);
 
 
 
