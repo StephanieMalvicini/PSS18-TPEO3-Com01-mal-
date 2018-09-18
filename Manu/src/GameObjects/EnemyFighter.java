@@ -15,7 +15,7 @@ public class EnemyFighter extends Enemy {
     protected boolean loaded;
     protected long time;
     protected int gunPosition;
-    protected static Vector2 initialPosition = new Vector2(4800,00);
+    protected static Vector2 initialPosition = new Vector2(800,00);
     protected static int fighterDamage = 20;
     protected static int fighterAttackSpeed = 300;
     protected float gunPhaseShift;

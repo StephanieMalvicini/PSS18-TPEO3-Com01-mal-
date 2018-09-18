@@ -16,12 +16,8 @@ public  class Vector2
         return new Vector2(0,0);
     }
 
-    public static Vector2 DOWN() {
-        return new Vector2(0,1);
-    }
-    public static Vector2 UP() {
-        return new Vector2(0,-1);
-    }
+    public static Vector2 DOWN() { return new Vector2(0,1); }
+    public static Vector2 UP() { return new Vector2(0,-1); }
     public static Vector2 LEFT() {
         return new Vector2(-1,0);
     }

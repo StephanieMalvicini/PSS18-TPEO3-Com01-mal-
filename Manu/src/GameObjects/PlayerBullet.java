@@ -11,7 +11,7 @@ public class PlayerBullet extends Bullet {
 		setUbication(ubication);
 		daño = d;
 		dir = new Vector2(0, -1);
-		speed = 6f;
+		speed = 0.3f;
 		sprite = new ImageIcon(Paths.LASER);
 	}
 	

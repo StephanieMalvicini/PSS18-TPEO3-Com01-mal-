@@ -19,8 +19,8 @@ public class Player extends  Shooter{
 
 
 	protected static Vector2 initialPosition = new Vector2(218,680);
-	protected static int playerDamage = 20;
-	protected static int playerAttackSpeed = 300;
+	protected int playerDamage = 20;
+	protected int playerAttackSpeed = 300;
 
 
 	public Player() {
