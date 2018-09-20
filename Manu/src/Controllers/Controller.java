@@ -3,6 +3,7 @@ package Controllers;
 import Assets.Paths;
 import Controllers.AbstractController;
 import GUI.MyListener;
+import GUI.listenerTemp;
 import GameObjects.Player;
 import GameObjects.Vector2;
 import Map.Map;
@@ -41,10 +42,14 @@ public class Controller extends AbstractController {
 
 	public void update(Map map)
 	{
-		map.onUpdate(this);
-		Vector2 vec = armarVector();
-		move(vec);
-		checkShoot();
+		if (true) {
+			map.onUpdate(this);
+			Vector2 vec = armarVector();
+			move(vec);
+			checkShoot();
+		}
+		else
+			destroyMe(map);
 	}
 
 

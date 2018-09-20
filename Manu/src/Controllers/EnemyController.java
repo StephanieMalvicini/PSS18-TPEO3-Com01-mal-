@@ -4,6 +4,7 @@ import Assets.Paths;
 import Controllers.AbstractController;
 import Controllers.Behaviour;
 import GUI.MyListener;
+import GUI.listenerTemp;
 import GameObjects.Enemy;
 import GameObjects.Vector2;
 import Map.Map;
@@ -60,13 +61,18 @@ public class EnemyController extends AbstractController {
     }
 
     @Override
-    public void update(Map map) {
-
-        map.onUpdate(this);
-        Vector2 vec = armarVector();
-        move(vec);
-        checkShoot();
-
+    public void update(Map map)
+    {
+        if (true) {
+            if(listenerTemp.getInstance().kill)
+                controlled.die();
+            map.onUpdate(this);
+            Vector2 vec = armarVector();
+            move(vec);
+            checkShoot();
+        }
+        else
+            destroyMe(map);
     }
 
     @Override

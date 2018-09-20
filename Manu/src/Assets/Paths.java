@@ -16,6 +16,7 @@ public class Paths {
     public static URL NAVEU = Paths.class.getResource("u.png");
     public static URL NAVED = Paths.class.getResource("d.png");
     public static URL ENEMYBULLET1 = Paths.class.getResource("enemyLaser.png");
+    public static URL EXPLOSION = Paths.class.getResource("3iCN.gif");
 
 
 }

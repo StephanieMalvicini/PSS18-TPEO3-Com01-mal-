@@ -5,6 +5,7 @@ import Controllers.EnemyBehaviour;
 import Controllers.EnemyController;
 import GUI.MyListener;
 import GUI.Window;
+import GUI.listenerTemp;
 import GameObjects.*;
 import Map.Map;
 
@@ -26,7 +27,9 @@ public class Level {
 
 
 		MyListener m = MyListener.Instance();
+		listenerTemp t = listenerTemp.getInstance();
 		gui.addListener(m);
+		gui.addListener(t);
 		map = Map.newInstance(gui);
 		map.addController(c);
 		map.add(jugador);
@@ -41,9 +44,9 @@ public class Level {
 		while(true) {
 			map.update();
 			gui.update();
-
+			System.out.println("asd");
 			try {
-				Thread.sleep(1);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

@@ -12,7 +12,7 @@ public class EnemyFighterBullet extends EnemyBullet {
         setUbication(u);
         daño = d;
         dir = new Vector2(0, 1);
-        speed = 6f;
+        speed = 5.5f;
         sprite = new ImageIcon(Paths.ENEMYBULLET1);
     }
 

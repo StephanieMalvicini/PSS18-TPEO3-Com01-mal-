@@ -1,37 +1,20 @@
 package GameObjects;
 
-import Assets.Configs;
 import Map.Map;
-import Map.SuperMap;
 
 import javax.swing.*;
 
-public class Ship extends DestroyableObject {
+public abstract class Ship extends DestroyableObject {
 	protected float speed;
 	protected boolean isFiring;
 	protected Vector2 dir;
 	
 	public void update(Map map) {
-		map.onUpdate(this);
-		float x = ubication.getX();
-		float y = ubication.getY();
 
-
-		//TODO restrain positions per subtype
-		x += dir.getX() * speed;
-		if(x < -12) //treshold del sprite, adecuar al sprite final
-			x = -12;
-		if (x > 1000)
-			x = 1000;
-		
-		y += dir.getY() * speed;
-		if(y < 0) //treshold del sprite, adecuar al sprite final
-			y = 0;
-		if (y > Configs.getConfigs().canvasHeight - 220)
-			y = Configs.getConfigs().canvasHeight - 220;
-
-		ubication = new Vector2(x,y);
+		updatePosition(map);
 	}
+
+	protected abstract void updatePosition(Map m);
 
 	public void destroyMe(Map map) {
 		map.destroy(this);
@@ -56,4 +39,13 @@ public class Ship extends DestroyableObject {
 	}
 
 
+	@Override
+	protected void destroySelf() {
+
+
+	}
+
+	public void die(){
+		health = 0;
+	}
 }

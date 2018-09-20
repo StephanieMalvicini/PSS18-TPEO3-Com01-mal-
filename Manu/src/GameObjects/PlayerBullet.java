@@ -1,6 +1,8 @@
 package GameObjects;
 
+import Assets.Configs;
 import Assets.Paths;
+import Map.Map;
 
 import javax.swing.*;
 
@@ -11,7 +13,7 @@ public class PlayerBullet extends Bullet {
 		setUbication(ubication);
 		daño = d;
 		dir = new Vector2(0, -1);
-		speed = 0.3f;
+		speed = 6.3f;
 		sprite = new ImageIcon(Paths.LASER);
 	}
 	
@@ -20,5 +22,8 @@ public class PlayerBullet extends Bullet {
 	{
 		return 0;
 	}
+
+
+
 
 }
