@@ -13,3 +13,9 @@ Manu/.metadata/version.ini
 *.ini
 *.resources
 Manu/.metadata/.log
+*.tree
+Manu/.metadata/.log
+*.resources
+*.xmi
+*.properties
+*.ini
