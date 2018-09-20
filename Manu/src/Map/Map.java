@@ -58,10 +58,7 @@ public final class Map extends SuperMap{
 
 
 
-	public void onUpdate(Bullet o)
-	{
 
-	}
 
 
 	public void add(GameObject o)
@@ -108,6 +105,9 @@ public final class Map extends SuperMap{
 	}
 
 	public void onUpdate(GraphicObject graphicObject) {
+	}
+
+	public void onUpdate(Bullet o) {
 	}
 
 	public void destroy(GameObject gam)

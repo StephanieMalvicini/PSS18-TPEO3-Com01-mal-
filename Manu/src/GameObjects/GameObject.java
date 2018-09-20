@@ -3,7 +3,6 @@ package GameObjects;
 import GUI.IUpdatable;
 
 import javax.swing.*;
-import java.net.URL;
 
 public abstract class GameObject implements IUpdatable {
 	protected Vector2 ubication;

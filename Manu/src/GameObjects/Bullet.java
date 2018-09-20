@@ -1,5 +1,6 @@
 package GameObjects;
 
+import Assets.Configs;
 import GUI.Window;
 import Map.Map;
 
@@ -8,13 +9,7 @@ public abstract class Bullet extends Ship{
 	
 	public abstract int getDaño();
 	
-	public void update(Map map)
-	{
-		map.onUpdate(this);
-		if(getY()<4 || getY()>670)
-			destroy();
-		super.update(map);
-	}
+
 
 
 
@@ -24,7 +19,22 @@ public abstract class Bullet extends Ship{
 	{
 		Map.getInstance().destroy(this);
 	}
-	
+
+
+	@Override
+	protected void updatePosition(Map map) {
+		map.onUpdate(this);
+		float x = ubication.getX();
+		float y = ubication.getY();
+
+		y += dir.getY() * speed;
+		x += dir.getX() * speed;
+		if(x < -12 || x > 1400 || y < -310 || y > Configs.getConfigs().canvasHeight + 520) //treshold del sprite, adecuar al sprite final
+			destroy();
+
+
+		ubication = new Vector2(x,y);
+	}
 	
 	
 	

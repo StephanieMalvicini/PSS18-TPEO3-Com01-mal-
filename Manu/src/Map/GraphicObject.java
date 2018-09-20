@@ -39,7 +39,6 @@ public class GraphicObject implements IUpdatable {
 
 	@Override
 	public void destroyMe(Map map) {
-		map.destroy(this);
 		destroy();
 	}
 
