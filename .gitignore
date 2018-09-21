@@ -1,3 +1,30 @@
 
 *.xml
+<<<<<<< HEAD
 *.xml
+=======
+*.prefs
+*.tree
+Manu/.metadata/.log
+Manu/.metadata/version.ini
+*.ini
+*.ini
+*.tree
+*.xmi
+*.xmi
+*.properties
+*.ini
+*.resources
+Manu/.metadata/.log
+*.tree
+Manu/.metadata/.log
+*.resources
+*.xmi
+*.properties
+*.ini
+>>>>>>> 6c788503c95925b7cc4f985af457b44e552fcab5
+*.ini
+*.properties
+*.xmi
+*.resources
+*.tree
