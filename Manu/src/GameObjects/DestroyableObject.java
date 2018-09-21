@@ -8,7 +8,7 @@ public abstract class DestroyableObject extends GameObject{
 	}
 	
 	public boolean isAlive() {
-		return health <= 0;
+		return health > 0;
 	}
 
 	protected abstract void destroySelf();

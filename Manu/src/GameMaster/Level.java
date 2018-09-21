@@ -26,10 +26,10 @@ public class Level {
 		EnemyController ec = new EnemyController(e,b);
 
 
-		MyListener m = MyListener.Instance();
+		MyListener l = MyListener.Instance();
 		listenerTemp t = listenerTemp.getInstance();
-		gui.addListener(m);
 		gui.addListener(t);
+		gui.addListener(l);
 		map = Map.newInstance(gui);
 		map.addController(c);
 		map.add(jugador);
@@ -44,7 +44,6 @@ public class Level {
 		while(true) {
 			map.update();
 			gui.update();
-			System.out.println("asd");
 			try {
 				Thread.sleep(10);
 			} catch (InterruptedException e) {

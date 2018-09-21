@@ -1,9 +1,7 @@
 package Controllers;
 
 import Assets.Paths;
-import Controllers.AbstractController;
 import GUI.MyListener;
-import GUI.listenerTemp;
 import GameObjects.Player;
 import GameObjects.Vector2;
 import Map.Map;
@@ -59,7 +57,7 @@ public class Controller extends AbstractController {
 	protected void checkShoot()
 	{
 		var input = MyListener.Instance();
-		if(input.fire)
+		if(input.fire())
 		{
 			Fire();
 		}
@@ -80,19 +78,21 @@ public class Controller extends AbstractController {
 
 		Vector2 vec = Vector2.ORIGIN();
 
-		if(input.down) {
+		if(input.down()) {
 			vec = vec.sum(Vector2.DOWN());
+
 		}
 
-		if(input.up) {
+		if(input.up()) {
 			vec = vec.sum(Vector2.UP());
+
 		}
 
-		if(input.left) {
+		if(input.left()) {
 			vec = vec.sum(Vector2.LEFT());
 		}
 
-		if(input.right) {
+		if(input.right()) {
 			vec = vec.sum(Vector2.RIGHT());
 		}
 

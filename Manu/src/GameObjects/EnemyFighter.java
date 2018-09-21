@@ -35,6 +35,7 @@ public class EnemyFighter extends Enemy {
         isFiring = false;
         gunPosition = -7;
         gunPhaseShift = 40;
+
     }
 
 

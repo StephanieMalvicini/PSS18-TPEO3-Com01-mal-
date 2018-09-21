@@ -1,9 +1,6 @@
 package Controllers;
 
 import Assets.Paths;
-import Controllers.AbstractController;
-import Controllers.Behaviour;
-import GUI.MyListener;
 import GUI.listenerTemp;
 import GameObjects.Enemy;
 import GameObjects.Vector2;
@@ -63,7 +60,7 @@ public class EnemyController extends AbstractController {
     @Override
     public void update(Map map)
     {
-        if (true) {
+        if (controlled.isAlive()) {
             if(listenerTemp.getInstance().kill)
                 controlled.die();
             map.onUpdate(this);
