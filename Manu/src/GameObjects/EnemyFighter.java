@@ -89,7 +89,7 @@ public class EnemyFighter extends Enemy {
 
 
             Vector2 ubBullet = getUbication().sum(Vector2.RIGHT(gunPosition+gunPhaseShift));
-            Bullet b = new PlayerBullet(damage,ubBullet);
+            Bullet b = new EnemyFighterBullet(damage,ubBullet);
             map.add(b);
             gunPhaseShift *= -1;
 
