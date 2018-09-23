@@ -4,6 +4,8 @@ import javax.swing.*;
 
 import GUI.IUpdatable;
 import GUI.Window;
+import GameMaster.DoInFrames;
+import GameMaster.DoWhen;
 import GameObjects.GameObject;
 
 public class GraphicObject implements IUpdatable {
@@ -43,8 +45,23 @@ public class GraphicObject implements IUpdatable {
 	}
 
 
+
 	public void destroy() {
-		model.setVisible(false);
-		Window.GetWindow().removeComponent(model);
+
+		ImageIcon ic = (ImageIcon) object.getSprite();
+		ic.getImage().setAccelerationPriority(0);
+		model.setIcon(ic);
+		final long t = System.currentTimeMillis() + 4000;
+
+
+		new DoInFrames(400000000,
+		()->
+		{
+			model.setVisible(false);
+			Window.GetWindow().removeComponent(model);
+		});
+
+
+
 	}
 }

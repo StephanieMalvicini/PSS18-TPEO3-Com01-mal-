@@ -26,6 +26,7 @@ public class Level {
 		EnemyController ec = new EnemyController(e,b);
 
 
+
 		MyListener l = MyListener.Instance();
 		listenerTemp t = listenerTemp.getInstance();
 		gui.addListener(t);
@@ -37,16 +38,27 @@ public class Level {
 		map.add(e);
 	}
 
+	long nanostowait;
 	public void run(){
 		gui.Show();
-
+		long fpns = 80_000_000_000L;
+		long stm = System.nanoTime();
+		long latestmp = System.nanoTime();
 
 		while(true) {
+			stm = System.nanoTime();
 			map.update();
 			gui.update();
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
+			latestmp = System.nanoTime();
+			try
+			{
+				nanostowait = fpns-(latestmp-stm);
+
+				if(nanostowait>0)
+				{
+					Thread.sleep(nanostowait/5_00_000_0000L);
+				}
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

@@ -40,14 +40,14 @@ public class EnemyFighter extends Enemy {
 
 
     public void update(Map map) {
-        checkFire(map);
-        if(health <= 0){
+        if (health > 0) {
+            checkFire(map);
+            updatePosition(map);
+            super.update(map);
+        } else {
             destroySelf();
             destroyMe(map);
         }
-
-        updatePosition(map);
-        super.update(map);
 
 
     }
