@@ -6,7 +6,8 @@ public abstract class DestroyableObject extends GameObject{
 	public int getHealth() {
 		return health;
 	}
-	
+
+
 	public boolean isAlive() {
 		return health > 0;
 	}

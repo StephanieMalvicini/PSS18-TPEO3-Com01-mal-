@@ -3,6 +3,7 @@ package GameObjects;
 import Assets.Configs;
 import Assets.Paths;
 import Controllers.EnemyController;
+import GUI.ScoreManager;
 import Map.Map;
 
 import javax.swing.*;
@@ -36,6 +37,7 @@ public class EnemyFighter extends Enemy {
         gunPosition = -7;
         gunPhaseShift = 40;
 
+        score = 150;
     }
 
 
@@ -53,6 +55,7 @@ public class EnemyFighter extends Enemy {
     }
 
     protected void destroySelf(){
+        ScoreManager.getInstance().getScore().modificar(score);
         sprite = new ImageIcon(Paths.EXPLOSION);
     }
 

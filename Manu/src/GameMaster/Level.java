@@ -14,17 +14,15 @@ public class Level {
 	static float FPS = 60;
 
 	static Map map;
-	static Player jugador;
 	private static Window gui;
 
 	public Level() {
-		jugador = new Player();
-		Controller c = new Controller(jugador);
+
+		Controller c = new Controller(Player.getInstance());
 		gui = Window.GetWindow();
 		Enemy e = new EnemyFighter();
 		EnemyBehaviour b = new EnemyBehaviour();
 		EnemyController ec = new EnemyController(e,b);
-
 
 
 		MyListener l = MyListener.Instance();
@@ -33,7 +31,7 @@ public class Level {
 		gui.addListener(l);
 		map = Map.newInstance(gui);
 		map.addController(c);
-		map.add(jugador);
+		map.add(Player.getInstance());
 		map.addController(ec);
 		map.add(e);
 	}

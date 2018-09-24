@@ -7,8 +7,9 @@ import Map.Map;
 import javax.swing.*;
 
 
-public class Enemy extends Ship{
+public abstract class Enemy extends Ship{
 
+    protected int score;
 
     @Override
     protected void updatePosition(Map map) {

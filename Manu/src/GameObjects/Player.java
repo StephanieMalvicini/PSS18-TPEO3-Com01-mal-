@@ -23,8 +23,15 @@ public class Player extends  Shooter{
 	protected int playerDamage = 20;
 	protected int playerAttackSpeed = 300;
 
+	private static Player instance = null;
 
-	public Player() {
+	public static Player getInstance() {
+		if (instance == null)
+			instance = new Player();
+		return instance;
+	}
+
+	private Player() {
 		health = 200;
 		speed = playerSpeed;
 		time=0;

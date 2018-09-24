@@ -72,7 +72,7 @@ public final class Map extends SuperMap{
 	public void update() {
 
 		while(!toDestroy.isEmpty()){
-			toDestroy.remove().destroyMe(this);
+			list.remove(toDestroy.remove());
 		}
 		while(!toAdd.isEmpty()){
 			list.add(toAdd.remove());
