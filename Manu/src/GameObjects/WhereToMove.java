@@ -43,8 +43,8 @@ public class WhereToMove
         this.ubication = ubication;
         t++;
         Vector2 vec = new Vector2(1,1);
-        var x = ubication.getX() ;
-        var y = ubication.getY() ;
+        float x = ubication.getX() ;
+        float y = ubication.getY() ;
 
         if(inH(x,y) || inC(x,y))
         {

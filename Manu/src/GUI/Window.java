@@ -78,16 +78,16 @@ public class Window {
     
     public  JLabel add(float x, float y, Icon s) {
 		JLabel object = new JLabel(s);
-		object.setBounds((int) x, (int)y, 182, 200);
 		gameContainer.add(object);
+		object.setBounds((int) x, (int)y, 182, 200);
 		return object;
     }
 
     public  JLabel add(Vector2 ubication, Icon s) {
-    	var v = Vector2Int.Implicit(ubication);
+	    	Vector2Int	v = Vector2Int.Implicit(ubication);
 		JLabel object = new JLabel(s);
-		object.setBounds(v.getX(),v.getY(), s.getIconWidth(),s.getIconHeight());
 		gameContainer.add(object);
+		object.setBounds(v.getX(),v.getY(), s.getIconWidth(),s.getIconHeight());
 		return object;
     }
     

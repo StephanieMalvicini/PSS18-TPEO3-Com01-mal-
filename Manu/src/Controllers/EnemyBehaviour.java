@@ -39,12 +39,12 @@ public class EnemyBehaviour extends Behaviour {
 
 
 
-        var x = (float) ((ampx * Math.sqrt(2)*(-Math.sin(t)*((Math.sin(t) * Math.sin(t)) + 1) - Math.sin(2*t) * Math.cos(t)))/
+        float x = (float) ((ampx * Math.sqrt(2)*(-Math.sin(t)*((Math.sin(t) * Math.sin(t)) + 1) - Math.sin(2*t) * Math.cos(t)))/
                          (((Math.sin(t) * Math.sin(t)) + 1) * ((Math.sin(t) * Math.sin(t)) + 1)));
                 //(float) ((Math.cos(t) * ampx * Math.sqrt(2))/((Math.sin(t) * Math.sin(t)) + 1)) ;
 
 
-        var y =  (float) ( (ampy * (3 * Math.cos(2 * t) - 1) ) /
+        float y =  (float) ( (ampy * (3 * Math.cos(2 * t) - 1) ) /
                 ((( Math.sqrt(2) * (( Math.sin(t) * Math.sin(t)) + 1 )*((Math.sin(t) * Math.sin(t) ) + 1 ))))) ;
                 //(float) ((Math.sin(t) * Math.cos(t) * ampx * Math.sqrt(2))/((Math.sin(t) * Math.sin(t)) + 1));
 

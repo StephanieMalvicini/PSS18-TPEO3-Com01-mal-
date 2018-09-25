@@ -56,7 +56,7 @@ public class Controller extends AbstractController {
 
 	protected void checkShoot()
 	{
-		var input = MyListener.Instance();
+		MyListener input = MyListener.Instance();
 		if(input.fire())
 		{
 			Fire();
@@ -74,7 +74,7 @@ public class Controller extends AbstractController {
 
 	protected Vector2 armarVector()
 	{
-		var input = MyListener.Instance();
+		MyListener input = MyListener.Instance();
 
 		Vector2 vec = Vector2.ORIGIN();
 
