@@ -2424,7 +2424,7 @@
 											"top": 542,
 											"width": 224.40869140625,
 											"height": 13,
-											"text": "-auto: Auto",
+											"text": "-autos: Collection<Auto>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -4358,11 +4358,9 @@
 							"_parent": {
 								"$ref": "AAAAAAFmFe+9Tywbr8M="
 							},
-							"name": "auto",
+							"name": "autos",
 							"visibility": "private",
-							"type": {
-								"$ref": "AAAAAAFmFdXsFh3IqyE="
-							}
+							"type": "Collection<Auto>"
 						}
 					],
 					"operations": [
