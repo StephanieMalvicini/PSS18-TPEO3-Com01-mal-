@@ -2,6 +2,7 @@ package GameObjects;
 
 import Assets.Configs;
 import Assets.Paths;
+import Collisions.EnemyCollider;
 import Controllers.EnemyController;
 import GUI.ScoreManager;
 import Map.Map;
@@ -29,19 +30,20 @@ public class EnemyFighter extends Enemy {
         time=0;
         ubication = initialPosition;
         dir = Vector2.ORIGIN();
-        damage = fighterDamage;
+        damage = 50;
         sprite = new ImageIcon(Paths.ENEMY1);
         attackSpeed = fighterAttackSpeed;
         loaded = true;
         isFiring = false;
         gunPosition = -7;
         gunPhaseShift = 40;
-
+        c = new EnemyCollider(this);
         score = 150;
     }
 
 
     public void update(Map map) {
+        //System.out.println(health);
         if (health > 0) {
             checkFire(map);
             updatePosition(map);
@@ -54,7 +56,7 @@ public class EnemyFighter extends Enemy {
 
     }
 
-    protected void destroySelf(){
+    public void destroySelf(){
         ScoreManager.getInstance().getScore().modificar(score);
         sprite = new ImageIcon(Paths.EXPLOSION);
     }
@@ -99,6 +101,13 @@ public class EnemyFighter extends Enemy {
 
         }
 
+    }
+
+   public void damage(float d){
+        System.out.println(d);
+        //System.out.println(d);
+        health -= d;
+       System.out.println(health);
     }
 
 

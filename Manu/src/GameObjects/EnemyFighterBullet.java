@@ -1,12 +1,15 @@
 package GameObjects;
 
 import Assets.Paths;
+import Collisions.BulletCollider;
+import Collisions.EnemyBulletCollider;
+import Collisions.EnemyCollider;
 
 import javax.swing.*;
 
 public class EnemyFighterBullet extends EnemyBullet {
 
-    int damage;
+    int daño;
 
     public EnemyFighterBullet(int d, Vector2 u) {
         setUbication(u);
@@ -14,10 +17,11 @@ public class EnemyFighterBullet extends EnemyBullet {
         dir = new Vector2(0, 1);
         speed = 5.5f;
         sprite = new ImageIcon(Paths.ENEMYBULLET1);
+        c = new EnemyBulletCollider(this);
     }
 
     @Override
     public int getDaño() {
-        return damage;
+        return daño;
     }
 }

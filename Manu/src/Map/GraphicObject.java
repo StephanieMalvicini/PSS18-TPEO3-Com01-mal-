@@ -52,15 +52,18 @@ public class GraphicObject implements IUpdatable {
 		ic.getImage().setAccelerationPriority(0);
 		model.setIcon(ic);
 		final long t = System.currentTimeMillis() + 4000;
+		model.setVisible(false);
+		Window.GetWindow().removeComponent(model);
 
 
-		new DoInFrames(400000000,
+		// NO FUNCIONA
+		/*new DoInFrames(4000,
 		()->
 		{
 			model.setVisible(false);
 			Window.GetWindow().removeComponent(model);
 		});
-
+*/
 
 
 	}

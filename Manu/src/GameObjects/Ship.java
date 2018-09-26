@@ -10,8 +10,10 @@ public abstract class Ship extends DestroyableObject {
 	protected Vector2 dir;
 	
 	public void update(Map map) {
-
-		updatePosition(map);
+		//if(isAlive()) {
+			updatePosition(map);
+			c.update();
+		//}else destroySelf();
 	}
 
 	protected abstract void updatePosition(Map m);
@@ -40,7 +42,8 @@ public abstract class Ship extends DestroyableObject {
 
 
 	@Override
-	protected void destroySelf() {
+	public void destroySelf() {
+		destroyMe(Map.getInstance());
 
 
 	}

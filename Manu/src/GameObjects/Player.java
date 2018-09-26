@@ -2,6 +2,7 @@ package GameObjects;
 
 import Assets.Configs;
 import Assets.Paths;
+import Collisions.PlayerCollider;
 import Map.*;
 
 import javax.swing.*;
@@ -20,7 +21,7 @@ public class Player extends  Shooter{
 
 
 	protected static Vector2 initialPosition = new Vector2(218,680);
-	protected int playerDamage = 20;
+	protected int playerDamage = 350;
 	protected int playerAttackSpeed = 300;
 
 	private static Player instance = null;
@@ -37,13 +38,14 @@ public class Player extends  Shooter{
 		time=0;
 		ubication = initialPosition;
 		dir = Vector2.ORIGIN();
-		damage = playerDamage;
+		damage = 350;
 		sprite = new ImageIcon(Paths.NAVE);
 		attackSpeed = playerAttackSpeed;
 		loaded = true;
 		isFiring = false;
 		gunPosition = -7;
 		gunPhaseShift = 40;
+		c = new PlayerCollider(this);
 	}
 
 	//probablemente vaya mas arriba en jerarquia

@@ -1,5 +1,6 @@
 package GameMaster;
 
+import Collisions.ColliderMaster;
 import Controllers.Controller;
 import Controllers.EnemyBehaviour;
 import Controllers.EnemyController;
@@ -17,7 +18,7 @@ public class Level {
 	private static Window gui;
 
 	public Level() {
-
+		ColliderMaster co = ColliderMaster.getInstance();
 		Controller c = new Controller(Player.getInstance());
 		gui = Window.GetWindow();
 		Enemy e = new EnemyFighter();
