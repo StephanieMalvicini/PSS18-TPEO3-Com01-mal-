@@ -1,9 +1,7 @@
 package GameObjects;
 
 import Assets.Paths;
-import Collisions.BulletCollider;
 import Collisions.EnemyBulletCollider;
-import Collisions.EnemyCollider;
 
 import javax.swing.*;
 

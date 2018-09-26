@@ -20,7 +20,7 @@ public abstract class DestroyableObject extends GameObject{
 
 	public void damage(float d){
 		health -= d;
-		System.out.println(health);
+
 	}
 
 	

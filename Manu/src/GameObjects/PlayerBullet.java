@@ -1,10 +1,7 @@
 package GameObjects;
 
-import Assets.Configs;
 import Assets.Paths;
-import Collisions.BulletCollider;
 import Collisions.PlayerBulletCollider;
-import Map.Map;
 
 import javax.swing.*;
 

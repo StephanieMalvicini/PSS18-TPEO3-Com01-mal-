@@ -21,7 +21,7 @@ public class ColliderMaster {
 
 
     public Collection<Collider> findCollisions(Collider c) {
-        LinkedList<Collider> ret = new LinkedList<>();
+        Collection<Collider> ret = new LinkedList<>();
         for(Collider co : colliders){
             if (co != c && c.intersects(co)){
                 ret.add(co);

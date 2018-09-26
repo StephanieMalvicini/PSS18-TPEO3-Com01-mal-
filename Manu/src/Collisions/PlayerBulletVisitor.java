@@ -11,16 +11,16 @@ public class PlayerBulletVisitor implements Visitor {
     @Override
     public void visitEnemy(EnemyCollider e) {
             e.getO().damage(d);
-            System.out.println("choco");
-    }
-
-    @Override
-    public void visitBullet(PlayerBulletCollider b) {
 
     }
 
     @Override
-    public void visitBullet(EnemyBulletCollider b) {
+    public void visitPlayerBullet(PlayerBulletCollider b) {
+
+    }
+
+    @Override
+    public void visitEnemyBullet(EnemyBulletCollider b) {
 
     }
 

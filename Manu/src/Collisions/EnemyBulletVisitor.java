@@ -14,12 +14,12 @@ public class EnemyBulletVisitor implements Visitor {
     }
 
     @Override
-    public void visitBullet(PlayerBulletCollider b) {
+    public void visitPlayerBullet(PlayerBulletCollider b) {
 
     }
 
     @Override
-    public void visitBullet(EnemyBulletCollider b) {
+    public void visitEnemyBullet(EnemyBulletCollider b) {
 
     }
 

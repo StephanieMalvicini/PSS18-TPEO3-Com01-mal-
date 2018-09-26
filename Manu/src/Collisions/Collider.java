@@ -19,7 +19,7 @@ public  abstract class Collider implements Visitable {
         this.o = o;
         x = o.getX();
         y = o.getY();
-        ex = x + o.getSprite().getIconWidth(); // TODO: hacer atributo
+        ex = x - o.getSprite().getIconWidth(); // TODO: hacer atributo
         ey = y + o.getSprite().getIconHeight(); // TODO: hacer atributo
         c = ColliderMaster.getInstance();
         c.addCollider(this);

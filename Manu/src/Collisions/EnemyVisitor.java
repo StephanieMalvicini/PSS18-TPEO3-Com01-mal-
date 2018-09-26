@@ -3,6 +3,7 @@ package Collisions;
 import GameObjects.Bullet;
 import GameObjects.Enemy;
 import GameObjects.Player;
+import Map.Map;
 
 public class EnemyVisitor implements Visitor {
 
@@ -13,14 +14,15 @@ public class EnemyVisitor implements Visitor {
     }
 
     @Override
-    public void visitBullet(PlayerBulletCollider b) {
-        b.getO().destroySelf();
+    public void visitPlayerBullet(PlayerBulletCollider b) {
+        b.getO().destroyMe(Map.getInstance());
+        System.out.println("pum");
 
 
     }
 
     @Override
-    public void visitBullet(EnemyBulletCollider b) {
+    public void visitEnemyBullet(EnemyBulletCollider b) {
 
     }
 

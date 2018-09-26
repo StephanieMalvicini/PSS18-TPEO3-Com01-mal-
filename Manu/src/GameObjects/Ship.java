@@ -20,6 +20,7 @@ public abstract class Ship extends DestroyableObject {
 
 	public void destroyMe(Map map) {
 		map.destroy(this);
+
 	}
 
 	public void setDirec(Vector2 vect) {

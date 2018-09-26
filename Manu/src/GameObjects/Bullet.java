@@ -9,9 +9,13 @@ public abstract class Bullet extends Ship{
 	protected int daño;
 	
 	public abstract int getDaño();
-	
 
 
+
+	public void destroyMe(Map map) {
+		map.destroy(this);
+		sprite = new ImageIcon();
+	}
 
 
 
