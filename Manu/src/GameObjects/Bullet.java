@@ -25,6 +25,7 @@ public abstract class Bullet extends Ship{
 	{
 		Map.getInstance().destroy(this);
 		sprite = new ImageIcon();
+		c.destroySelf();
 		//destroyMe(Map.getInstance());//danger
 	}
 

@@ -29,7 +29,7 @@ public class EnemyBehaviour extends Behaviour {
     @Override
     public boolean fire() {
         double r = Math.random();
-        if (r<0.01 ) return true;
+        if (r<0.58 ) return true;
         else return false;
     }
 

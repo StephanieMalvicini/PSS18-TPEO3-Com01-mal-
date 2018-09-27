@@ -13,7 +13,7 @@ public class EnemyFighterBullet extends EnemyBullet {
         setUbication(u);
         daño = d;
         dir = new Vector2(0, 1);
-        speed = 5.5f;
+        speed = 18.5f;
         sprite = new ImageIcon(Paths.ENEMYBULLET1);
         c = new EnemyBulletCollider(this);
     }

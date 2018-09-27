@@ -19,6 +19,10 @@ public class ColliderMaster {
 
     private Collection<Collider> colliders;
 
+    public void removeCollider(Collider c) {
+        colliders.remove(c);
+    }
+
 
     public Collection<Collider> findCollisions(Collider c) {
         Collection<Collider> ret = new LinkedList<>();

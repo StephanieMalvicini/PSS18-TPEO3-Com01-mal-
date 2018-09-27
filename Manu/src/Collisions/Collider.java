@@ -75,4 +75,8 @@ public  abstract class Collider implements Visitable {
     public DestroyableObject getO() {
         return o;
     }
+
+    public void destroySelf(){
+        ColliderMaster.getInstance().removeCollider(this);
+    }
 }

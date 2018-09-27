@@ -64,7 +64,7 @@ public class EnemyController extends AbstractController {
             if(listenerTemp.getInstance().kill)
                 controlled.die();
             map.onUpdate(this);
-            Vector2 vec = new Vector2(0,0);//armarVector();
+            Vector2 vec = armarVector(); // new Vector2(0,0);
             move(vec);
             checkShoot();
         }

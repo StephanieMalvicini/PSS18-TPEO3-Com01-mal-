@@ -22,7 +22,7 @@ public class Player extends  Shooter{
 
 	protected static Vector2 initialPosition = new Vector2(218,680);
 	protected int playerDamage = 350;
-	protected int playerAttackSpeed = 300;
+	protected int playerAttackSpeed = 500;
 
 	private static Player instance = null;
 
@@ -38,7 +38,7 @@ public class Player extends  Shooter{
 		time=0;
 		ubication = initialPosition;
 		dir = Vector2.ORIGIN();
-		damage = 350;
+		damage = 50;
 		sprite = new ImageIcon(Paths.NAVE);
 		attackSpeed = playerAttackSpeed;
 		loaded = true;
@@ -51,14 +51,20 @@ public class Player extends  Shooter{
 	//probablemente vaya mas arriba en jerarquia
 
 
+
 	
 	public void update(Map map) {
 
-		checkFire(map);
-		updatePosition(map);
-
-		super.update(map);
-
+		if (health > 0) {
+			checkFire(map);
+			updatePosition(map);
+			super.update(map);
+		} else {
+			destroySelf();
+			destroyMe(map);
+			sprite = new ImageIcon();
+			c.destroySelf();
+		}
 
 	}
 
