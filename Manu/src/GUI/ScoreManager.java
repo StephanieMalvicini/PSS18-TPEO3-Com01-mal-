@@ -1,13 +1,17 @@
 package GUI;
 
 import GameObjects.Player;
+import Map.Map;
 
-public class ScoreManager
+import javax.swing.*;
+
+public class ScoreManager implements IUpdatable
 {
-    private Etiqueta Score;
-    private Etiqueta VidaJugador;
+    private Etiqueta score;
+    private Etiqueta vidaJugador;
 
-    private static ScoreManager instance = null;
+    private static
+    ScoreManager instance = null;
 
     public static ScoreManager getInstance(){
         if (instance==null)
@@ -17,18 +21,36 @@ public class ScoreManager
     }
 
     private ScoreManager(){
-        Score = new Etiqueta();
-        VidaJugador = new Etiqueta(Player.getInstance().getHealth());
-        System.out.println(Score.getJLabel().getText());
-        System.out.println(VidaJugador.getJLabel().getText());
+        score = new Etiqueta();
+        vidaJugador = new Etiqueta(Player.getInstance().getHealth());
+        System.out.println(score.getJLabel().getText());
+        System.out.println(vidaJugador.getJLabel().getText());
     }
 
-    public Etiqueta getScore(){
-        return Score;
+    public void modificarScore(int n){
+        score.setContador(score.getContador() + n);
+        score.getJLabel().setText("Score :"+ score.getContador());
+    }
+    public void modificarVida(int n){
+        vidaJugador.setContador(n);
+        vidaJugador.getJLabel().setText(("Vida :"+vidaJugador.getContador()));
     }
 
-    public Etiqueta getVida(){
-        return VidaJugador;
+    public JLabel getScore(){
+        return score.getJLabel();
     }
 
+    public JLabel getVidaJugador(){
+        return vidaJugador.getJLabel();
+    }
+
+    @Override
+    public void update(Map map) {
+        modificarVida(Player.getInstance().getHealth());
+    }
+
+    @Override
+    public void destroyMe(Map map) {
+
+    }
 }

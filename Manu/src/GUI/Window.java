@@ -45,14 +45,18 @@ public class Window {
 		Icon ic = new ImageIcon(Paths.BACKGROUND);
 		gameContainer = new JLabel(ic);
 		UIcontainer = new JPanel();
-		UIcontainer.setLayout(new FlowLayout());
+		UIcontainer.setLayout(null);
 
+		UIcontainer.add(ScoreManager.getInstance().getScore());
+		UIcontainer.add(ScoreManager.getInstance().getVidaJugador());
+		ScoreManager.getInstance().getScore().setBounds(20,200,100,100);
+
+		ScoreManager.getInstance().getVidaJugador().setBounds(20,400,100,100);
 		gameContainer.setBounds(Configs.getConfigs().panelWidth,0,Configs.getConfigs().canvasWidth,Configs.getConfigs().canvasHeight);
 		UIcontainer.setBounds(0,0,Configs.getConfigs().panelWidth,Configs.getConfigs().canvasHeight);
 
 		frame.setVisible(true);
 		gameContainer.setLayout(null);
-		UIcontainer.setLayout(null);
 
 		c.add(gameContainer);
 		c.add(UIcontainer);
@@ -64,8 +68,6 @@ public class Window {
 		frame.setSize(Configs.getConfigs().windowsSize);
 		frame.setResizable(false);
 
-		UIcontainer.add(ScoreManager.getInstance().getScore().getJLabel());           //VER BIEN ESTO
-		UIcontainer.add(ScoreManager.getInstance().getVida().getJLabel());
 
     }
     public void update(){

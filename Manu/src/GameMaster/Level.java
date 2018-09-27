@@ -5,6 +5,7 @@ import Controllers.Controller;
 import Controllers.EnemyBehaviour;
 import Controllers.EnemyController;
 import GUI.MyListener;
+import GUI.ScoreManager;
 import GUI.Window;
 import GUI.listenerTemp;
 import GameObjects.*;
@@ -35,6 +36,7 @@ public class Level {
 		map.add(Player.getInstance());
 		map.addController(ec);
 		map.add(e);
+		map.add(ScoreManager.getInstance());
 	}
 
 	long nanostowait;
