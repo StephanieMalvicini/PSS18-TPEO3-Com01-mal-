@@ -57,8 +57,9 @@ public class EnemyFighter extends Enemy {
     }
 
     public void destroySelf(){
-        ScoreManager.getInstance().getScore().modificar(score);
+        ScoreManager.getInstance().modificarScore(score);
         sprite = new ImageIcon(Paths.EXPLOSION);
+        c.destroySelf();
     }
 
 

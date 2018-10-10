@@ -19,14 +19,16 @@ public class Etiqueta {
         label.setText("Vida: "+contador);
     }
 
-    public void modificar(int n){
-        contador+=n;
-        label.setText("Score: "+contador);
-        System.out.println("Score: "+contador);
-    }
-
-
     public JLabel getJLabel(){
         return label;
     }
+
+    public int getContador(){
+        return contador;
+    }
+    public void setContador(int n){
+        contador = n;
+    }
+
+
 }

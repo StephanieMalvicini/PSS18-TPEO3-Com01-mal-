@@ -1,5 +1,7 @@
 package GameObjects;
 
+import Assets.Paths;
+import GUI.ScoreManager;
 import Map.Map;
 
 import javax.swing.*;
@@ -45,7 +47,6 @@ public abstract class Ship extends DestroyableObject {
 	@Override
 	public void destroySelf() {
 		destroyMe(Map.getInstance());
-
 
 	}
 
