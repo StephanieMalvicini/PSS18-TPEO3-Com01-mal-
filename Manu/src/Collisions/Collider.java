@@ -1,7 +1,6 @@
 package Collisions;
 
 import GameObjects.DestroyableObject;
-import GameObjects.GameObject;
 
 import java.util.Collection;
 
