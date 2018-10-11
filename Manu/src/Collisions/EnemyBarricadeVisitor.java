@@ -1,21 +1,16 @@
 package Collisions;
 
-public class EnemyBulletVisitor implements Visitor {
-    int d;
+import Map.Map;
 
-    public EnemyBulletVisitor(int d){
-        this.d = d;
-    }
-
+public class EnemyBarricadeVisitor implements Visitor {
     @Override
     public void visitEnemy(EnemyCollider e) {
 
-        //System.out.println("choco");
     }
 
     @Override
     public void visitPlayerBullet(PlayerBulletCollider b) {
-
+        b.getO().destroyMe(Map.getInstance());
     }
 
     @Override
@@ -23,15 +18,13 @@ public class EnemyBulletVisitor implements Visitor {
 
     }
 
-
-
     @Override
     public void visitPlayer(PlayerCollider p) {
-        p.getO().damage(d);
 
     }
 
     @Override
     public void visitBarricade(EnemyBarricadeCollider b) {
+
     }
 }

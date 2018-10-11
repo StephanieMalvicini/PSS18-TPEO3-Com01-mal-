@@ -1,7 +1,7 @@
 package GameObjects;
 
 import Assets.Configs;
-import Assets.Paths;
+import Assets.SpriteDepot;
 import Map.Map;
 
 import javax.swing.*;
@@ -26,9 +26,9 @@ public abstract class Enemy extends Ship{
 
         y += dir.getY() * speed;
         if(y < 0) //treshold del sprite, adecuar al sprite final
-            y = 0;
-        if (y > Configs.getConfigs().canvasHeight - 220)
             y = Configs.getConfigs().canvasHeight - 220;
+        if (y > Configs.getConfigs().canvasHeight - 220)
+            y = 0;
 
         ubication = new Vector2(x,y);
     }

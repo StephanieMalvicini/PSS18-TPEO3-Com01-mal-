@@ -12,7 +12,7 @@ import GUI.listenerTemp;
 import GameObjects.*;
 import Map.Map;
 
-public class Level {
+public class Level extends Thread{
 
 	static float FPS = 60;
 
@@ -26,6 +26,7 @@ public class Level {
 		Enemy e = new EnemyFighter();
 		EnemyBehaviour b = new EnemyBehaviour();
 		EnemyController ec = new EnemyController(e,b);
+		EnemyBarricade eb = new EnemyBarricade(90, 300);
 
 
 		MyListener l = MyListener.Instance();
@@ -38,10 +39,14 @@ public class Level {
 		map.addController(ec);
 		map.add(e);
 		map.add(ScoreManager.getInstance());
+		map.add(eb);
 	}
 
 	long nanostowait;
+
+
 	public void run(){
+
 		gui.Show();
 		long fpns = 80_000_000_000L;
 		long stm = System.nanoTime();

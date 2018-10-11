@@ -1,8 +1,6 @@
 package Collisions;
 
-import GameObjects.Bullet;
-import GameObjects.Enemy;
-import GameObjects.Player;
+import GameObjects.*;
 
 public interface Visitor {
 
@@ -10,7 +8,7 @@ public interface Visitor {
     public void visitPlayerBullet(PlayerBulletCollider b);
     public void visitEnemyBullet(EnemyBulletCollider b);
     public void visitPlayer(PlayerCollider p);
-    //public void visitBarricade();
+    public void visitBarricade(EnemyBarricadeCollider b);
 
 
 }

@@ -1,7 +1,7 @@
 package GameObjects;
 
 import Assets.Configs;
-import Assets.Paths;
+import Assets.SpriteDepot;
 import Collisions.PlayerCollider;
 import Map.*;
 
@@ -39,7 +39,7 @@ public class Player extends  Shooter{
 		ubication = initialPosition;
 		dir = Vector2.ORIGIN();
 		damage = 50;
-		sprite = new ImageIcon(Paths.NAVE);
+		sprite = SpriteDepot.NAVE;
 		attackSpeed = playerAttackSpeed;
 		loaded = true;
 		isFiring = false;

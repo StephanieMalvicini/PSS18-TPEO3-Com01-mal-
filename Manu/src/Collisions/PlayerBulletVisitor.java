@@ -24,6 +24,11 @@ public class PlayerBulletVisitor implements Visitor {
 
     }
 
+    @Override
+    public void visitBarricade(EnemyBarricadeCollider b) {
+        b.getO().damage(d);
+    }
+
 
 
     @Override

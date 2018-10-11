@@ -1,7 +1,7 @@
 package GameObjects;
 
 import Assets.Configs;
-import Assets.Paths;
+import Assets.SpriteDepot;
 import Collisions.EnemyCollider;
 import Controllers.EnemyController;
 import GUI.ScoreManager;
@@ -31,7 +31,7 @@ public class EnemyFighter extends Enemy {
         ubication = initialPosition;
         dir = Vector2.ORIGIN();
         damage = 50;
-        sprite = new ImageIcon(Paths.ENEMY1);
+        sprite = SpriteDepot.ENEMY1;
         attackSpeed = fighterAttackSpeed;
         loaded = true;
         isFiring = false;
@@ -58,7 +58,7 @@ public class EnemyFighter extends Enemy {
 
     public void destroySelf(){
         ScoreManager.getInstance().modificarScore(score);
-        sprite = new ImageIcon(Paths.EXPLOSION);
+        sprite = SpriteDepot.EXPLOSION;
         c.destroySelf();
     }
 
@@ -71,13 +71,13 @@ public class EnemyFighter extends Enemy {
 
 
         x += dir.getX() * speed;
-        if(x < -12) //treshold del sprite, adecuar al sprite final /TODO: Magic numbersssssssss
-            x = -12;
-        if (x > 1000)
-            x = 1000;
+        if(x < -200) //treshold del sprite, adecuar al sprite final /TODO: Magic numbersssssssss
+            x = 1200;
+        if (x > 1200)
+            x = -200;
 
         y += dir.getY() * speed;
-        if(y < 0) //treshold del sprite, adecuar al sprite final
+        if(y < 0 ) //treshold del sprite, adecuar al sprite final
             y = 0;
         if (y > Configs.getConfigs().canvasHeight - 220)
             y = Configs.getConfigs().canvasHeight - 220;

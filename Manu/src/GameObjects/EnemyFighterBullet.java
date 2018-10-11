@@ -1,6 +1,6 @@
 package GameObjects;
 
-import Assets.Paths;
+import Assets.SpriteDepot;
 import Collisions.EnemyBulletCollider;
 
 import javax.swing.*;
@@ -14,7 +14,7 @@ public class EnemyFighterBullet extends EnemyBullet {
         daño = d;
         dir = new Vector2(0, 1);
         speed = 18.5f;
-        sprite = new ImageIcon(Paths.ENEMYBULLET1);
+        sprite = SpriteDepot.ENEMYBULLET1;
         c = new EnemyBulletCollider(this);
     }
 

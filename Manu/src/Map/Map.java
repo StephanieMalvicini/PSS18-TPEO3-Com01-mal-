@@ -9,7 +9,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 import javax.swing.JLabel;
 
 import Controllers.AbstractController;
-import Controllers.Controller;
 import GUI.IUpdatable;
 import GUI.Window;
 import GameObjects.*;

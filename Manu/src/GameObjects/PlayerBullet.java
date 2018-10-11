@@ -1,6 +1,6 @@
 package GameObjects;
 
-import Assets.Paths;
+import Assets.SpriteDepot;
 import Collisions.PlayerBulletCollider;
 
 import javax.swing.*;
@@ -13,7 +13,7 @@ public class PlayerBullet extends Bullet {
 		daño = d;
 		dir = new Vector2(0, -1);
 		speed = 6.3f;
-		sprite = new ImageIcon(Paths.LASER);
+		sprite = SpriteDepot.LASER;
 		health = 1;
 		c = new PlayerBulletCollider(this);
 	}

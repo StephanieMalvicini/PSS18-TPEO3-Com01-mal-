@@ -16,7 +16,6 @@ public class EnemyVisitor implements Visitor {
     @Override
     public void visitPlayerBullet(PlayerBulletCollider b) {
         b.getO().destroyMe(Map.getInstance());
-        System.out.println("pum");
 
 
     }
@@ -31,8 +30,10 @@ public class EnemyVisitor implements Visitor {
 
     }
 
+    @Override
+    public void visitBarricade(EnemyBarricadeCollider b) {
 
-
+    }
 
 
 }

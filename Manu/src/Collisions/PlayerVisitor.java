@@ -21,4 +21,8 @@ public class PlayerVisitor implements Visitor {
     public void visitPlayer(PlayerCollider p) {
 
     }
+
+    @Override
+    public void visitBarricade(EnemyBarricadeCollider b) {
+    }
 }
