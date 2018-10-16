@@ -18,14 +18,13 @@ public  abstract class Collider implements Visitable {
 
     public Collider(DestroyableObject o) {
         this.o = o;
-        dx = o.getWidth() / 2;
-        dy = o.getHeight() / 2;
         x = o.getX() - dx;
         y = o.getY() - dy;
-        ex = x + o.getWidth(); // TODO: hacer atributo
-        ey = y + o.getHeight(); // TODO: hacer atributo
+        ex = x + o.getSprite().getIconWidth(); // TODO: hacer atributo
+        ey = y + o.getSprite().getIconHeight(); // TODO: hacer atributo
         c = ColliderMaster.getInstance();
-
+        dx = o.getSprite().getIconWidth() / 2;
+        dy = o.getSprite().getIconHeight() / 2;
         c.addCollider(this);
 
 
@@ -35,8 +34,8 @@ public  abstract class Collider implements Visitable {
     public void update(){
         x = o.getX() - dx;
         y = o.getY() - dy;
-        ex = x + o.getWidth(); // TODO: hacer atributo
-        ey = y + o.getHeight();
+        ex = x + o.getSprite().getIconWidth(); // TODO: hacer atributo
+        ey = y + o.getSprite().getIconHeight();
         scanCollisions();
         solveCollision();
 

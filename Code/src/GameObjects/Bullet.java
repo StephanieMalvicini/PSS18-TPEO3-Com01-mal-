@@ -7,16 +7,14 @@ import javax.swing.*;
 
 public abstract class Bullet extends Ship{
 	protected int daño;
-	protected int offset;
 	
-	public abstract int getDaño();
+	public int getDaño(){return daño;}
 
 
 
 	public void destroyMe(Map map) {
 		map.destroy(this);
 		sprite = new ImageIcon();
-		offset = 200;
 	}
 
 
@@ -28,6 +26,7 @@ public abstract class Bullet extends Ship{
 		Map.getInstance().destroy(this);
 		sprite = new ImageIcon();
 		c.destroySelf();
+		//destroyMe(Map.getInstance());//danger
 	}
 
 
@@ -37,11 +36,10 @@ public abstract class Bullet extends Ship{
 		float x = ubication.getX();
 		float y = ubication.getY();
 
-
 		y += dir.getY() * speed;
 		x += dir.getX() * speed;
-		if(x < 0 - offset  || x > Configs.getConfigs().canvasWidth + offset || y < 0 - offset || y > Configs.getConfigs().canvasHeight + offset) {
-			destroySelf();
+		if(x < -12 || x > 1400 || y < -310 || y > Configs.getConfigs().canvasHeight + 520) { //treshold del sprite, adecuar al sprite final
+			//destroySelf();
 		}
 
 		ubication = new Vector2(x,y);
