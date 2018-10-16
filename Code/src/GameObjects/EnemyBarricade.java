@@ -10,7 +10,10 @@ public class EnemyBarricade extends Barricade {
         ubication = new Vector2(x,y);
         health = 700;
         sprite = SpriteDepot.ENEMYBARRICADE;
+        height = sprite.getIconHeight();
+        width = sprite.getIconWidth();
         c = new EnemyBarricadeCollider(this);
+
     }
 
     @Override
@@ -37,4 +40,13 @@ public class EnemyBarricade extends Barricade {
     }
 
 
+    @Override
+    public float getHeight() {
+        return height;
+    }
+
+    @Override
+    public float getWidth() {
+        return width;
+    }
 }

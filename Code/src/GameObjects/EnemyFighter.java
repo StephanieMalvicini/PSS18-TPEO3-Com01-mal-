@@ -36,6 +36,8 @@ public class EnemyFighter extends Enemy {
         isFiring = false;
         gunPosition = -7;
         gunPhaseShift = 40;
+        height = sprite.getIconHeight();
+        width = sprite.getIconWidth();
         c = new EnemyCollider(this);
         score = 150;
     }
@@ -70,16 +72,16 @@ public class EnemyFighter extends Enemy {
 
 
         x += dir.getX() * speed;
-        if(x < -200) //treshold del sprite, adecuar al sprite final /TODO: Magic numbersssssssss
-            x = 1200;
-        if (x > 1200)
-            x = -200;
+        if(x < 0 - width)
+            x = Configs.getConfigs().canvasWidth + width;
+        if (x > Configs.getConfigs().canvasWidth + width)
+            x = 0 - width;
 
         y += dir.getY() * speed;
-        if(y < 0 ) //treshold del sprite, adecuar al sprite final
+        if(y < 0 )
             y = 0;
-        if (y > Configs.getConfigs().canvasHeight - 220)
-            y = Configs.getConfigs().canvasHeight - 220;
+        if (y > Configs.getConfigs().canvasHeight - height)
+            y = Configs.getConfigs().canvasHeight - height;
 
         ubication = new Vector2(x,y);
     }
@@ -111,4 +113,13 @@ public class EnemyFighter extends Enemy {
     }
 
 
+    @Override
+    public float getHeight() {
+        return height;
+    }
+
+    @Override
+    public float getWidth() {
+        return width;
+    }
 }

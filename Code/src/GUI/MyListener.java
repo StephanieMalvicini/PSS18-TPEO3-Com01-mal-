@@ -51,11 +51,7 @@ public class MyListener implements KeyListener {
 
     private MyListener()
     {
-      /*  right=false;
-        down=false;
-        up=false;
-        left=false;
-        fire = false;*/
+
     }
 
     public void keyPressed(KeyEvent e) {

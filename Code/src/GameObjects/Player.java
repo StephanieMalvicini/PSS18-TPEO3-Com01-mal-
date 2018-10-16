@@ -44,7 +44,10 @@ public class Player extends  Shooter{
 		isFiring = false;
 		gunPosition = -7;
 		gunPhaseShift = 40;
+		height = sprite.getIconHeight();
+		width = sprite.getIconWidth();
 		c = new PlayerCollider(this);
+
 	}
 
 	//probablemente vaya mas arriba en jerarquia
@@ -93,18 +96,28 @@ public class Player extends  Shooter{
 
 
 		x += dir.getX() * speed;
-		if(x < -12) //treshold del sprite, adecuar al sprite final /TODO: Magic numbersssssssss
-			x = -12;
-		if (x > 1000)
-			x = 1000;
+		if(x < 0 - width)
+			x = Configs.getConfigs().canvasWidth + width;
+		if (x > Configs.getConfigs().canvasWidth + width)
+			x = 0 - width;
 
 		y += dir.getY() * speed;
-		if(y < 0) //treshold del sprite, adecuar al sprite final
-			y = 0;
-		if (y > Configs.getConfigs().canvasHeight - 220)
-			y = Configs.getConfigs().canvasHeight - 220;
+		if(y < 0 - (height/2) )
+			y = 0 - (height/2);
+		if (y > Configs.getConfigs().canvasHeight - (height*2))
+			y = Configs.getConfigs().canvasHeight - (height*2);
 
 		ubication = new Vector2(x,y);
+	}
+
+	@Override
+	public float getHeight() {
+		return height;
+	}
+
+	@Override
+	public float getWidth() {
+		return width;
 	}
 }
 	

@@ -6,7 +6,14 @@ import javax.swing.*;
 
 public abstract class GameObject implements IUpdatable {
 	protected Vector2 ubication;
+	protected float height, width;
 	protected Icon sprite;
+
+	public abstract float getHeight();
+
+	public abstract float getWidth();
+
+
 	
 
 	public Icon getSprite() {
