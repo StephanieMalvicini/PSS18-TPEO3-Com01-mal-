@@ -10,13 +10,6 @@ public class EnemyBulletCollider extends Collider {
         v = new EnemyBulletVisitor(o.getDaño());
     }
 
-    @Override
-    protected void solveCollision() {
-        for(Collider c : collisions){
-            c.accept(v);
-        }
-
-    }
 
     @Override
     public void accept(Visitor v) {

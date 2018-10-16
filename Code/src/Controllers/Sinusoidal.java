@@ -10,7 +10,7 @@ public class Sinusoidal extends MovementPattern {
     @Override
     public float getX() {
         updateT();
-        return t*ampx ;
+        return 0;//t*ampx ;
     }
 
     @Override

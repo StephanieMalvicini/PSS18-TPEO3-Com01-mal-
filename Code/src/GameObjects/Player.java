@@ -21,7 +21,6 @@ public class Player extends  Shooter{
 
 
 	protected static Vector2 initialPosition = new Vector2(218,680);
-	protected int playerDamage = 350;
 	protected int playerAttackSpeed = 500;
 
 	private static Player instance = null;
@@ -38,7 +37,7 @@ public class Player extends  Shooter{
 		time=0;
 		ubication = initialPosition;
 		dir = Vector2.ORIGIN();
-		damage = 50;
+		damage = 0;
 		sprite = SpriteDepot.NAVE;
 		attackSpeed = playerAttackSpeed;
 		loaded = true;

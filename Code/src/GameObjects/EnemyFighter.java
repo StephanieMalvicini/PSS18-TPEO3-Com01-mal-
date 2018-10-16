@@ -19,7 +19,6 @@ public class EnemyFighter extends Enemy {
     protected long time;
     protected int gunPosition;
     protected static Vector2 initialPosition = new Vector2(400,00);
-    protected static int fighterDamage = 20;
     protected static int fighterAttackSpeed = 300;
     protected float gunPhaseShift;
 
@@ -30,7 +29,7 @@ public class EnemyFighter extends Enemy {
         time=0;
         ubication = initialPosition;
         dir = Vector2.ORIGIN();
-        damage = 50;
+        damage = 0;
         sprite = SpriteDepot.ENEMY1;
         attackSpeed = fighterAttackSpeed;
         loaded = true;

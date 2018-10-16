@@ -10,12 +10,7 @@ public class PlayerCollider extends Collider{
         v = new PlayerVisitor();
     }
 
-    @Override
-    protected void solveCollision() {
-        for(Collider c : collisions){
-            c.accept(v);
-        }
-    }
+
 
     @Override
     public void accept(Visitor v) {
@@ -23,11 +18,5 @@ public class PlayerCollider extends Collider{
 
     }
 
-    public void update(){
-        super.update();
-        scanCollisions();
-        solveCollision();
 
-
-    }
 }

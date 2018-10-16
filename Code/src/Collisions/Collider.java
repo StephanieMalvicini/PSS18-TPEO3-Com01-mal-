@@ -8,35 +8,47 @@ public  abstract class Collider implements Visitable {
 
     protected final ColliderMaster c;
     protected float x, y, ex, ey;
-    DestroyableObject  o;
+    protected DestroyableObject  o;
     protected Visitor v;
+    protected float dx;
+    protected float dy;
 
-    Collection<Collider> collisions;
+    protected Collection<Collider> collisions;
 
 
     public Collider(DestroyableObject o) {
         this.o = o;
-        x = o.getX();
-        y = o.getY();
-        ex = x - o.getSprite().getIconWidth(); // TODO: hacer atributo
+        x = o.getX() - dx;
+        y = o.getY() - dy;
+        ex = x + o.getSprite().getIconWidth(); // TODO: hacer atributo
         ey = y + o.getSprite().getIconHeight(); // TODO: hacer atributo
         c = ColliderMaster.getInstance();
+        dx = o.getSprite().getIconWidth() / 2;
+        dy = o.getSprite().getIconHeight() / 2;
         c.addCollider(this);
+
 
 
     }
 
     public void update(){
-        x = o.getX();
-        y = o.getY();
-        ex = x + o.getSprite().getIconWidth();
+        x = o.getX() - dx;
+        y = o.getY() - dy;
+        ex = x + o.getSprite().getIconWidth(); // TODO: hacer atributo
         ey = y + o.getSprite().getIconHeight();
+        scanCollisions();
+        solveCollision();
 
 
 
     }
 
-    protected abstract void solveCollision();
+    protected void solveCollision() {
+        for(Collider c : collisions){
+            c.accept(v);
+        }
+
+    }
 
 
 
@@ -47,7 +59,7 @@ public  abstract class Collider implements Visitable {
 
     public boolean intersects(Collider co) {
 
-        if(x <= co.getEx() && ex >= co.getX()  && y <= co.getEy() && ey >= co.getY()) {
+        if(x <= co.getEx() && ex >= co.getX()  && y < co.getEy() && ey >= co.getY()) {
 
             return true;
         }

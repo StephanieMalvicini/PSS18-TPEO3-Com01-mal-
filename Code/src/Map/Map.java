@@ -34,7 +34,7 @@ public final class Map extends SuperMap{
 		return instance;
 	}
 
-	public static Map getInstance() {  //TODO: crear excepciones
+	public static Map getInstance() {
 		if (instance == null)
 			throw new MapException("incicializa el mapa pete");
 		return instance;

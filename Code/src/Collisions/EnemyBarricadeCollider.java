@@ -8,13 +8,7 @@ public class EnemyBarricadeCollider extends Collider {
         super(c);
         v = new EnemyBarricadeVisitor();
     }
-    @Override
-    protected void solveCollision() {
-        for(Collider c : collisions){
-            c.accept(v);
-        }
 
-    }
 
     @Override
     public void accept(Visitor v) {
