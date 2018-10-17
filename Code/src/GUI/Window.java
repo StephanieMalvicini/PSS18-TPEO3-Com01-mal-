@@ -17,10 +17,8 @@ public class Window {
     private static Window instance;
 
     private JFrame frame;
-    private JPanel panel;
     private Container gameContainer;
     private Container UIcontainer;
-    //private Collection<JLabel> objetos;
 
     
 
@@ -34,12 +32,10 @@ public class Window {
     }
     private Window() {
 		frame = new JFrame();
-		//frame.setContentPane(new JLabel(new ImageIcon(Paths.BACKGROUND)));
 		Container c = frame.getContentPane();
 		frame.setLayout(null);
 		frame.setBounds(0,0, Configs.getConfigs().canvasWidth,Configs.getConfigs().canvasHeight);
 		c.setLayout(null);
-		//frame.setUndecorated(true);
 		frame.setLocationRelativeTo(null);
 
 		Icon ic = new ImageIcon(Paths.BACKGROUND);
@@ -78,18 +74,14 @@ public class Window {
         frame.setVisible(true);
     }
     
-    public  JLabel add(float x, float y, Icon s) {
-		JLabel object = new JLabel(s);
-		gameContainer.add(object);
-		object.setBounds((int) x, (int)y, 182, 200);
-		return object;
-    }
+
 
     public  JLabel add(Vector2 ubication, Icon s) {
 	    	Vector2Int	v = Vector2Int.Implicit(ubication);
 		JLabel object = new JLabel(s);
-		gameContainer.add(object);
+
 		object.setBounds(v.getX(),v.getY(), s.getIconWidth(),s.getIconHeight());
+		gameContainer.add(object);
 		return object;
     }
     

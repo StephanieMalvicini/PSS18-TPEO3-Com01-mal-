@@ -20,13 +20,12 @@ public class Level extends Thread{
 	private static Window gui;
 
 	public Level() {
-		ColliderMaster co = ColliderMaster.getInstance();
 		Controller c = new Controller(Player.getInstance());
 		gui = Window.GetWindow();
 		Enemy e = new EnemyFighter();
 		EnemyBehaviour b = new EnemyBehaviour();
 		EnemyController ec = new EnemyController(e,b);
-		EnemyBarricade eb = new EnemyBarricade(90, 300);
+		EnemyBarricade eb = new EnemyBarricade(120, 400);
 
 
 		MyListener l = MyListener.Instance();
