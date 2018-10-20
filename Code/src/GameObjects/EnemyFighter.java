@@ -24,7 +24,7 @@ public class EnemyFighter extends Enemy {
 
     public EnemyFighter(){
         health = 200;
-        playerSpeed = 71.9f;
+        playerSpeed = 0.004f;
         speed = playerSpeed;
         time=0;
         ubication = initialPosition;

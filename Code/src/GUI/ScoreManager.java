@@ -23,8 +23,6 @@ public class ScoreManager implements IUpdatable
     private ScoreManager(){
         score = new Etiqueta();
         vidaJugador = new Etiqueta(Player.getInstance().getHealth());
-        System.out.println(score.getJLabel().getText());
-        System.out.println(vidaJugador.getJLabel().getText());
     }
 
     public void modificarScore(int n){

@@ -2,9 +2,7 @@ package GameMaster;
 
 
 import Collisions.ColliderMaster;
-import Controllers.Controller;
-import Controllers.EnemyBehaviour;
-import Controllers.EnemyController;
+import Controllers.*;
 import GUI.MyListener;
 import GUI.ScoreManager;
 import GUI.Window;
@@ -23,9 +21,15 @@ public class Level extends Thread{
 		Controller c = new Controller(Player.getInstance());
 		gui = Window.GetWindow();
 		Enemy e = new EnemyFighter();
-		EnemyBehaviour b = new EnemyBehaviour();
+		FollowBehaviour b = new FollowBehaviour();
 		EnemyController ec = new EnemyController(e,b);
+		b.setShip(ec.getShip());
 		EnemyBarricade eb = new EnemyBarricade(120, 400);
+
+        Enemy ee = new EnemyFighter();
+        Behaviour bb = new EnemyBehaviour(new Sinusoidal());
+        EnemyController ecc = new EnemyController(ee,bb);
+
 
 
 		MyListener l = MyListener.Instance();
@@ -39,6 +43,11 @@ public class Level extends Thread{
 		map.add(e);
 		map.add(ScoreManager.getInstance());
 		map.add(eb);
+
+
+
+        map.add(ee);
+        map.addController(ecc);
 	}
 
 	long nanostowait;

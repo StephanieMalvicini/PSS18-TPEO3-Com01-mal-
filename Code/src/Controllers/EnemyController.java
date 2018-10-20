@@ -8,6 +8,7 @@ import Map.Map;
 
 import javax.swing.*;
 
+import GameObjects.Ship;
 public class EnemyController extends AbstractController {
     Behaviour b;
 
@@ -67,6 +68,8 @@ public class EnemyController extends AbstractController {
             Vector2 vec = armarVector(); // new Vector2(0,0);
             move(vec);
             checkShoot();
+
+
         }
         else
             destroyMe(map);
@@ -77,5 +80,7 @@ public class EnemyController extends AbstractController {
         map.destroy(this);
     }
 
-
+    public Ship getShip(){
+        return controlled;
+    }
 }
