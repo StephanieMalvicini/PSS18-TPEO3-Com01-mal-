@@ -4,6 +4,7 @@ import Assets.Configs;
 import Assets.SpriteDepot;
 import Collisions.PlayerCollider;
 import Map.*;
+import sun.security.krb5.Config;
 
 import javax.swing.*;
 
@@ -33,7 +34,7 @@ public class Player extends  Shooter{
 		time=0;
 		ubication = initialPosition;
 		dir = Vector2.ORIGIN();
-		damage = 1;
+		damage = 60;
 		sprite = SpriteDepot.NAVE;
 		attackSpeed = playerAttackSpeed;
 		loaded = true;
@@ -85,16 +86,16 @@ public class Player extends  Shooter{
 
 
 		x += dir.getX() * speed;
-		if(x < -12)
-			x = -12;
-		if (x > 1000)
-			x = 1000;
+		if(x < -50)
+			x = -50;                      //TODO: Arreglar el choque con bordes con las longitudes de los sprites
+		if (x > Configs.getConfigs().getCanvasWidth() -250)
+			x = Configs.getConfigs().getCanvasWidth() -250;
 
 		y += dir.getY() * speed;
-		if(y < 0)
-			y = 0;
-		if (y > Configs.getConfigs().canvasHeight - 220)
-			y = Configs.getConfigs().canvasHeight - 220;
+		if(y < -50)
+			y = -50;
+		if (y > Configs.getConfigs().getCanvasHeight() - 180)
+			y = Configs.getConfigs().getCanvasHeight() - 180;
 
 		ubication = new Vector2(x,y);
 	}

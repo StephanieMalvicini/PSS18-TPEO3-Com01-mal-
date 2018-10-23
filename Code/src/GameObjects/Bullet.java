@@ -38,8 +38,8 @@ public abstract class Bullet extends Ship{
 
 		y += dir.getY() * speed;
 		x += dir.getX() * speed;
-		if(x < -12 || x > 1400 || y < -310 || y > Configs.getConfigs().canvasHeight + 520) { //treshold del sprite, adecuar al sprite final
-			//destroySelf();
+		if(x < -12 || x > 1400 || y < -310 || y > Configs.getConfigs().getCanvasHeight() + 520) { //treshold del sprite, adecuar al sprite final
+			//destroySelf();  /TODO: adecuar al sprite
 		}
 
 		ubication = new Vector2(x,y);

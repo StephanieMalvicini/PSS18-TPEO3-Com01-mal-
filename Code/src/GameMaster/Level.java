@@ -12,19 +12,17 @@ import Map.Map;
 
 public class Level extends Thread{
 
-	static float FPS = 60;
-
 	static Map map;
 	private static Window gui;
 
 	public Level() {
 		Controller c = new Controller(Player.getInstance());
 		gui = Window.GetWindow();
-		Enemy e = new EnemyFighter();
-		FollowBehaviour b = new FollowBehaviour();
-		EnemyController ec = new EnemyController(e,b);
-		b.setShip(ec.getShip());
-		EnemyBarricade eb = new EnemyBarricade(120, 400);
+		//Enemy e = new EnemyFighter();
+		//FollowBehaviour b = new FollowBehaviour();
+		//EnemyController ec = new EnemyController(e,b);
+		//b.setShip(ec.getShip());
+		EnemyBarricade eb = new EnemyBarricade();
 
         Enemy ee = new EnemyFighter();
         Behaviour bb = new EnemyBehaviour(new Sinusoidal());
@@ -39,8 +37,8 @@ public class Level extends Thread{
 		map = Map.newInstance(gui);
 		map.addController(c);
 		map.add(Player.getInstance());
-		map.addController(ec);
-		map.add(e);
+		//map.addController(ec);
+		//map.add(e);
 		map.add(ScoreManager.getInstance());
 		map.add(eb);
 
@@ -50,7 +48,7 @@ public class Level extends Thread{
         map.addController(ecc);
 	}
 
-	long nanostowait;
+	protected long nanostowait;
 
 
 	public void run(){

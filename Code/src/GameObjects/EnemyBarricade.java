@@ -1,13 +1,20 @@
 package GameObjects;
 
+import Assets.Configs;
 import Assets.SpriteDepot;
 import Collisions.EnemyBarricadeCollider;
 import Map.Map;
 
+import java.util.Random;
+
 public class EnemyBarricade extends Barricade {
 
-    public EnemyBarricade(int x, int y){
-        ubication = new Vector2(x,y);
+    public EnemyBarricade(){
+        Random rand = new Random();
+        int yBarricade = (int) Configs.getConfigs().getCanvasHeight()/2;
+        int xBarricade = rand.nextInt(Configs.getConfigs().getCanvasWidth()-500) + 300;
+
+        ubication = new Vector2(xBarricade,yBarricade);
         health = 700;
         sprite = SpriteDepot.ENEMYBARRICADE;
         c = new EnemyBarricadeCollider(this);

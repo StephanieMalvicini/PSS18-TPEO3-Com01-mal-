@@ -24,7 +24,7 @@ public class EnemyFighter extends Enemy {
 
     public EnemyFighter(){
         health = 200;
-        playerSpeed = 0.004f;
+        playerSpeed = 20.0f;
         speed = playerSpeed;
         time=0;
         ubication = initialPosition;
@@ -70,16 +70,16 @@ public class EnemyFighter extends Enemy {
 
 
         x += dir.getX() * speed;
-        if(x < -200) //treshold del sprite, adecuar al sprite final /TODO: Magic numbersssssssss
-            x = 1200;
-        if (x > 1200)
-            x = -200;
+        if(x < -150) //treshold del sprite, adecuar al sprite final /TODO: Magic numbersssssssss
+            x = Configs.getConfigs().getCanvasWidth() + 150;
+        if (x > Configs.getConfigs().getCanvasWidth() + 150)
+            x = -150;
 
         y += dir.getY() * speed;
-        if(y < 0 ) //treshold del sprite, adecuar al sprite final
-            y = 0;
-        if (y > Configs.getConfigs().canvasHeight - 220)
-            y = Configs.getConfigs().canvasHeight - 220;
+        if(y < -50 ) //treshold del sprite, adecuar al sprite final
+            y = -50;
+        if (y > Configs.getConfigs().getCanvasHeight() - 220)
+            y = Configs.getConfigs().getCanvasHeight() - 220;  //TODO: Arreglar para que vuelvan a su pos despues de aparecer arriba
 
         ubication = new Vector2(x,y);
     }

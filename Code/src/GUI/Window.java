@@ -34,7 +34,7 @@ public class Window {
 		frame = new JFrame();
 		Container c = frame.getContentPane();
 		frame.setLayout(null);
-		frame.setBounds(0,0, Configs.getConfigs().canvasWidth,Configs.getConfigs().canvasHeight);
+		frame.setBounds(0,0, Configs.getConfigs().getCanvasWidth(),Configs.getConfigs().getCanvasHeight());
 		c.setLayout(null);
 		frame.setLocationRelativeTo(null);
 
@@ -48,8 +48,8 @@ public class Window {
 		ScoreManager.getInstance().getScore().setBounds(20,200,100,100);
 
 		ScoreManager.getInstance().getVidaJugador().setBounds(20,400,100,100);
-		gameContainer.setBounds(Configs.getConfigs().panelWidth,0,Configs.getConfigs().canvasWidth,Configs.getConfigs().canvasHeight);
-		UIcontainer.setBounds(0,0,Configs.getConfigs().panelWidth,Configs.getConfigs().canvasHeight);
+		gameContainer.setBounds(Configs.getConfigs().getPanelWidth(),0,Configs.getConfigs().getCanvasWidth(),Configs.getConfigs().getCanvasHeight());
+		UIcontainer.setBounds(0,0,Configs.getConfigs().getPanelWidth(),Configs.getConfigs().getCanvasHeight());
 
 		frame.setVisible(true);
 		gameContainer.setLayout(null);
@@ -58,10 +58,10 @@ public class Window {
 		c.add(UIcontainer);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getRootPane().setSize(Configs.getConfigs().windowsSize);
+		frame.getRootPane().setSize(Configs.getConfigs().getWindowsSize());
 
 
-		frame.setSize(Configs.getConfigs().windowsSize);
+		frame.setSize(Configs.getConfigs().getWindowsSize());
 		frame.setResizable(false);
 
 

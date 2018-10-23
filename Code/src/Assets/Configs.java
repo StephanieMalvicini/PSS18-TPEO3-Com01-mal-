@@ -4,6 +4,11 @@ import java.awt.*;
 
 public final class Configs {
 
+    protected int canvasWidth = 1200;
+    protected int canvasHeight = 700;
+    protected int panelWidth = 300;
+    protected Dimension windowsSize = new Dimension(canvasWidth+ panelWidth, canvasHeight);
+
     private static Configs instance;
     public static Configs getConfigs(){
         if (instance == null){
@@ -12,10 +17,20 @@ public final class Configs {
         return instance;
     }
 
-    public int canvasWidth = 1200;
-    public int canvasHeight = 900;
-    public int panelWidth = 300;
-    public Dimension windowsSize = new Dimension(canvasWidth+ panelWidth, canvasHeight);
-    public Dimension canvasSize = new Dimension(canvasWidth,canvasHeight);
 
+    public int getCanvasWidth() {
+        return canvasWidth;
+    }
+
+    public int getCanvasHeight() {
+        return canvasHeight;
+    }
+
+    public int getPanelWidth() {
+        return panelWidth;
+    }
+
+    public Dimension getWindowsSize() {
+        return windowsSize;
+    }
 }

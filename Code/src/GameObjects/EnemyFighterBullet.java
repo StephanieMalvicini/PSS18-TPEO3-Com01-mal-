@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class EnemyFighterBullet extends EnemyBullet {
 
-    int daño;
+    protected int daño;
 
     public EnemyFighterBullet(int d, Vector2 u) {
         setUbication(u);
