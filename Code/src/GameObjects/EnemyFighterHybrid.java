@@ -24,6 +24,7 @@ public class EnemyFighterHybrid extends EnemyFighter{
         ubication = new Vector2(200,00);
         dir = Vector2.ORIGIN();
         damage = 0;
+        kamikazeDamage = 80;
         sprite = SpriteDepot.ENEMY1;
         attackSpeed = fighterAttackSpeed;
         loaded = true;

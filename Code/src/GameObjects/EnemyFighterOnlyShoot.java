@@ -19,6 +19,7 @@ public class EnemyFighterOnlyShoot extends EnemyFighter {
         ubication = initialPosition;
         dir = Vector2.ORIGIN();
         damage = 0;
+        kamikazeDamage = 80;
         sprite = SpriteDepot.ENEMY1;
         attackSpeed = fighterAttackSpeed;
         loaded = true;

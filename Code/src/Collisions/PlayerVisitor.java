@@ -3,6 +3,7 @@ package Collisions;
 public class PlayerVisitor implements Visitor {
     @Override
     public void visitEnemy(EnemyCollider e) {
+        e.getO().damage(1000);
 
     }
 
