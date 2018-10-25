@@ -55,6 +55,7 @@ public class Menu {
         bInicio.setBounds(300,300,264,149);
         frame.getContentPane().add(bInicio);
         bInicio.addActionListener(new oyenteInicio());
+        frame.repaint();
     }
 
     public void update(){

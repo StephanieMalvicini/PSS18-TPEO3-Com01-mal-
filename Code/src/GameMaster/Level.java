@@ -28,7 +28,7 @@ public class Level extends Thread{
 		map.add(ScoreManager.getInstance());
 
 
-		//Enemy e = new EnemyFighter();
+		//Enemy e = new EnemyFighterOnlyShoot();
 		//FollowBehaviour b = new FollowBehaviour();
 		//EnemyController ec = new EnemyController(e,b);
 		//b.setMovingObject(ec.getShip());
@@ -38,7 +38,10 @@ public class Level extends Thread{
 		int xBarricade = rand.nextInt(Configs.getConfigs().getCanvasWidth()-400) + 200;
 		EnemyBarricade eb = new EnemyBarricade(xBarricade,yBarricade);
 
-        Enemy ee = new EnemyFighter();
+        Enemy ee = new EnemyFighterOnlyShoot();
+
+        EnemyFighterHybrid hibrido = new EnemyFighterHybrid();
+
 
 		seguir = true;
 
