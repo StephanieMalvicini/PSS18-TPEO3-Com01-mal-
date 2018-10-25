@@ -9,10 +9,7 @@ import java.util.Random;
 
 public class EnemyBarricade extends Barricade {
 
-    public EnemyBarricade(){
-        Random rand = new Random();
-        int yBarricade = (int) Configs.getConfigs().getCanvasHeight()/2;
-        int xBarricade = rand.nextInt(Configs.getConfigs().getCanvasWidth()-500) + 300;
+    public EnemyBarricade(int xBarricade, int yBarricade){
 
         ubication = new Vector2(xBarricade,yBarricade);
         health = 700;

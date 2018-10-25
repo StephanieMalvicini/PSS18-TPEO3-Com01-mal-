@@ -29,7 +29,7 @@ public class EnemyFighter extends Enemy {
         time=0;
         ubication = initialPosition;
         dir = Vector2.ORIGIN();
-        damage = 0;
+        damage = 30;
         sprite = SpriteDepot.ENEMY1;
         attackSpeed = fighterAttackSpeed;
         loaded = true;

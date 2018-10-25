@@ -16,11 +16,8 @@ public class Window {
 
     private static Window instance;
 
-    private JFrame frame;
     private Container gameContainer;
     private Container UIcontainer;
-
-    
 
 
     
@@ -31,12 +28,6 @@ public class Window {
         return instance;
     }
     private Window() {
-		frame = new JFrame();
-		Container c = frame.getContentPane();
-		frame.setLayout(null);
-		frame.setBounds(0,0, Configs.getConfigs().getCanvasWidth(),Configs.getConfigs().getCanvasHeight());
-		c.setLayout(null);
-		frame.setLocationRelativeTo(null);
 
 		Icon ic = new ImageIcon(Paths.BACKGROUND);
 		gameContainer = new JLabel(ic);
@@ -51,27 +42,20 @@ public class Window {
 		gameContainer.setBounds(Configs.getConfigs().getPanelWidth(),0,Configs.getConfigs().getCanvasWidth(),Configs.getConfigs().getCanvasHeight());
 		UIcontainer.setBounds(0,0,Configs.getConfigs().getPanelWidth(),Configs.getConfigs().getCanvasHeight());
 
-		frame.setVisible(true);
 		gameContainer.setLayout(null);
 
-		c.add(gameContainer);
-		c.add(UIcontainer);
+		Menu.getInstance().addPanels(gameContainer,UIcontainer);
+		Menu.getInstance().getFrame().requestFocus();
 
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getRootPane().setSize(Configs.getConfigs().getWindowsSize());
-
-
-		frame.setSize(Configs.getConfigs().getWindowsSize());
-		frame.setResizable(false);
 
 
     }
     public void update(){
-       frame.repaint();
+       Menu.getInstance().update();
     }
 
     public void Show() {
-        frame.setVisible(true);
+        Menu.getInstance().showFrame();
     }
     
 
@@ -84,15 +68,14 @@ public class Window {
 		gameContainer.add(object);
 		return object;
     }
-    
 
 
 
-    public void addListener(KeyListener k) { frame.addKeyListener(k); }
+    public void addListener(KeyListener k) { Menu.getInstance().getFrame().addKeyListener(k); }
 
 
 	public void removeComponent(JComponent model)
 	{
-		frame.remove(model);
+		Menu.getInstance().getFrame().remove(model);
 	}
 }

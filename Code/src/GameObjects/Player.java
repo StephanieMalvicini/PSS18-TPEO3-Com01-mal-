@@ -3,6 +3,7 @@ package GameObjects;
 import Assets.Configs;
 import Assets.SpriteDepot;
 import Collisions.PlayerCollider;
+import GUI.Menu;
 import Map.*;
 import sun.security.krb5.Config;
 
@@ -34,7 +35,7 @@ public class Player extends  Shooter{
 		time=0;
 		ubication = initialPosition;
 		dir = Vector2.ORIGIN();
-		damage = 60;
+		damage = 30;
 		sprite = SpriteDepot.NAVE;
 		attackSpeed = playerAttackSpeed;
 		loaded = true;
@@ -59,6 +60,7 @@ public class Player extends  Shooter{
 			destroyMe(map);
 			sprite = new ImageIcon();
 			c.destroySelf();
+			Menu.getInstance().perder();
 		}
 
 	}
