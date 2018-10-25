@@ -45,7 +45,7 @@ public class PlayerBulletVisitor implements Visitor {
     }
 
     @Override
-    public void visitPiercingBulet(PiercingBulletCollider b) {
+    public void visitPiercingBullet(PiercingBulletCollider b) {
 
     }
 

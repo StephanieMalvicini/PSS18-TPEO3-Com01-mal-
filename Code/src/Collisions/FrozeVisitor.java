@@ -42,7 +42,7 @@ public class FrozeVisitor implements Visitor {
     }
 
     @Override
-    public void visitPiercingBulet(PiercingBulletCollider b) {
+    public void visitPiercingBullet(PiercingBulletCollider b) {
 
     }
 }

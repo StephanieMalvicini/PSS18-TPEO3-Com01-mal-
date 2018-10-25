@@ -12,7 +12,7 @@ public interface Visitor {
     public void visitBarricade(BarricadeCollider b);
     public void visitPowerUp(PowerUpCollider b);
     public void visitKamikazeShield(KamikazeShieldCollider b);
-    public void visitPiercingBulet(PiercingBulletCollider b);
+    public void visitPiercingBullet(PiercingBulletCollider b);
 
 
 }

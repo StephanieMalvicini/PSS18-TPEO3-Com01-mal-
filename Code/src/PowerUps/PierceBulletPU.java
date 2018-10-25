@@ -31,6 +31,6 @@ public class PierceBulletPU extends AbstractPU {
         Player.getInstance().setWeapon(w);
 
         Timer t = new Timer(5000);
-        Revert r = new PieceWeaponRevert(t, revert);
+        Revert r = new PierceWeaponRevert(t, revert);
     }
 }
