@@ -6,7 +6,7 @@ import Collisions.PlayerBulletCollider;
 import javax.swing.*;
 
 public class BasicPlayerBullet extends PlayerBullet {
-	public BasicPlayerBullet(int d, Vector2 ubication) {
+	public BasicPlayerBullet(float d, Vector2 ubication) {
 		setUbication(ubication);
 		daño = d;
 		dir = new Vector2(0, -1);

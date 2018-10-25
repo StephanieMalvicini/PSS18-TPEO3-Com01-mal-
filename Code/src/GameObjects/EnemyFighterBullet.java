@@ -19,7 +19,7 @@ public class EnemyFighterBullet extends EnemyBullet {
     }
 
     @Override
-    public int getDaño() {
+    public float getDaño() {
         return daño;
     }
 }

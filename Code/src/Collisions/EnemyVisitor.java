@@ -45,5 +45,16 @@ public class EnemyVisitor implements Visitor {
 
     }
 
+    @Override
+    public void visitKamikazeShield(KamikazeShieldCollider b) {
+        b.getO().destroySelf();
+
+    }
+
+    @Override
+    public void visitPiercingBulet(PiercingBulletCollider b) {
+
+    }
+
 
 }

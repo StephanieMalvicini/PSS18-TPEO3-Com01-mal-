@@ -1,16 +1,15 @@
 package Collisions;
 
-public class PlayerBulletVisitor implements Visitor {
+public class PiercingBulletVisitor implements Visitor {
 
     float d;
 
-    public PlayerBulletVisitor(float d){
-        this.d = d;
+    public PiercingBulletVisitor(float daño) {
+        d = daño;
     }
 
     @Override
     public void visitEnemy(EnemyCollider e) {
-            e.getO().damage(d);
 
     }
 
@@ -25,8 +24,13 @@ public class PlayerBulletVisitor implements Visitor {
     }
 
     @Override
+    public void visitPlayer(PlayerCollider p) {
+
+    }
+
+    @Override
     public void visitEnemyBarricade(EnemyBarricadeCollider b) {
-        b.getO().damage(d);
+
     }
 
     @Override
@@ -46,12 +50,6 @@ public class PlayerBulletVisitor implements Visitor {
 
     @Override
     public void visitPiercingBulet(PiercingBulletCollider b) {
-
-    }
-
-
-    @Override
-    public void visitPlayer(PlayerCollider p) {
 
     }
 }

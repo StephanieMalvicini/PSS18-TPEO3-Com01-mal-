@@ -4,8 +4,9 @@ import Map.Map;
 
 public class MissilWeapon extends Weapon {
 
-    public MissilWeapon(int dmg){
-        damage = (int)(dmg*5);
+    public MissilWeapon(){
+        damage = Player.getInstance().getDamage();
+        damage *= 5;
         gunPosition = -7;
         gunPhaseShift = 40;
     }

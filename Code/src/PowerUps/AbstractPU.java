@@ -9,8 +9,10 @@ import Map.Map;
 public abstract class AbstractPU extends MovingObject {
 
         protected IController controller;
-
+        protected Runnable revert;
         public abstract void trigger();
+        protected long time;
+
 
         protected void updatePosition(Map map) {
                 float x = ubication.getX();
@@ -33,6 +35,8 @@ public abstract class AbstractPU extends MovingObject {
 
                 ubication = new Vector2(x,y);
         }
+
+
 
 
 

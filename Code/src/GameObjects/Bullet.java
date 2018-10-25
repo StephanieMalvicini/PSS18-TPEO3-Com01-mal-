@@ -6,9 +6,9 @@ import Map.Map;
 import javax.swing.*;
 
 public abstract class Bullet extends MovingObject {
-	protected int daño;
+	protected float daño;
 	
-	public int getDaño(){return daño;}
+	public float getDaño(){return daño;}
 
 
 
@@ -37,8 +37,8 @@ public abstract class Bullet extends MovingObject {
 
 		y += dir.getY() * speed;
 		x += dir.getX() * speed;
-		if(x < -12 || x > 1400 || y < -310 || y > Configs.getConfigs().getCanvasHeight() + 520) { //treshold del sprite, adecuar al sprite final
-			//destroySelf();  /TODO: adecuar al sprite
+		if(x < -12 || x > 1400 || y < -310 || y > Configs.getConfigs().getCanvasHeight() + 520) {
+			destroySelf();
 		}
 
 		ubication = new Vector2(x,y);

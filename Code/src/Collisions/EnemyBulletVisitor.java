@@ -1,9 +1,9 @@
 package Collisions;
 
 public class EnemyBulletVisitor implements Visitor {
-    int d;
+    float d;
 
-    public EnemyBulletVisitor(int d){
+    public EnemyBulletVisitor(float d){
         this.d = d;
     }
 
@@ -42,6 +42,16 @@ public class EnemyBulletVisitor implements Visitor {
 
     @Override
     public void visitPowerUp(PowerUpCollider b) {
+
+    }
+
+    @Override
+    public void visitKamikazeShield(KamikazeShieldCollider b) {
+
+    }
+
+    @Override
+    public void visitPiercingBulet(PiercingBulletCollider b) {
 
     }
 }

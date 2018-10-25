@@ -1,16 +1,18 @@
 package GameObjects;
 
 import Assets.SpriteDepot;
+import Collisions.PiercingBulletCollider;
 import Collisions.PlayerBulletCollider;
 
-public class MissilBullet extends PlayerBullet {
-    public MissilBullet(float d, Vector2 ubication) {
+public class PiercingBullet extends Bullet {
+
+    public PiercingBullet(float damage, Vector2 ubBullet) {
         setUbication(ubication);
-        daño = d;
+        daño = damage;
         dir = new Vector2(0, -1);
         speed = 6.3f;
         sprite = SpriteDepot.LASER;
         health = 1;
-        c = new PlayerBulletCollider(this);
+        c = new PiercingBulletCollider(this);
     }
 }

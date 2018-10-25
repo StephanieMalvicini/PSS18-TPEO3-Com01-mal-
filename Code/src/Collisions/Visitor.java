@@ -11,6 +11,8 @@ public interface Visitor {
     public void visitEnemyBarricade(EnemyBarricadeCollider b);
     public void visitBarricade(BarricadeCollider b);
     public void visitPowerUp(PowerUpCollider b);
+    public void visitKamikazeShield(KamikazeShieldCollider b);
+    public void visitPiercingBulet(PiercingBulletCollider b);
 
 
 }

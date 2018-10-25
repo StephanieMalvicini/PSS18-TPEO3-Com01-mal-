@@ -36,4 +36,14 @@ public class PlayerVisitor implements Visitor {
         b.trigger();
         b.getO().damage(1000); //destroy it
     }
+
+    @Override
+    public void visitKamikazeShield(KamikazeShieldCollider b) {
+
+    }
+
+    @Override
+    public void visitPiercingBulet(PiercingBulletCollider b) {
+
+    }
 }

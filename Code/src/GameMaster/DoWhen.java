@@ -10,6 +10,7 @@ public class DoWhen implements IUpdatable
     private Callable<Boolean> Condition;
     private Runnable Action;
     private boolean excecuted;
+
     public DoWhen(Callable<Boolean> condition, Runnable action)
     {
         Condition = condition;
@@ -32,12 +33,12 @@ public class DoWhen implements IUpdatable
             Action.run();
         }
         if(excecuted){
-            map.remove(this);
+            destroyMe(map);
         }
     }
 
     @Override
     public void destroyMe(Map map) {
-
+        map.remove(this);
     }
 }

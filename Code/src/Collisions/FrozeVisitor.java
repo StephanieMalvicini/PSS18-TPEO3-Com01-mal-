@@ -35,4 +35,14 @@ public class FrozeVisitor implements Visitor {
     public void visitPowerUp(PowerUpCollider b) {
 
     }
+
+    @Override
+    public void visitKamikazeShield(KamikazeShieldCollider b) {
+
+    }
+
+    @Override
+    public void visitPiercingBulet(PiercingBulletCollider b) {
+
+    }
 }

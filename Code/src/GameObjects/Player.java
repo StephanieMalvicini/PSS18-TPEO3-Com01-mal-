@@ -2,6 +2,7 @@ package GameObjects;
 
 import Assets.Configs;
 import Assets.SpriteDepot;
+import Collisions.Collider;
 import Collisions.PlayerCollider;
 import GUI.Menu;
 import Map.*;
@@ -112,7 +113,20 @@ public class Player extends Ship{
 
 	}
 
+	public void setCollider(Collider co){
+		c.destroySelf();
+		c = co;
+	}
 
+
+	public float getDamage() {
+		return damage;
+	}
+
+	public void setWeapon(Weapon w) { //TODO modificar para que copie cualqueir modificador del arma anterior a la nueva arma
+		weapon = w;
+
+	}
 }
 	
 	
