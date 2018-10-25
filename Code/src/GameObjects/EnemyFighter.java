@@ -5,6 +5,9 @@ import GUI.ScoreManager;
 import Map.Map;
 import PowerUps.AbstractPU;
 import PowerUps.FrozePU;
+import PowerUps.PierceBulletPU;
+
+import javax.swing.*;
 
 public abstract class EnemyFighter extends Enemy {
 
@@ -23,8 +26,10 @@ public abstract class EnemyFighter extends Enemy {
     public void destroySelf(){  //TODO: Cada destroy debria nullificar los atributos añadidos en su subclase y llamar a el super
         ScoreManager.getInstance().modificarScore(score);
         sprite = SpriteDepot.EXPLOSION;
-        new FrozePU(ubication);
+        new PierceBulletPU(ubication);
         c.destroySelf();
+        Map.getInstance().destroy(this);
+        sprite = new ImageIcon();
 
     }
 

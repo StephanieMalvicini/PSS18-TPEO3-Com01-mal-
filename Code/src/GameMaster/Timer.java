@@ -17,6 +17,7 @@ public class Timer implements Callable {
 
     @Override
     public Object call() throws Exception {
-        return current<ending;
+        current = System.currentTimeMillis();
+        return current>ending;
     }
 }

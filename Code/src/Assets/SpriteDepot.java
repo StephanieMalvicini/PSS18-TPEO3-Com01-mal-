@@ -18,4 +18,5 @@ public class SpriteDepot {
     public static Icon ENEMYBULLET1 = new ImageIcon(Paths.ENEMYBULLET1);
     public static Icon ENEMYBARRICADE = new ImageIcon(Paths.ENEMYBARRICADE);
     public static Icon FROZE = new ImageIcon(Paths.FROZE);
+    public static Icon PEARCE = new ImageIcon(Paths.PERACE);
 }

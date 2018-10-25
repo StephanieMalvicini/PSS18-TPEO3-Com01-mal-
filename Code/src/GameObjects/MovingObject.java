@@ -18,7 +18,7 @@ public abstract class MovingObject extends DestroyableObject {
 	protected abstract void updatePosition(Map m);
 
 	public void destroyMe(Map map) {
-		map.destroy(this);
+		map.remove(this);
 
 	}
 

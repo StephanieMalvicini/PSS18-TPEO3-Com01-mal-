@@ -46,8 +46,8 @@ public final class Map extends SuperMap{
 		list = new LinkedList<>();
 
 		wind = w;
-		toDestroy = new LinkedBlockingQueue<>();
-		toAdd = new LinkedBlockingQueue<>();
+		toDestroy = new LinkedBlockingQueue<>(50);
+		toAdd = new LinkedBlockingQueue<>(50);
 	}
 
 
