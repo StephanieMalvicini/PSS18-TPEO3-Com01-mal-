@@ -34,8 +34,9 @@ public class PlayerVisitor implements Visitor {
 
     @Override
     public void visitPowerUp(PowerUpCollider b) {
+        System.out.println("activo");
         b.trigger();
-        b.getO().damage(1000); //destroy it
+        b.getO().destroySelf(); //destroy it
     }
 
     @Override

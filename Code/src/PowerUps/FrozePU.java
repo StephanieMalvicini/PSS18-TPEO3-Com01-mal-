@@ -1,12 +1,11 @@
 package PowerUps;
 
-import Assets.Configs;
 import Assets.SpriteDepot;
 import Collisions.FrozeVisitor;
 import Collisions.PowerUpCollider;
 import Collisions.Visitor;
-import Controllers.BasicController;
 import Controllers.EnemyBehaviour;
+import Controllers.PowerUpController;
 import Controllers.Sinusoidal;
 import GameMaster.Timer;
 import GameObjects.Formation;
@@ -18,14 +17,16 @@ public class FrozePU extends AbstractPU {
 
 
     public FrozePU(Vector2 dir){
-        controller = new BasicController(this, new EnemyBehaviour(new Sinusoidal())); //TODO: crear movimientos de los power up
-        c = new PowerUpCollider(this);
+        controller = new PowerUpController(this, new EnemyBehaviour(new Sinusoidal())); //TODO: crear movimientos de los power up
         health = 1;
         sprite = SpriteDepot.FROZE;
-        ubication = dir;
+        Vector2 n = new Vector2(dir.getX(), dir.getY());
+        ubication = n;
         speed = 1;
         v = new FrozeVisitor();
         revert = new FrozenReverter();
+        c = new PowerUpCollider(this);
+        Map.getInstance().add(this);
 
 
     }

@@ -17,7 +17,7 @@ public class Shield {
 
     public float calculateDamage(float d){
         d-=extraPower;
-        if(d <0) {
+        if(d <0) { // si la reduccion de daño fue total, recupera el escudo que le queda
             extraPower = -d;
             return 0;
         }
@@ -27,7 +27,7 @@ public class Shield {
                 d = m.modify(d);
             }
         }
-
+        System.out.println(d);
         return d;
 
     }

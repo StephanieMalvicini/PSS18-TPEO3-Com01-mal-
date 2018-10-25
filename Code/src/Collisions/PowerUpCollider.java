@@ -12,6 +12,7 @@ public class PowerUpCollider extends Collider {
 
     @Override
     public void accept(Visitor v) {
+        v.visitPowerUp(this);
 
     }
 

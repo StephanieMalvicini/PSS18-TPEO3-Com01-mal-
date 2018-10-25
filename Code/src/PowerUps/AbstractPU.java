@@ -6,6 +6,8 @@ import GameObjects.MovingObject;
 import GameObjects.Vector2;
 import Map.Map;
 
+import javax.swing.*;
+
 public abstract class AbstractPU extends MovingObject {
 
         protected IController controller;
@@ -34,6 +36,12 @@ public abstract class AbstractPU extends MovingObject {
 
 
                 ubication = new Vector2(x,y);
+        }
+
+        public void destroySelf(){
+                destroyMe(Map.getInstance());
+                c.destroySelf();
+                sprite = new ImageIcon();
         }
 
 

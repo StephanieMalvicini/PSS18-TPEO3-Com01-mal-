@@ -6,9 +6,9 @@ import GameObjects.Enemy;
 public class EnemyCollider extends Collider {
     float daño;
 
-    public EnemyCollider(Enemy o) {
+    public EnemyCollider(Enemy o, float d) {
         super(o);
-        daño = o.getKamikazeDamage();
+        daño = d;
         v = new EnemyVisitor(daño);
     }
 

@@ -8,8 +8,8 @@ import Map.Map;
 public class EnemyVisitor implements Visitor {
 
     float d;
-    public EnemyVisitor(float d){
-        this.d = d;
+    public EnemyVisitor(float dmg){
+        d = dmg;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class EnemyVisitor implements Visitor {
 
     @Override
     public void visitPlayer(PlayerCollider p) {
-        p.getO().damage(d);
+        p.getO().damage(80);
 
     }
 

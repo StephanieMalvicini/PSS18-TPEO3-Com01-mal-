@@ -31,7 +31,7 @@ public class EnemyFighterHybrid extends EnemyFighter{
         isFiring = false;
         gunPosition = -7;
         gunPhaseShift = 40; //TODO actualizar valores al sprite nuevo
-        c = new EnemyCollider(this);
+        c = new EnemyCollider(this, kamikazeDamage);
         score = 150;
         Map.getInstance().add(cont);
         Map.getInstance().add(this);

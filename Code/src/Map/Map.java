@@ -88,7 +88,7 @@ public final class Map extends SuperMap{
 
 	public void add(IUpdatable upda)
 	{
-		list.add(upda);
+		toAdd.add(upda);
 	}
 	public void remove(IUpdatable upda)
 	{

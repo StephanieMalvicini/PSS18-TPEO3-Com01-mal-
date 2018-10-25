@@ -3,6 +3,8 @@ package GameObjects;
 import Assets.SpriteDepot;
 import GUI.ScoreManager;
 import Map.Map;
+import PowerUps.AbstractPU;
+import PowerUps.FrozePU;
 
 public abstract class EnemyFighter extends Enemy {
 
@@ -17,10 +19,13 @@ public abstract class EnemyFighter extends Enemy {
     protected float gunPhaseShift;
 
 
+
     public void destroySelf(){  //TODO: Cada destroy debria nullificar los atributos añadidos en su subclase y llamar a el super
         ScoreManager.getInstance().modificarScore(score);
         sprite = SpriteDepot.EXPLOSION;
+        new FrozePU(ubication);
         c.destroySelf();
+
     }
 
 
@@ -36,7 +41,6 @@ public abstract class EnemyFighter extends Enemy {
 
 
             Vector2 ubBullet = getUbication().sum(Vector2.RIGHT(gunPosition+gunPhaseShift));
-            System.out.println("Bala creada");
             Bullet b = new EnemyFighterBullet(damage,ubBullet);
             map.add(b);
             gunPhaseShift *= -1;
@@ -47,6 +51,8 @@ public abstract class EnemyFighter extends Enemy {
 
     public void damage(float d){
         health -= d;
-        System.out.println(health);
+
     }
+
+
 }

@@ -3,8 +3,8 @@ package Collisions;
 public class EnemyBulletVisitor implements Visitor {
     float d;
 
-    public EnemyBulletVisitor(float d){
-        this.d = d;
+    public EnemyBulletVisitor(float dmg){
+        d = dmg;
     }
 
     @Override

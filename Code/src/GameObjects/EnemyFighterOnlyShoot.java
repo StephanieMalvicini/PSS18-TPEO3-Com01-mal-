@@ -7,6 +7,7 @@ import GUI.ScoreManager;
 import Map.Map;
 
 public class EnemyFighterOnlyShoot extends EnemyFighter {
+    protected static float kamikazeDamage = 80;
 
     public EnemyFighterOnlyShoot(){
         Behaviour b = new EnemyBehaviour(new Sinusoidal());
@@ -18,15 +19,14 @@ public class EnemyFighterOnlyShoot extends EnemyFighter {
         time=0;
         ubication = initialPosition;
         dir = Vector2.ORIGIN();
-        damage = 0;
-        kamikazeDamage = 80;
+        damage = 5;
         sprite = SpriteDepot.ENEMY1;
         attackSpeed = fighterAttackSpeed;
         loaded = true;
         isFiring = false;
         gunPosition = -7;
         gunPhaseShift = 40; //TODO actualizar valores al sprite nuevo
-        c = new EnemyCollider(this);
+        c = new EnemyCollider(this, kamikazeDamage);
         score = 150;
         Map.getInstance().add(cont);
         Map.getInstance().add(this);
@@ -42,5 +42,9 @@ public class EnemyFighterOnlyShoot extends EnemyFighter {
         }
 
 
+    }
+
+    public float getKamikazeDamage() {
+        return kamikazeDamage;
     }
 }
