@@ -18,6 +18,7 @@ public class Paths {
     public static URL ENEMYBULLET1 = Paths.class.getResource("enemyLaser.png");
     public static URL EXPLOSION = Paths.class.getResource("3iCN.gif");
     public static URL ENEMYBARRICADE = Paths.class.getResource("ics.png");
-
-
+    public static URL MENUIMAGE = Paths.class.getResource("menuimage.png");
+    public static URL LOSTSCREEN = Paths.class.getResource("shipexplosion.png");
+    public static URL STARTBUTTON = Paths.class.getResource("startbutton.png");
 }

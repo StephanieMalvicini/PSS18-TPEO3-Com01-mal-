@@ -1,6 +1,7 @@
 package GUI;
 
 import Assets.Configs;
+import Assets.Paths;
 import GameMaster.Level;
 
 import javax.swing.*;
@@ -12,7 +13,7 @@ public class Menu {
     protected static Menu instance;
     protected JButton bInicio;
     protected JFrame frame;
-
+    protected Container gameContainer,UIcontainer;
     public static Menu getInstance(){
         if (instance==null)
             instance = new Menu();
@@ -23,6 +24,9 @@ public class Menu {
 
         frame = new JFrame();
         Container c = frame.getContentPane();
+        Icon ic = new ImageIcon(Paths.MENUIMAGE);
+        frame.setContentPane(new JLabel(ic));
+
         frame.setLayout(null);
         frame.setBounds(0,0, Configs.getConfigs().getCanvasWidth(),Configs.getConfigs().getCanvasHeight());
         c.setLayout(null);
@@ -40,9 +44,9 @@ public class Menu {
 
 
 
-        bInicio = new JButton("Iniciar");
+        bInicio = new JButton(new ImageIcon(Paths.STARTBUTTON));
         bInicio.setVisible(true);
-        bInicio.setBounds(300,300,100,100);
+        bInicio.setBounds(300,300,264,149);
         frame.getContentPane().add(bInicio);
         bInicio.addActionListener(new oyenteInicio());
     }
@@ -56,8 +60,11 @@ public class Menu {
     }
 
     public void addPanels(Container gameContainer,Container UIcontainer){
+        this.gameContainer = gameContainer;
+        this.UIcontainer = UIcontainer;
         frame.getContentPane().add(gameContainer);
         frame.getContentPane().add(UIcontainer);
+        frame.requestFocus();
     }
 
     public JFrame getFrame(){
@@ -73,6 +80,9 @@ public class Menu {
 
     public void perder(){
         JOptionPane.showMessageDialog(null,"Mission Failed!","You have been defeated!",JOptionPane.INFORMATION_MESSAGE);
+
+       // Icon ic = new ImageIcon(Paths.LOSTSCREEN); //TODO: No funciona esta parte, es poner una imagen de partida perdida. Despues habría que volver al menu
+       // gameContainer = new JLabel(ic);
     }
 
 

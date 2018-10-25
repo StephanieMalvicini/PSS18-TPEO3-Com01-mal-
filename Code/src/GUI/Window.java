@@ -31,7 +31,8 @@ public class Window {
 
 		Icon ic = new ImageIcon(Paths.BACKGROUND);
 		gameContainer = new JLabel(ic);
-		UIcontainer = new JPanel();
+		Icon ic2 = new ImageIcon(Paths.OTROFONDO);
+		UIcontainer = new JLabel(ic2);
 		UIcontainer.setLayout(null);
 
 		UIcontainer.add(ScoreManager.getInstance().getScore());
@@ -45,7 +46,6 @@ public class Window {
 		gameContainer.setLayout(null);
 
 		Menu.getInstance().addPanels(gameContainer,UIcontainer);
-		Menu.getInstance().getFrame().requestFocus();
 
 
 
