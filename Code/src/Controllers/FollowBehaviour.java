@@ -1,6 +1,6 @@
 package Controllers;
 
-import GameObjects.Ship;
+import GameObjects.MovingObject;
 import GameObjects.Vector2;
 public class FollowBehaviour extends Behaviour {
     protected FollowMovement followm;
@@ -34,7 +34,7 @@ public class FollowBehaviour extends Behaviour {
         direc = (vec);
     }
 
-    public void setShip(Ship s){
-        followm.setShip(s);
+    public void setShip(MovingObject s){
+        followm.setMovingObject(s);
     }
 }

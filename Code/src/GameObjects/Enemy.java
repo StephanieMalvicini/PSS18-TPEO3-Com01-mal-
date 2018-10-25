@@ -1,13 +1,10 @@
 package GameObjects;
 
 import Assets.Configs;
-import Assets.SpriteDepot;
 import Map.Map;
 
-import javax.swing.*;
 
-
-public abstract class Enemy extends Ship{
+public abstract class Enemy extends MovingObject {
 
     protected int score;
 
@@ -19,7 +16,7 @@ public abstract class Enemy extends Ship{
 
 
         x += dir.getX() * speed;
-        if(x < -12) //treshold del sprite, adecuar al sprite final /TODO: resolver el updatePosition de Ship (qué enemigos lo redefinen?)
+        if(x < -12) //treshold del sprite, adecuar al sprite final /TODO: resolver el updatePosition de MovingObject (qué enemigos lo redefinen?)
             x = -12;
         if (x > 1000)
             x = 1000;

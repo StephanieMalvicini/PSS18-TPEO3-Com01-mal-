@@ -1,26 +1,27 @@
 package Controllers;
 
+import GameObjects.MovingObject;
 import GameObjects.Player;
-import GameObjects.Ship;
+
 public class FollowMovement extends MovementPattern {
-    protected Ship ship;
+    protected MovingObject movingObject;
 
     public FollowMovement() {
-        ship = null;
+        movingObject = null;
     }
     @Override
     public float getX() {
-        float xShip = ship.getUbication().getX();
+        float xShip = movingObject.getUbication().getX();
         return Player.getInstance().getUbication().getX() - xShip;
     }
 
     @Override
     public float getY() {
-        float yShip = ship.getUbication().getY();
+        float yShip = movingObject.getUbication().getY();
         return Player.getInstance().getUbication().getY() - yShip;
     }
 
-    public void setShip(Ship s){
-        ship = s;
+    public void setMovingObject(MovingObject s){
+        movingObject = s;
     }
 }

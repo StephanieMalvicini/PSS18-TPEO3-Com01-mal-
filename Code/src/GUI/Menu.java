@@ -3,17 +3,22 @@ package GUI;
 import Assets.Configs;
 import Assets.Paths;
 import GameMaster.Level;
+import Map.Map;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class Menu {
     protected static Menu instance;
     protected JButton bInicio;
     protected JFrame frame;
     protected Container gameContainer,UIcontainer;
+    protected Thread l;
+
+
     public static Menu getInstance(){
         if (instance==null)
             instance = new Menu();
@@ -26,6 +31,7 @@ public class Menu {
         Container c = frame.getContentPane();
         Icon ic = new ImageIcon(Paths.MENUIMAGE);
         frame.setContentPane(new JLabel(ic));
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         frame.setLayout(null);
         frame.setBounds(0,0, Configs.getConfigs().getCanvasWidth(),Configs.getConfigs().getCanvasHeight());
@@ -74,15 +80,14 @@ public class Menu {
 
     public void newLevel(){
 
-        Thread l = new Level();
+        l = new Level();
         l.start();
     }
 
     public void perder(){
         JOptionPane.showMessageDialog(null,"Mission Failed!","You have been defeated!",JOptionPane.INFORMATION_MESSAGE);
-
-       // Icon ic = new ImageIcon(Paths.LOSTSCREEN); //TODO: No funciona esta parte, es poner una imagen de partida perdida. Despues habría que volver al menu
-       // gameContainer = new JLabel(ic);
+        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+      //TODO: poner una imagen de partida perdida. Despues habría que volver al menu
     }
 
 

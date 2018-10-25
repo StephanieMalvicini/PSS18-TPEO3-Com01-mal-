@@ -1,16 +1,15 @@
 package Controllers;
 
 import GUI.IUpdatable;
-import GameObjects.Ship;
+import GameObjects.MovingObject;
 import GameObjects.Vector2;
 import GameObjects.Vector2Int;
-import Map.Map;
 
 import javax.swing.*;
 
 public abstract class AbstractController implements IUpdatable {
 
-    protected Ship controlled;
+    protected MovingObject controlled;
     protected boolean isFiring;
     protected Icon r,l,d,u,lu,ru, rd, ld,c;
     protected Icon[][] m;

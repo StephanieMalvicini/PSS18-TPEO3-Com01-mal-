@@ -97,7 +97,7 @@ public final class Map extends SuperMap{
 		toDestroy.add(upda);
 	}
 
-	public void onUpdate(Ship ship) {
+	public void onUpdate(MovingObject movingObject) {
 	}
 
 	public void onUpdate(AbstractController controller) {
@@ -122,6 +122,8 @@ public final class Map extends SuperMap{
 	public void addController(AbstractController cont) {
 		add(cont);
 	}
+
+
 }
 
 

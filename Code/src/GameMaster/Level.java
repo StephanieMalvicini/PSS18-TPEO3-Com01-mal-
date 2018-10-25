@@ -17,6 +17,7 @@ public class Level extends Thread{
 
 	protected static Map map;
 	protected long nanostowait;
+	protected boolean seguir;
 
 	public Level() {
 
@@ -24,7 +25,7 @@ public class Level extends Thread{
 		//Enemy e = new EnemyFighter();
 		//FollowBehaviour b = new FollowBehaviour();
 		//EnemyController ec = new EnemyController(e,b);
-		//b.setShip(ec.getShip());
+		//b.setMovingObject(ec.getShip());
 
 		Random rand = new Random();
 		int yBarricade = (int) Configs.getConfigs().getCanvasHeight()/2;
@@ -50,10 +51,11 @@ public class Level extends Thread{
 		map.add(eb);
 
 
-
+		seguir = true;
         map.add(ee);
         map.addController(ecc);
 	}
+
 
 
 
@@ -64,7 +66,7 @@ public class Level extends Thread{
 		long stm = System.nanoTime();
 		long latestmp = System.nanoTime();
 
-		while(true) {
+		while(seguir) {
 			stm = System.nanoTime();
 			map.update();
 			Window.GetWindow().update();

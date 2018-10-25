@@ -6,7 +6,7 @@ import Map.Map;
 
 import javax.swing.*;
 
-public abstract class Ship extends DestroyableObject {
+public abstract class MovingObject extends DestroyableObject {
 	protected float speed;
 	protected boolean isFiring;
 	protected Vector2 dir;

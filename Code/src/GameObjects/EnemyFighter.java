@@ -35,14 +35,13 @@ public class EnemyFighter extends Enemy {
         loaded = true;
         isFiring = false;
         gunPosition = -7;
-        gunPhaseShift = 40;
+        gunPhaseShift = 40; //TODO actualizar valores al sprite nuevo
         c = new EnemyCollider(this);
         score = 150;
     }
 
 
     public void update(Map map) {
-        //System.out.println(health);
         if (health > 0) {
             checkFire(map);
             updatePosition(map);
@@ -104,8 +103,6 @@ public class EnemyFighter extends Enemy {
     }
 
    public void damage(float d){
-        System.out.println(d);
-        //System.out.println(d);
         health -= d;
        System.out.println(health);
     }
