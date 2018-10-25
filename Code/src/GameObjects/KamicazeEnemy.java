@@ -1,0 +1,34 @@
+package GameObjects;
+
+import Assets.SpriteDepot;
+import Collisions.EnemyCollider;
+import Controllers.*;
+import Map.Map;
+
+public class KamicazeEnemy extends Enemy {
+
+    public KamicazeEnemy(){
+        Behaviour b = new EnemyBehaviour(new Lemniscata());
+        KamikazeController cont = new KamikazeController(this,b);
+
+        health = 200;
+        playerSpeed = 0.1f;
+        speed = playerSpeed;
+        time=0;
+        ubication = new Vector2(200,50);
+        dir = Vector2.ORIGIN();
+        damage = 0;
+        sprite = SpriteDepot.ENEMY1;
+        attackSpeed = fighterAttackSpeed;
+        loaded = true;
+        isFiring = false;
+        gunPosition = -7;
+        gunPhaseShift = 40; //TODO actualizar valores al sprite nuevo
+        c = new EnemyCollider(this);
+        score = 150;
+        Map.getInstance().add(cont);
+        Map.getInstance().add(this);
+    }
+
+    
+}
