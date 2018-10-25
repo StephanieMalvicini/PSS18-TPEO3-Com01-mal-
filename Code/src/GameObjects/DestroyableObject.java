@@ -23,5 +23,9 @@ public abstract class DestroyableObject extends GameObject{
 
 	}
 
+	public Collider getCollider(){
+		return c;
+	}
+
 	
 }

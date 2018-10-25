@@ -24,7 +24,17 @@ public class EnemyBarricadeVisitor implements Visitor {
     }
 
     @Override
-    public void visitBarricade(EnemyBarricadeCollider b) {
+    public void visitEnemyBarricade(EnemyBarricadeCollider b) {
+
+    }
+
+    @Override
+    public void visitBarricade(BarricadeCollider b) {
+
+    }
+
+    @Override
+    public void visitPowerUp(PowerUpCollider b) {
 
     }
 }

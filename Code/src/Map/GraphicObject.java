@@ -29,7 +29,6 @@ public class GraphicObject implements IUpdatable {
 
 	
 	public void update(Map map) {
-		map.onUpdate(this);
 		object.update(map);
 
 		int x = object.getX();

@@ -2,12 +2,10 @@ package GameMaster;
 
 
 import Assets.Configs;
-import Collisions.ColliderMaster;
 import Controllers.*;
 import GUI.MyListener;
 import GUI.ScoreManager;
 import GUI.Window;
-import GUI.listenerTemp;
 import GameObjects.*;
 import Map.Map;
 
@@ -21,39 +19,29 @@ public class Level extends Thread{
 
 	public Level() {
 
-		Controller c = new Controller(Player.getInstance());
+		MyListener l = MyListener.Instance();
+		Window.GetWindow().addListener(l);
+		map = Map.newInstance(Window.GetWindow());
+		map.add(Player.getInstance());
+		//map.addController(ec);
+		//map.add(e);
+		map.add(ScoreManager.getInstance());
+
+
 		//Enemy e = new EnemyFighter();
 		//FollowBehaviour b = new FollowBehaviour();
 		//EnemyController ec = new EnemyController(e,b);
 		//b.setMovingObject(ec.getShip());
-
+		PlayerController c = new PlayerController(Player.getInstance());
 		Random rand = new Random();
 		int yBarricade = (int) Configs.getConfigs().getCanvasHeight()/2;
 		int xBarricade = rand.nextInt(Configs.getConfigs().getCanvasWidth()-400) + 200;
 		EnemyBarricade eb = new EnemyBarricade(xBarricade,yBarricade);
 
         Enemy ee = new EnemyFighter();
-        Behaviour bb = new EnemyBehaviour(new Sinusoidal());
-        EnemyController ecc = new EnemyController(ee,bb);
-
-
-
-		MyListener l = MyListener.Instance();
-		listenerTemp t = listenerTemp.getInstance();
-		Window.GetWindow().addListener(t);
-		Window.GetWindow().addListener(l);
-		map = Map.newInstance(Window.GetWindow());
-		map.addController(c);
-		map.add(Player.getInstance());
-		//map.addController(ec);
-		//map.add(e);
-		map.add(ScoreManager.getInstance());
-		map.add(eb);
-
 
 		seguir = true;
-        map.add(ee);
-        map.addController(ecc);
+
 	}
 
 

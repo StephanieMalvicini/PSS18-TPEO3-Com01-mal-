@@ -1,7 +1,6 @@
 package Controllers;
 
 import Assets.Paths;
-import GUI.listenerTemp;
 import GameObjects.Enemy;
 import GameObjects.Vector2;
 import Map.Map;
@@ -9,12 +8,15 @@ import Map.Map;
 import javax.swing.*;
 
 import GameObjects.MovingObject;
-public class EnemyController extends AbstractController {
-    Behaviour b;
+public class EnemyController extends ShooterController { //TODO: se puede mejorar usando genericidad parametrica para el tipo de controlled
+
+
 
 
     public EnemyController(Enemy e, Behaviour be){
         b = be;
+        controlled = e;
+
         r = new ImageIcon(Paths.ENEMY1);
         l = new ImageIcon(Paths.ENEMY1);
         d = new ImageIcon(Paths.ENEMY1);
@@ -24,7 +26,7 @@ public class EnemyController extends AbstractController {
         rd = new ImageIcon(Paths.ENEMY1);
         ld = new ImageIcon(Paths.ENEMY1);
         c = new ImageIcon(Paths.ENEMY1);
-        controlled = e;
+
 
         m = new ImageIcon[3][3];
         m[0][0]=lu;
@@ -36,6 +38,8 @@ public class EnemyController extends AbstractController {
         m[0][2]=rd;
         m[1][2]=d;
         m[2][2]=ld;
+
+        Map.getInstance().add(this);
     }
 
     @Override
@@ -52,21 +56,13 @@ public class EnemyController extends AbstractController {
         }
     }
 
-    @Override
-    protected Vector2 armarVector() {
 
-        return b.getDir();
-    }
 
     @Override
     public void update(Map map)
     {
         if (controlled.isAlive()) {
-            if(listenerTemp.getInstance().kill)
-                controlled.die();
-            map.onUpdate(this);
-            Vector2 vec = armarVector(); // new Vector2(0,0);
-            move(vec);
+            super.update(map);
             checkShoot();
 
 
@@ -75,12 +71,12 @@ public class EnemyController extends AbstractController {
             destroyMe(map);
     }
 
-    @Override
-    public void destroyMe(Map map) {
-        map.destroy(this);
-    }
+
+
 
     public MovingObject getShip(){
         return controlled;
     }
+
+
 }

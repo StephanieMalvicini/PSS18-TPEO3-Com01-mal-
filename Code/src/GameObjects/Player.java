@@ -7,8 +7,9 @@ import GUI.Menu;
 import Map.*;
 
 import javax.swing.*;
+import java.util.Collection;
 
-public class Player extends  Shooter{
+public class Player extends Ship{
 	protected final float playerSpeed = 8.6f;
 	protected int damage;
 	protected int attackSpeed;
@@ -21,6 +22,7 @@ public class Player extends  Shooter{
 	protected int playerAttackSpeed = 500;
 
 	private static Player instance = null;
+	private Shield shield;
 
 	public static Player getInstance() {
 		if (instance == null)
@@ -40,7 +42,7 @@ public class Player extends  Shooter{
 		loaded = true;
 		isFiring = false;
 		c = new PlayerCollider(this);
-
+		shield = new Shield(0);
 		weapon = new PlayerWeapon(damage);
 	}
 
@@ -81,7 +83,6 @@ public class Player extends  Shooter{
 
 	@Override
 	protected void updatePosition(Map map) {
-		map.onUpdate(this);
 		float x = ubication.getX();
 		float y = ubication.getY();
 
@@ -100,6 +101,18 @@ public class Player extends  Shooter{
 
 		ubication = new Vector2(x,y);
 	}
+
+	public Shield getShield() {
+		return shield;
+	}
+
+	public void damage(float d){
+		float x = shield.calculateDamage(d);
+		health -= x;
+
+	}
+
+
 }
 	
 	

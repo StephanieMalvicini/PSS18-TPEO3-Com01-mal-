@@ -21,4 +21,5 @@ public class Paths {
     public static URL MENUIMAGE = Paths.class.getResource("menuimage.png");
     public static URL LOSTSCREEN = Paths.class.getResource("shipexplosion.png");
     public static URL STARTBUTTON = Paths.class.getResource("startbutton.png");
+    public static URL FROZE = Paths.class.getResource("froze.png");
 }

@@ -7,10 +7,8 @@ import javax.swing.*;
 
 import Assets.Configs;
 import Assets.Paths;
-import Controllers.Controller;
 import GameObjects.Vector2;
 import GameObjects.Vector2Int;
-import Map.Map;
 
 public class Window {
 

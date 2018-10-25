@@ -1,19 +1,21 @@
 package Controllers;
 
-import GUI.IUpdatable;
 import GameObjects.MovingObject;
 import GameObjects.Vector2;
 import GameObjects.Vector2Int;
+import Map.Map;
 
 import javax.swing.*;
 
-public abstract class AbstractController implements IUpdatable {
+public  class BasicController extends IController { //TODO: hacer superinterfaz de controladores
 
     protected MovingObject controlled;
-    protected boolean isFiring;
-    protected Icon r,l,d,u,lu,ru, rd, ld,c;
-    protected Icon[][] m;
 
+    public BasicController(MovingObject o, Behaviour b){
+        controlled = o;
+        this.b = b;
+        Map.getInstance().add(this);
+    }
 
 
 
@@ -31,23 +33,17 @@ public abstract class AbstractController implements IUpdatable {
 
     }
 
+    @Override
+    public void update(Map map)
+    {
+        if (controlled.isAlive()) {
+            super.update(map);
 
 
-    protected abstract void checkShoot();
-
-    protected abstract Vector2 armarVector();
-
-    public boolean isFiring() {
-        return isFiring;
+        }
+        else
+            destroyMe(map);
     }
 
-    public void Fire() {
-        controlled.fire();
-    }
-
-    public void endFire() {
-        controlled.stopFiring();
-
-    }
 
 }

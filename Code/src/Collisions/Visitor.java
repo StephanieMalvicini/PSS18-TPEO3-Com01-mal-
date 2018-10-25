@@ -8,7 +8,9 @@ public interface Visitor {
     public void visitPlayerBullet(PlayerBulletCollider b);
     public void visitEnemyBullet(EnemyBulletCollider b);
     public void visitPlayer(PlayerCollider p);
-    public void visitBarricade(EnemyBarricadeCollider b);
+    public void visitEnemyBarricade(EnemyBarricadeCollider b);
+    public void visitBarricade(BarricadeCollider b);
+    public void visitPowerUp(PowerUpCollider b);
 
 
 }

@@ -3,11 +3,11 @@ package Controllers;
 import GameObjects.MovingObject;
 import GameObjects.Vector2;
 public class FollowBehaviour extends Behaviour {
-    protected FollowMovement followm;
+    protected KamikazeMovement followm;
 
     public FollowBehaviour(){
         direc = Vector2.LEFT();
-        followm = new FollowMovement();
+        followm = new KamikazeMovement();
     }
 
     public Vector2 getDir(){
@@ -34,7 +34,7 @@ public class FollowBehaviour extends Behaviour {
         direc = (vec);
     }
 
-    public void setShip(MovingObject s){
-        followm.setMovingObject(s);
+    public void setUbication(Vector2 s){
+        followm.setUbication(s);
     }
 }

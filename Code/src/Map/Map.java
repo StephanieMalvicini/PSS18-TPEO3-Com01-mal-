@@ -8,7 +8,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import javax.swing.JLabel;
 
-import Controllers.AbstractController;
+import Controllers.BasicController;
+import Controllers.IController;
 import GUI.IUpdatable;
 import GUI.Window;
 import GameObjects.*;
@@ -83,9 +84,6 @@ public final class Map extends SuperMap{
 
 	}
 
-	public void destroy(GraphicObject o){
-		list.remove(o);
-	}
 
 
 	public void add(IUpdatable upda)
@@ -97,17 +95,7 @@ public final class Map extends SuperMap{
 		toDestroy.add(upda);
 	}
 
-	public void onUpdate(MovingObject movingObject) {
-	}
 
-	public void onUpdate(AbstractController controller) {
-	}
-
-	public void onUpdate(GraphicObject graphicObject) {
-	}
-
-	public void onUpdate(Bullet o) {
-	}
 
 	public void destroy(GameObject gam)
 	{
@@ -115,13 +103,11 @@ public final class Map extends SuperMap{
 		remove(go);
 	}
 
-	public void destroy(AbstractController controller) {
-
+	public void destroy(IController controller) {
+		remove(controller);
 	}
 
-	public void addController(AbstractController cont) {
-		add(cont);
-	}
+
 
 
 }

@@ -8,13 +8,13 @@ import Map.Map;
 
 import javax.swing.*;
 
-public class Controller extends AbstractController {
+public class PlayerController extends ShooterController {
 
 
 
 
 
-	public Controller(Player p) {
+	public PlayerController(Player p) {
 		r = new ImageIcon(Paths.NAVEDER);
 		l = new ImageIcon(Paths.NAVEIZQ);
 		d = new ImageIcon(Paths.NAVED);
@@ -36,12 +36,13 @@ public class Controller extends AbstractController {
 		m[0][2]=rd;
 		m[1][2]=d;
 		m[2][2]=ld;
+
+		Map.getInstance().add(this);
 	}
 
 	public void update(Map map)
 	{
 		if (true) {
-			map.onUpdate(this);
 			Vector2 vec = armarVector();
 			move(vec);
 			checkShoot();
@@ -54,18 +55,7 @@ public class Controller extends AbstractController {
 
 
 
-	protected void checkShoot()
-	{
-		MyListener input = MyListener.Instance();
-		if(input.fire())
-		{
-			Fire();
-		}
-		else
-		{
-			endFire();
-		}
-	}
+
 
 
 	public void destroyMe(Map map) {
@@ -100,15 +90,16 @@ public class Controller extends AbstractController {
 	}
 
 
-
-
-
-	
-	
-
-	
-
-	
-	
-
+	@Override
+	protected void checkShoot() {
+		MyListener input = MyListener.Instance();
+		if(input.fire())
+		{
+			Fire();
+		}
+		else
+		{
+			endFire();
+		}
+	}
 }

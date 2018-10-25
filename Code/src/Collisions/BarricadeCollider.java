@@ -2,9 +2,9 @@ package Collisions;
 
 import GameObjects.EnemyBarricade;
 
-public class EnemyBarricadeCollider extends Collider {
+public class BarricadeCollider extends Collider {
 
-    public EnemyBarricadeCollider(EnemyBarricade c){
+    public BarricadeCollider(EnemyBarricade c){
         super(c);
         v = new EnemyBarricadeVisitor();
     }
@@ -12,7 +12,7 @@ public class EnemyBarricadeCollider extends Collider {
 
     @Override
     public void accept(Visitor v) {
-        v.visitEnemyBarricade(this);
+        v.visitBarricade(this);
     }
 
     public void update(){

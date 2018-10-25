@@ -1,7 +1,6 @@
 package GameObjects;
 
-import Assets.Paths;
-import GUI.ScoreManager;
+
 import Map.Map;
 
 import javax.swing.*;
@@ -12,10 +11,8 @@ public abstract class MovingObject extends DestroyableObject {
 	protected Vector2 dir;
 	
 	public void update(Map map) {
-		//if(isAlive()) {
-			updatePosition(map);
-			c.update();
-		//}else destroySelf();
+		updatePosition(map);
+		c.update();
 	}
 
 	protected abstract void updatePosition(Map m);
@@ -34,14 +31,7 @@ public abstract class MovingObject extends DestroyableObject {
 		sprite = s;
 	}
 
-	public void fire(){
-		isFiring = true;
 
-	}
-
-	public void stopFiring(){
-		isFiring = false;
-	}
 
 
 	@Override
@@ -50,7 +40,5 @@ public abstract class MovingObject extends DestroyableObject {
 
 	}
 
-	public void die(){
-		health = 0;
-	}
+
 }

@@ -1,13 +1,10 @@
 package GameObjects;
 
-import Assets.Configs;
 import Assets.SpriteDepot;
 import Collisions.EnemyCollider;
-import Controllers.EnemyController;
+import Controllers.*;
 import GUI.ScoreManager;
 import Map.Map;
-
-import javax.swing.*;
 
 public class EnemyFighter extends Enemy {
 
@@ -23,6 +20,9 @@ public class EnemyFighter extends Enemy {
     protected float gunPhaseShift;
 
     public EnemyFighter(){
+        Behaviour b = new EnemyBehaviour(new Sinusoidal());
+        EnemyController cont = new EnemyController(this,b);
+
         health = 200;
         playerSpeed = 20.0f;
         speed = playerSpeed;
@@ -38,11 +38,13 @@ public class EnemyFighter extends Enemy {
         gunPhaseShift = 40; //TODO actualizar valores al sprite nuevo
         c = new EnemyCollider(this);
         score = 150;
+        Map.getInstance().add(cont);
+        Map.getInstance().add(this);
     }
 
 
     public void update(Map map) {
-        if (health > 0) {
+        if (isAlive()) {
             checkFire(map);
             updatePosition(map);
             super.update(map);
@@ -54,34 +56,13 @@ public class EnemyFighter extends Enemy {
 
     }
 
-    public void destroySelf(){
+    public void destroySelf(){  //TODO: Cada destroy debria nullificar los atributos añadidos en su subclase y llamar a el super
         ScoreManager.getInstance().modificarScore(score);
         sprite = SpriteDepot.EXPLOSION;
         c.destroySelf();
     }
 
 
-    @Override
-    protected void updatePosition(Map map) {
-        map.onUpdate(this);
-        float x = ubication.getX();
-        float y = ubication.getY();
-
-
-        x += dir.getX() * speed;
-        if(x < -150) //treshold del sprite, adecuar al sprite final /TODO: Magic numbersssssssss
-            x = Configs.getConfigs().getCanvasWidth() + 150;
-        if (x > Configs.getConfigs().getCanvasWidth() + 150)
-            x = -150;
-
-        y += dir.getY() * speed;
-        if(y < -50 ) //treshold del sprite, adecuar al sprite final
-            y = -50;
-        if (y > Configs.getConfigs().getCanvasHeight() - 220)
-            y = Configs.getConfigs().getCanvasHeight() - 220;  //TODO: Arreglar para que vuelvan a su pos despues de aparecer arriba
-
-        ubication = new Vector2(x,y);
-    }
 
 
     private void checkFire(Map map) {

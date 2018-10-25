@@ -15,6 +15,7 @@ public class EnemyBarricade extends Barricade {
         health = 700;
         sprite = SpriteDepot.ENEMYBARRICADE;
         c = new EnemyBarricadeCollider(this);
+        Map.getInstance().add(this);
     }
 
     @Override

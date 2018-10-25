@@ -32,7 +32,6 @@ public abstract class Bullet extends MovingObject {
 
 	@Override
 	protected void updatePosition(Map map) {
-		map.onUpdate(this);
 		float x = ubication.getX();
 		float y = ubication.getY();
 
