@@ -39,9 +39,8 @@ public class Level extends Thread{
 		EnemyBarricade eb = new EnemyBarricade(xBarricade,yBarricade);
 
         Enemy ee = new EnemyFighterOnlyShoot();
-
         EnemyFighterHybrid hibrido = new EnemyFighterHybrid();
-
+		KamicazeEnemy kamikaze = new KamicazeEnemy();
 
 		seguir = true;
 

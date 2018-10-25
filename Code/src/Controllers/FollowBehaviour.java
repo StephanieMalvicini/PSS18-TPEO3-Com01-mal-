@@ -17,10 +17,10 @@ public class FollowBehaviour extends Behaviour {
 
     @Override
     public boolean fire() {
-        double r = Math.random();
+       /* double r = Math.random();
         if (r<0.58 )
             return true;
-        else
+        else*/
             return false;
     }
 
