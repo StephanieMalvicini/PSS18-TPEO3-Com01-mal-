@@ -19,13 +19,14 @@ public class KamicazeEnemy extends Enemy {
         ubication = new Vector2(200,200);
         dir = Vector2.ORIGIN();
         damage = 0;
+        kamikazeDamage = 150;
         sprite = SpriteDepot.ENEMY1;
         attackSpeed = fighterAttackSpeed;
         loaded = true;
         isFiring = false;
         gunPosition = -7;
         gunPhaseShift = 40; //TODO actualizar valores al sprite nuevo
-        c = new EnemyCollider(this);
+        c = new EnemyCollider(this, kamikazeDamage);
         score = 150;
         Map.getInstance().add(cont);
         Map.getInstance().add(this);

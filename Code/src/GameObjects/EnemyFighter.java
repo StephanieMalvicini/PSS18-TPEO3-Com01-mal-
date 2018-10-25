@@ -1,5 +1,7 @@
 package GameObjects;
 
+import Assets.SpriteDepot;
+import GUI.ScoreManager;
 import Map.Map;
 import PowerUps.AbstractPU;
 import PowerUps.FrozePU;
@@ -9,7 +11,7 @@ import javax.swing.*;
 
 public abstract class EnemyFighter extends Enemy {
 
-<<<<<<< HEAD
+
     protected float playerSpeed;
     protected int damage;
     protected int attackSpeed;
@@ -35,8 +37,6 @@ public abstract class EnemyFighter extends Enemy {
 
 
 
-=======
->>>>>>> 7b9a750ec5ccfa5fb68cd5c53ebdb5193f4ecbe8
     protected void checkFire(Map map) {
 
         if (time < System.currentTimeMillis())
@@ -54,14 +54,10 @@ public abstract class EnemyFighter extends Enemy {
         }
 
     }
-<<<<<<< HEAD
 
     public void damage(float d){
         health -= d;
 
     }
 
-
-=======
->>>>>>> 7b9a750ec5ccfa5fb68cd5c53ebdb5193f4ecbe8
 }
