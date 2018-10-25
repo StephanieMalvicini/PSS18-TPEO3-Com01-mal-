@@ -1,7 +1,5 @@
 package GameObjects;
 
-import Assets.SpriteDepot;
-import GUI.ScoreManager;
 import Map.Map;
 
 public abstract class EnemyFighter extends Enemy {

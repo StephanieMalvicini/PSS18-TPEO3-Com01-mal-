@@ -9,13 +9,14 @@ public class KamicazeEnemy extends Enemy {
 
     public KamicazeEnemy(){
         Behaviour b = new EnemyBehaviour(new Lemniscata());
+        
         KamikazeController cont = new KamikazeController(this,b);
 
         health = 200;
-        playerSpeed = 0.1f;
+        playerSpeed = 20.0f;
         speed = playerSpeed;
         time=0;
-        ubication = new Vector2(200,50);
+        ubication = new Vector2(200,200);
         dir = Vector2.ORIGIN();
         damage = 0;
         sprite = SpriteDepot.ENEMY1;
@@ -30,5 +31,13 @@ public class KamicazeEnemy extends Enemy {
         Map.getInstance().add(this);
     }
 
-    
+    public void update(Map map) {
+        if (isAlive()) {
+            updatePosition(map);
+            super.update(map);
+        } else {
+            destroySelf();
+            destroyMe(map);
+        }
+    }
 }
