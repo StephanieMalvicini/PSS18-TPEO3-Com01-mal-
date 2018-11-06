@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public abstract class MovingObject extends DestroyableObject {
 	protected float speed;
-	protected float maxSpeed = 25;
+	protected float maxSpeed = 35;
 	protected boolean isFiring;
 	protected Vector2 dir;
 	

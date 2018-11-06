@@ -5,12 +5,13 @@ import Assets.Configs;
 import GameObjects.GameObject;
 import GameObjects.Vector2;
 
-import static java.lang.Float.min;
+import static java.lang.Math.abs;
+import static java.lang.Math.min;
 
 public class FollowMovement extends MovementPattern {
     protected Vector2 o, d;
     protected GameObject so, sd;
-    float distX = Configs.getConfigs().getFieldWidth();
+    float distX = Configs.getConfigs().getCanvasWidth();
     float distY = Configs.getConfigs().getFieldHeigth();
     float x1;
     float x2;
@@ -28,7 +29,7 @@ public class FollowMovement extends MovementPattern {
         x2 = d.getX();
         x1 = o.getX();
 
-        return min(x2-x1, distX - x2 + x1) ;
+        return min(abs(x2-x1), abs(distX - x2 + x1)) ;
     }
 
     private void updateP() {

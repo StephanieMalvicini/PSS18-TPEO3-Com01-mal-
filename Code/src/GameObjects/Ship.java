@@ -29,17 +29,17 @@ public abstract class Ship extends MovingObject {
         float y = ubication.getY();
 
         dir = dir.max(maxSpeed);
-        x += dir.getX() * speed;
 
+        x += dir.getX() * speed;
         if(x < -fieldMarginX )
             x = Configs.getConfigs().getCanvasWidth() + fieldMarginX;
         if (x > Configs.getConfigs().getCanvasWidth() + fieldMarginX)
             x = -fieldMarginX;
 
         y += dir.getY() * speed;
-        if(x < -fieldMarginY )
-            y = Configs.getConfigs().getCanvasWidth() + fieldMarginY;
-        if (y > Configs.getConfigs().getCanvasWidth() + fieldMarginY)
+        if(y < -fieldMarginY )
+            y = Configs.getConfigs().getCanvasHeight() + fieldMarginY;
+        if (y > Configs.getConfigs().getCanvasHeight() + fieldMarginY)
             y = -fieldMarginY;
 
         ubication = new Vector2(x,y);

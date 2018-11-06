@@ -7,7 +7,7 @@ public final class Configs {
     protected int canvasWidth = 1200;
     protected int canvasHeight = 700;
     protected int panelWidth = 300;
-    protected int fieldWidth = 1200;
+    protected int fieldWidth = 1600;
     protected int fieldHeigth = 900;
     protected Dimension windowsSize = new Dimension(canvasWidth+ panelWidth, canvasHeight);
 

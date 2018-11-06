@@ -26,12 +26,12 @@ public class OffsetPosition extends GameObject {
         if(x < -fieldMarginX )
             x = Configs.getConfigs().getCanvasWidth() + fieldMarginX;
         if (x > Configs.getConfigs().getCanvasWidth() + fieldMarginX)
-            x = -fieldMarginX;
+            x = -fieldMarginX + (x - Configs.getConfigs().getCanvasWidth() + fieldMarginX);//acomoda lo que se desfazo por derecha y lo pone a esa distancia del borde izquierdo
 
 
-        if(x < -fieldMarginY )
-            y = Configs.getConfigs().getCanvasWidth() + fieldMarginY;
-        if (y > Configs.getConfigs().getCanvasWidth() + fieldMarginY)
+        if(y < -fieldMarginY )
+            y = Configs.getConfigs().getCanvasHeight() + fieldMarginY;
+        if (y > Configs.getConfigs().getCanvasHeight() + fieldMarginY)
             y = -fieldMarginY;
 
         ubication = new Vector2(x,y);
