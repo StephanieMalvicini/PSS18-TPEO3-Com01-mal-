@@ -8,13 +8,13 @@ import Map.Map;
 
 import javax.swing.*;
 
-public class PlayerController extends ShooterController {
+public class PlayerMovementController extends MovementController {
 
 
 
 
 
-	public PlayerController(Player p) {
+	public PlayerMovementController(Player p) {
 		r = new ImageIcon(Paths.NAVEDER);
 		l = new ImageIcon(Paths.NAVEIZQ);
 		d = new ImageIcon(Paths.NAVED);
@@ -45,7 +45,6 @@ public class PlayerController extends ShooterController {
 		if (true) {
 			Vector2 vec = armarVector();
 			move(vec);
-			checkShoot();
 		}
 		else
 			destroyMe(map);
@@ -90,16 +89,5 @@ public class PlayerController extends ShooterController {
 	}
 
 
-	@Override
-	protected void checkShoot() {
-		MyListener input = MyListener.Instance();
-		if(input.fire())
-		{
-			Fire();
-		}
-		else
-		{
-			endFire();
-		}
-	}
+
 }

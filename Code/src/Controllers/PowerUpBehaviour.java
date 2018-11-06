@@ -8,8 +8,4 @@ public class PowerUpBehaviour extends Behaviour {
         return null;
     }
 
-    @Override
-    public boolean fire() {
-        return false;
-    }
 }

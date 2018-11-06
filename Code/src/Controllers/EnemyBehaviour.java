@@ -4,7 +4,7 @@ import GameObjects.Vector2;
 
 
 public class EnemyBehaviour extends Behaviour {
-    private float radioGral = 0.26f;
+    private float radioGral = 0.86f;
 
     public EnemyBehaviour(MovementPattern mov){
         direc = Vector2.LEFT();
@@ -16,14 +16,6 @@ public class EnemyBehaviour extends Behaviour {
         return direc;
     }
 
-    @Override
-    public boolean fire() {
-        double r = Math.random();
-        if (r<0.58 )
-            return true;
-        else
-            return false;
-    }
 
     private void updateDir(){
         float x = m.getX();

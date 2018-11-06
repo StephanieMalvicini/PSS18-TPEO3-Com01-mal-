@@ -7,6 +7,8 @@ public final class Configs {
     protected int canvasWidth = 1200;
     protected int canvasHeight = 700;
     protected int panelWidth = 300;
+    protected int fieldWidth = 1200;
+    protected int fieldHeigth = 900;
     protected Dimension windowsSize = new Dimension(canvasWidth+ panelWidth, canvasHeight);
 
     private static Configs instance;
@@ -17,6 +19,13 @@ public final class Configs {
         return instance;
     }
 
+    public int getFieldWidth() {
+        return fieldWidth;
+    }
+
+    public int getFieldHeigth() {
+        return fieldHeigth;
+    }
 
     public int getCanvasWidth() {
         return canvasWidth;
@@ -33,4 +42,6 @@ public final class Configs {
     public Dimension getWindowsSize() {
         return windowsSize;
     }
+
+
 }

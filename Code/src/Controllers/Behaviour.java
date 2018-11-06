@@ -10,5 +10,4 @@ public abstract class Behaviour {
     public abstract Vector2 getDir();
 
 
-    public abstract boolean fire();
 }

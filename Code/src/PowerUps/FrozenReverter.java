@@ -1,7 +1,7 @@
 package PowerUps;
 
 import Collisions.Visitor;
-import GameObjects.Formation;
+import Map.Map;
 
 public class FrozenReverter implements Runnable {
 
@@ -13,6 +13,6 @@ public class FrozenReverter implements Runnable {
 
     @Override
     public void run() {
-        Formation.getInstance().affect(v);
+        Map.getInstance().getFormation().affect(v);
     }
 }

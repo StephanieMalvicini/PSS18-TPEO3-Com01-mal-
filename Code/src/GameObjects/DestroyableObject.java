@@ -2,9 +2,17 @@ package GameObjects;
 
 import Collisions.Collider;
 
+import javax.swing.*;
+
 public abstract class DestroyableObject extends GameObject{
 	protected int health;
 	protected Collider c;
+	protected Icon sprite;
+
+
+	public Icon getSprite() {
+		return sprite;
+	}
 	
 	public int getHealth() {
 		return health;

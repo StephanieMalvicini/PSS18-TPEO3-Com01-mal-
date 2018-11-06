@@ -77,4 +77,11 @@ public  class Vector2
     {
         return new Vector2(x*aux.x , (float)(y*aux.y*Math.atan(depl)));
     }
+
+    public Vector2 max(float l) {
+        if (this.large() < l)
+            return this;
+        return this.norma().prod(l);
+
+    }
 }

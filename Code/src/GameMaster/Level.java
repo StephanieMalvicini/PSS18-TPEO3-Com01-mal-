@@ -4,10 +4,10 @@ package GameMaster;
 import Assets.Configs;
 import Controllers.*;
 import GUI.MyListener;
-import GUI.ScoreManager;
 import GUI.Window;
 import GameObjects.*;
 import Map.Map;
+import PowerUps.FrozePU;
 
 import java.util.Random;
 
@@ -23,24 +23,16 @@ public class Level extends Thread{
 		Window.GetWindow().addListener(l);
 		map = Map.newInstance(Window.GetWindow());
 		map.add(Player.getInstance());
-		//map.addController(ec);
-		//map.add(e);
-		map.add(ScoreManager.getInstance());
 
-
-		//Enemy e = new EnemyFighterOnlyShoot();
-		//FollowBehaviour b = new FollowBehaviour();
-		//EnemyController ec = new EnemyController(e,b);
-		//b.setMovingObject(ec.getShip());
-		PlayerController c = new PlayerController(Player.getInstance());
+		PlayerMovementController c = new PlayerMovementController(Player.getInstance());
 		Random rand = new Random();
 		int yBarricade = (int) Configs.getConfigs().getCanvasHeight()/2;
 		int xBarricade = rand.nextInt(Configs.getConfigs().getCanvasWidth()-400) + 200;
-		EnemyBarricade eb = new EnemyBarricade(xBarricade,yBarricade);
+		new EnemyBarricade(xBarricade,yBarricade);
+		map.newLevel();
+		map.add(new FrozePU(new Vector2(0,0)));
 
-        Enemy ee = new EnemyFighterOnlyShoot();
-        EnemyFighterHybrid hibrido = new EnemyFighterHybrid();
-		KamicazeEnemy kamikaze = new KamicazeEnemy();
+
 
 		seguir = true;
 
@@ -53,8 +45,8 @@ public class Level extends Thread{
 
 		Window.GetWindow().Show();
 		long fpns = 80_000_000_000L;
-		long stm = System.nanoTime();
-		long latestmp = System.nanoTime();
+		long stm;
+		long latestmp;
 
 		while(seguir) {
 			stm = System.nanoTime();

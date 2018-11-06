@@ -1,11 +1,9 @@
 package PowerUps;
 
 import Assets.SpriteDepot;
-import Collisions.FrozeVisitor;
 import Collisions.PowerUpCollider;
-import Controllers.BasicController;
 import Controllers.EnemyBehaviour;
-import Controllers.PowerUpController;
+import Controllers.PowerUpMovementController;
 import Controllers.Sinusoidal;
 import GameMaster.Timer;
 import GameObjects.PiercingWeapon;
@@ -19,12 +17,13 @@ public class PierceBulletPU extends AbstractPU {
 
 
     public PierceBulletPU(Vector2 v){
-        controller = new PowerUpController(this, new EnemyBehaviour(new Sinusoidal())); //TODO: crear movimientos de los power up
+        controller = new PowerUpMovementController(this, new EnemyBehaviour(new Sinusoidal())); //TODO: crear movimientos de los power up
         health = 1;
         sprite = SpriteDepot.PEARCE;
         ubication = v;
         speed = 1;
         c = new PowerUpCollider(this);
+        time = 5000;
         revert = new PiercingReverter();
         Map.getInstance().add(this);
 
@@ -35,7 +34,18 @@ public class PierceBulletPU extends AbstractPU {
         Weapon w = new PiercingWeapon();
         Player.getInstance().setWeapon(w);
 
-        Timer t = new Timer(5000);
+        Timer t = new Timer(time);
         Revert r = new PierceWeaponRevert(t, revert);
     }
 }
+
+
+
+
+
+
+
+
+
+
+

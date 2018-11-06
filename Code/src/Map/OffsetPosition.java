@@ -1,42 +1,34 @@
-package GameObjects;
+package Map;
 
 import Assets.Configs;
-import Map.Map;
+import GameObjects.GameObject;
+import GameObjects.MovingObject;
+import GameObjects.Vector2;
 
-import javax.swing.*;
+public class OffsetPosition extends GameObject {
+    Vector2 offset;
+    MovingObject followed;
 
-public abstract class Ship extends MovingObject {
-
-
-
-    public void fire() {
-        isFiring = true;
-
+    public OffsetPosition(MovingObject f, Vector2 o){
+        offset = o;
+        followed = f;
+        ubication = f.getUbication().sum(o);
+        Map.getInstance().add(this);
     }
-
-    public void stopFiring() {
-        isFiring = false;
-    }
-
-
-
-
-
-
     @Override
-    protected void updatePosition(Map map) {
+    public void update(Map map) {
+
+        ubication = followed.getUbication().sum(offset);
         float x = ubication.getX();
         float y = ubication.getY();
 
-        dir = dir.max(maxSpeed);
-        x += dir.getX() * speed;
 
         if(x < -fieldMarginX )
             x = Configs.getConfigs().getCanvasWidth() + fieldMarginX;
         if (x > Configs.getConfigs().getCanvasWidth() + fieldMarginX)
             x = -fieldMarginX;
 
-        y += dir.getY() * speed;
+
         if(x < -fieldMarginY )
             y = Configs.getConfigs().getCanvasWidth() + fieldMarginY;
         if (y > Configs.getConfigs().getCanvasWidth() + fieldMarginY)
@@ -44,6 +36,10 @@ public abstract class Ship extends MovingObject {
 
         ubication = new Vector2(x,y);
     }
+
+    @Override
+    public void destroyMe(Map map) {
+        map.remove(this);
+
+    }
 }
-
-

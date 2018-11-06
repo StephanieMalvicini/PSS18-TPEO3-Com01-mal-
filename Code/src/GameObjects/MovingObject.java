@@ -1,24 +1,25 @@
 package GameObjects;
 
 
+import Assets.Configs;
 import Map.Map;
 
 import javax.swing.*;
 
 public abstract class MovingObject extends DestroyableObject {
 	protected float speed;
+	protected float maxSpeed = 25;
 	protected boolean isFiring;
 	protected Vector2 dir;
 	
 	public void update(Map map) {
-		updatePosition(map);
 		c.update();
 	}
 
 	protected abstract void updatePosition(Map m);
 
 	public void destroyMe(Map map) {
-		map.remove(this);
+		map.destroy(this);
 
 	}
 

@@ -7,13 +7,37 @@ import Map.Map;
 
 import javax.swing.*;
 
-public  class BasicController extends IController { //TODO: hacer superinterfaz de controladores
+public  class BasicMovementController extends IMovementController { //TODO: hacer superinterfaz de controladores
 
     protected MovingObject controlled;
 
-    public BasicController(MovingObject o, Behaviour b){
+
+    public BasicMovementController(MovingObject o, Behaviour b){
         controlled = o;
         this.b = b;
+
+        r = o.getSprite();
+        l = o.getSprite();
+        d = o.getSprite();
+        u = o.getSprite();
+        lu = o.getSprite();
+        ru = o.getSprite();
+        rd = o.getSprite();
+        ld = o.getSprite();
+        c = o.getSprite();
+
+
+        m = new ImageIcon[3][3];
+        m[0][0]=lu;
+        m[1][0]=u;
+        m[2][0]=ru;
+        m[0][1]=l;
+        m[1][1]=c;
+        m[2][1]=r;
+        m[0][2]=rd;
+        m[1][2]=d;
+        m[2][2]=ld;
+
         Map.getInstance().add(this);
     }
 

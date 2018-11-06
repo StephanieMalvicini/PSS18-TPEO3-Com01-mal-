@@ -1,19 +1,17 @@
 package Controllers;
 
 import Assets.Paths;
-import GameObjects.Enemy;
-import GameObjects.MovingObject;
-import GameObjects.Ship;
-import GameObjects.Vector2;
 import Map.Map;
 
 import javax.swing.*;
 
-public class KamikazeController extends IController {
+import GameObjects.MovingObject;
+public class EnemyMovementController extends MovementController { //TODO: se puede mejorar usando genericidad parametrica para el tipo de controlled
 
-    protected Ship controlled;
 
-    public KamikazeController(Enemy e, Behaviour be){
+
+
+    public EnemyMovementController(MovingObject e, Behaviour be){
         b = be;
         controlled = e;
 
@@ -42,22 +40,28 @@ public class KamikazeController extends IController {
         Map.getInstance().add(this);
     }
 
+
+
+
+
+    @Override
     public void update(Map map)
     {
         if (controlled.isAlive()) {
             super.update(map);
+
+
         }
         else
             destroyMe(map);
     }
 
+
+
+
     public MovingObject getShip(){
         return controlled;
     }
 
-    protected void move(Vector2 vec)
-    {
-        controlled.setDirec(vec);
-        //controlled.setSprite(getIcon(Vector2Int.Implicit(vec.norma())));
 
-    }}
+}

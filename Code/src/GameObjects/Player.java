@@ -8,7 +8,6 @@ import GUI.Menu;
 import Map.*;
 
 import javax.swing.*;
-import java.util.Collection;
 
 public class Player extends Ship{
 	protected final float playerSpeed = 8.6f;

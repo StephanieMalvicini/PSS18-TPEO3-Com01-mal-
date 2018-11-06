@@ -1,7 +1,7 @@
 package PowerUps;
 
 import Assets.Configs;
-import Controllers.IController;
+import Controllers.IMovementController;
 import GameObjects.MovingObject;
 import GameObjects.Vector2;
 import Map.Map;
@@ -10,10 +10,11 @@ import javax.swing.*;
 
 public abstract class AbstractPU extends MovingObject {
 
-        protected IController controller;
+        protected IMovementController controller;
         protected Runnable revert;
         public abstract void trigger();
         protected long time;
+        protected int l;
 
 
         protected void updatePosition(Map map) {

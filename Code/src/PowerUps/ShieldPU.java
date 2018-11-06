@@ -1,9 +1,8 @@
 package PowerUps;
 
 import Assets.SpriteDepot;
-import Collisions.FrozeVisitor;
 import Collisions.PowerUpCollider;
-import Controllers.BasicController;
+import Controllers.BasicMovementController;
 import Controllers.EnemyBehaviour;
 import Controllers.Sinusoidal;
 import GameObjects.Player;
@@ -13,10 +12,10 @@ public class ShieldPU extends AbstractPU {
     int power;
 
     public ShieldPU(Vector2 dir){
-        controller = new BasicController(this, new EnemyBehaviour(new Sinusoidal()));
+        controller = new BasicMovementController(this, new EnemyBehaviour(new Sinusoidal()));
         c = new PowerUpCollider(this);
         health = 1;
-        sprite = SpriteDepot.FROZE;
+        sprite = SpriteDepot.SHIELD;
         ubication = dir;
         speed = 1;
         power = 50;

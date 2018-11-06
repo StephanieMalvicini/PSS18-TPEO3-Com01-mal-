@@ -1,19 +1,14 @@
 package Controllers;
 
-import GameObjects.MovingObject;
 import GameObjects.Vector2;
-import GameObjects.Vector2Int;
 import Map.Map;
 import PowerUps.AbstractPU;
-import PowerUps.FrozePU;
 
-import javax.swing.*;
-
-public class PowerUpController extends IController {
+public class PowerUpMovementController extends IMovementController {
 
     AbstractPU controlled;
 
-    public PowerUpController(AbstractPU o, Behaviour b){
+    public PowerUpMovementController(AbstractPU o, Behaviour b){
         controlled = o;
         this.b = b;
         Map.getInstance().add(this);

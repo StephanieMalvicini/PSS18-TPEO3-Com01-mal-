@@ -2,18 +2,18 @@ package Controllers;
 
 import Assets.Paths;
 import GameObjects.Enemy;
+import GameObjects.Ship;
 import GameObjects.Vector2;
 import Map.Map;
 
 import javax.swing.*;
 
-import GameObjects.MovingObject;
-public class EnemyController extends ShooterController { //TODO: se puede mejorar usando genericidad parametrica para el tipo de controlled
+public class KamikazeMovementController extends IMovementController {
+
+    protected Ship controlled;
 
 
-
-
-    public EnemyController(Enemy e, Behaviour be){
+    public KamikazeMovementController(Enemy e, FollowBehaviour be){
         b = be;
         controlled = e;
 
@@ -42,41 +42,30 @@ public class EnemyController extends ShooterController { //TODO: se puede mejora
         Map.getInstance().add(this);
     }
 
-    @Override
-    protected void checkShoot()
-    {
-
-        if(b.fire())
-        {
-            Fire();
-        }
-        else
-        {
-            endFire();
-        }
-    }
-
-
-
-    @Override
     public void update(Map map)
     {
         if (controlled.isAlive()) {
-            super.update(map);
-            checkShoot();
-
-
+            Vector2 vec = armarVector();
+            move(vec);
         }
         else
             destroyMe(map);
     }
 
 
-
-
-    public MovingObject getShip(){
-        return controlled;
+    protected void move(Vector2 vec)
+    {
+        controlled.setDirec(vec);
     }
 
 
+
+
+    protected Vector2 armarVector() {
+        return b.getDir();
+    }
+
+    public void destroyMe(Map map) {
+        map.destroy(this);
+    }
 }

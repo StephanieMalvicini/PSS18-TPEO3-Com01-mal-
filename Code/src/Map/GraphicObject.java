@@ -6,13 +6,14 @@ import GUI.IUpdatable;
 import GUI.Window;
 import GameMaster.DoInFrames;
 import GameMaster.DoWhen;
+import GameObjects.DestroyableObject;
 import GameObjects.GameObject;
 
 public class GraphicObject implements IUpdatable {
-	protected GameObject object;
+	protected DestroyableObject object;
 	protected JLabel model;
 	
-	public GraphicObject(GameObject o, JLabel l) {
+	public GraphicObject(DestroyableObject o, JLabel l) {
 		object = o;
 		model = l;
 	}
@@ -21,7 +22,7 @@ public class GraphicObject implements IUpdatable {
 		return model;
 	}
 
-	public GameObject getObject(){
+	public DestroyableObject getObject(){
 		return object;
 	}
 	
@@ -36,6 +37,7 @@ public class GraphicObject implements IUpdatable {
 
 		model.setIcon(object.getSprite());
 		model.setBounds(x, y, 182, 200);
+
 	}
 
 	@Override
@@ -47,22 +49,12 @@ public class GraphicObject implements IUpdatable {
 
 	public void destroy() {
 
-		ImageIcon ic = (ImageIcon) object.getSprite();
-		ic.getImage().setAccelerationPriority(0);
-		model.setIcon(ic);
-		final long t = System.currentTimeMillis() + 4000;
+
 		model.setVisible(false);
 		Window.GetWindow().removeComponent(model);
 
 
-		// NO FUNCIONA
-		/*new DoInFrames(4000,
-		()->
-		{
-			model.setVisible(false);
-			Window.GetWindow().removeComponent(model);
-		});
-*/
+
 
 
 	}

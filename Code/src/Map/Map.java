@@ -8,7 +8,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import javax.swing.JLabel;
 
-import Controllers.BasicController;
 import Controllers.IController;
 import GUI.IUpdatable;
 import GUI.Window;
@@ -19,9 +18,11 @@ public final class Map extends SuperMap{
 	private HashMap<GameObject, GraphicObject> gameobject_to_graphicobject;
 	Collection<IUpdatable> list;
 
-	Queue<IUpdatable> toDestroy;
-	Queue<IUpdatable> toAdd;
-	Window wind;
+	private	Queue<IUpdatable> toDestroy;
+	private Queue<IUpdatable> toAdd;
+	private Window wind;
+	private Formation form;
+	private int lvl;
 
 
 
@@ -44,10 +45,11 @@ public final class Map extends SuperMap{
 	private Map(Window w) {
 		gameobject_to_graphicobject = new HashMap<>();
 		list = new LinkedList<>();
-
+		lvl = 0;
 		wind = w;
 		toDestroy = new LinkedBlockingQueue<>(50);
 		toAdd = new LinkedBlockingQueue<>(50);
+
 	}
 
 
@@ -59,15 +61,23 @@ public final class Map extends SuperMap{
 
 
 
+	public void add(GameObject o){
+		toAdd.add(o);
+	}
 
-
-	public void add(GameObject o)
+	public void add(DestroyableObject o)
 	{
 		JLabel l = wind.add(o.getUbication(), o.getSprite());
 		GraphicObject ret =  new GraphicObject(o, l);
 		toAdd.add(ret);
 		gameobject_to_graphicobject.put(o,ret);
 	}
+
+	public void add(IUpdatable u){
+		toAdd.add(u);
+	}
+
+
 
 	public void update() {
 
@@ -86,10 +96,7 @@ public final class Map extends SuperMap{
 
 
 
-	public void add(IUpdatable upda)
-	{
-		toAdd.add(upda);
-	}
+
 	public void remove(IUpdatable upda)
 	{
 		toDestroy.add(upda);
@@ -107,6 +114,14 @@ public final class Map extends SuperMap{
 		remove(controller);
 	}
 
+	public Formation getFormation(){
+		return form;
+	}
+
+	public void newLevel(){
+		form = new Formation(++lvl);
+		form.createEnemies();
+	}
 
 
 

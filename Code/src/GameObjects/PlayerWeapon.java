@@ -7,7 +7,7 @@ public class PlayerWeapon extends Weapon{
     public PlayerWeapon(float dmg){
         damage = dmg;
         gunPosition = -7;
-        gunPhaseShift = 40;
+        gunPhaseShift = 20;
     }
 
     public void shoot(){

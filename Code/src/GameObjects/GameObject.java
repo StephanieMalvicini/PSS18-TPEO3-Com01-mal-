@@ -1,17 +1,14 @@
 package GameObjects;
 
+import Assets.Configs;
 import GUI.IUpdatable;
 
 import javax.swing.*;
 
 public abstract class GameObject implements IUpdatable {
 	protected Vector2 ubication;
-	protected Icon sprite;
-	
-
-	public Icon getSprite() {
-		return sprite;
-	}
+	protected int fieldMarginY = (Configs.getConfigs().getFieldHeigth() - Configs.getConfigs().getCanvasHeight())/2 ;
+	protected int fieldMarginX = (Configs.getConfigs().getFieldWidth() - Configs.getConfigs().getCanvasWidth())/2;
 
 	public Vector2 getUbication() {
 		return ubication;

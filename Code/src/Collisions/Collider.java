@@ -34,7 +34,7 @@ public  abstract class Collider implements Visitable {
     public void update(){
         x = o.getX() - dx;
         y = o.getY() - dy;
-        ex = x + o.getSprite().getIconWidth(); // TODO: hacer atributo
+        ex = x + o.getSprite().getIconWidth();
         ey = y + o.getSprite().getIconHeight();
         scanCollisions();
         solveCollision();

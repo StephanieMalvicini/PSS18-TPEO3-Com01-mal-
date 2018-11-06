@@ -10,7 +10,7 @@ public class BasicPlayerBullet extends PlayerBullet {
 		setUbication(ubication);
 		daño = d;
 		dir = new Vector2(0, -1);
-		speed = 6.3f;
+		speed = 9.3f;
 		sprite = SpriteDepot.LASER;
 		health = 1;
 		c = new PlayerBulletCollider(this);
