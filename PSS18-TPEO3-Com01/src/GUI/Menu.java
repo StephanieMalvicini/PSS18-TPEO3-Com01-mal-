@@ -16,6 +16,7 @@ public class Menu {
     protected JButton bInicio;
     protected JFrame frame;
     protected Container gameContainer,UIcontainer;
+    protected JPanel logInPanel; 
     protected Thread l;
 
 
@@ -46,15 +47,17 @@ public class Menu {
 
         frame.setSize(Configs.getConfigs().getWindowsSize());
         frame.setResizable(false);
-
-
-
-
+        
         bInicio = new JButton(new ImageIcon(Paths.STARTBUTTON));
-        bInicio.setVisible(true);
+        bInicio.setVisible(false);
         bInicio.setBounds(300,300,264,149);
         frame.getContentPane().add(bInicio);
         bInicio.addActionListener(new oyenteInicio());
+        
+        LogIn logIn = new LogIn(bInicio); 
+        logInPanel = logIn.getLogInPanel(); 
+        logInPanel.setVisible(true);
+        frame.getContentPane().add(logInPanel);
         frame.repaint();
     }
 
@@ -88,7 +91,7 @@ public class Menu {
     public void perder(){
         JOptionPane.showMessageDialog(null,"Mission Failed!","You have been defeated!",JOptionPane.INFORMATION_MESSAGE);
         frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-      //TODO: poner una imagen de partida perdida. Despues habría que volver al menu
+      //TODO: poner una imagen de partida perdida. Despues habrï¿½a que volver al menu
     }
 
 
@@ -99,7 +102,4 @@ public class Menu {
             newLevel();
         }
     }
-
-
-
 }
