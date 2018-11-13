@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.*;
+
 import java.awt.event.KeyListener;
 
 import javax.swing.*;
@@ -12,21 +13,18 @@ import GameObjects.Vector2Int;
 
 public class Window {
 
-    private static Window instance;
+	private static Window instance;
+	private Container gameContainer;
+	private Container UIcontainer;
 
-    private Container gameContainer;
-    private Container UIcontainer;
-
-
-    
-    public static Window GetWindow()  {
-        if(instance ==null){
-           instance = new Window();
-        }
-        return instance;
-    }
-    private Window() {
-
+	public static Window GetWindow(){
+		if(instance ==null){
+			instance = new Window();
+		}
+		return instance;
+	}
+	
+	private Window() {
 		Icon ic = new ImageIcon(Paths.BACKGROUND);
 		gameContainer = new JLabel(ic);
 		Icon ic2 = new ImageIcon(Paths.OTROFONDO);
@@ -44,36 +42,34 @@ public class Window {
 		gameContainer.setLayout(null);
 
 		Menu.getInstance().addPanels(gameContainer,UIcontainer);
+	}
+	
+	public void update(){
+		Menu.getInstance().update();
+	}
 
+	public void show(){
+		Menu.getInstance().showFrame();
+	}
 
-
-    }
-    public void update(){
-       Menu.getInstance().update();
-    }
-
-    public void Show() {
-        Menu.getInstance().showFrame();
-    }
-    
-
-
-    public  JLabel add(Vector2 ubication, Icon s) {
-	    	Vector2Int	v = Vector2Int.Implicit(ubication);
+	public  JLabel add(Vector2 ubication, Icon s) {
+		Vector2Int	v = Vector2Int.Implicit(ubication);
 		JLabel object = new JLabel(s);
 
 		object.setBounds(v.getX(),v.getY(), s.getIconWidth(),s.getIconHeight());
 		gameContainer.add(object);
 		return object;
-    }
+	}
 
+	public void addListener(KeyListener k) { 
+		Menu.getInstance().getFrame().addKeyListener(k); 
+	}
+	
+	public void removeListener(KeyListener k){
+		Menu.getInstance().getFrame().removeKeyListener(k);
+	}
 
-
-    public void addListener(KeyListener k) { Menu.getInstance().getFrame().addKeyListener(k); }
-
-
-	public void removeComponent(JComponent model)
-	{
+	public void removeComponent(JComponent model){
 		Menu.getInstance().getFrame().remove(model);
 	}
 }

@@ -1,13 +1,9 @@
 package Map;
 
 import javax.swing.*;
-
 import GUI.IUpdatable;
 import GUI.Window;
-import GameMaster.DoInFrames;
-import GameMaster.DoWhen;
 import GameObjects.DestroyableObject;
-import GameObjects.GameObject;
 
 public class GraphicObject implements IUpdatable {
 	protected DestroyableObject object;
@@ -49,13 +45,8 @@ public class GraphicObject implements IUpdatable {
 
 	public void destroy() {
 
-
 		model.setVisible(false);
 		Window.GetWindow().removeComponent(model);
-
-
-
-
 
 	}
 }

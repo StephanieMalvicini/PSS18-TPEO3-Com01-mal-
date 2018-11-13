@@ -2,6 +2,7 @@ package Map;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -25,8 +26,6 @@ public final class Map extends SuperMap{
 	private int lvl;
 
 
-
-
 	private static Map instance;
 
 	public static Map newInstance(Window w){
@@ -42,6 +41,22 @@ public final class Map extends SuperMap{
 		return instance;
 	}
 
+	public void restart() {
+		// Elimina los objetos de manera gráfica
+		for(GraphicObject ob : gameobject_to_graphicobject.values()){
+			ob.destroy();
+		}
+		gameobject_to_graphicobject.clear();
+		gameobject_to_graphicobject = new HashMap<>();
+		lvl = 0;
+		list.clear();
+		list = new LinkedList<>();
+		toDestroy.clear();
+		toDestroy = new LinkedBlockingQueue<>(50);
+		toAdd.clear();
+		toAdd = new LinkedBlockingQueue<>(50);
+	}
+	
 	private Map(Window w) {
 		gameobject_to_graphicobject = new HashMap<>();
 		list = new LinkedList<>();
@@ -52,14 +67,9 @@ public final class Map extends SuperMap{
 
 	}
 
-
-
-	  public void run() {
-		   wind.Show();
-	    }
-
-
-
+	public void run() {
+		wind.show();
+	}
 
 	public void add(GameObject o){
 		toAdd.add(o);
@@ -77,8 +87,6 @@ public final class Map extends SuperMap{
 		toAdd.add(u);
 	}
 
-
-
 	public void update() {
 
 		while(!toDestroy.isEmpty()){
@@ -91,21 +99,13 @@ public final class Map extends SuperMap{
 		for (IUpdatable o : list) {
 			o.update(this);
 		}
-
 	}
 
-
-
-
-	public void remove(IUpdatable upda)
-	{
+	public void remove(IUpdatable upda){
 		toDestroy.add(upda);
 	}
 
-
-
-	public void destroy(GameObject gam)
-	{
+	public void destroy(GameObject gam){
 		GraphicObject go = gameobject_to_graphicobject.getOrDefault(gam,null);
 		remove(go);
 	}
@@ -122,8 +122,6 @@ public final class Map extends SuperMap{
 		form = new Formation(++lvl);
 		form.createEnemies();
 	}
-
-
 
 }
 
