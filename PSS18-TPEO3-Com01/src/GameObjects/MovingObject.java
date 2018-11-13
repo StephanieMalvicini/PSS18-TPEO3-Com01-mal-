@@ -1,8 +1,6 @@
 package GameObjects;
 
-
 import Map.Map;
-
 import javax.swing.*;
 
 public abstract class MovingObject extends DestroyableObject {
@@ -30,13 +28,9 @@ public abstract class MovingObject extends DestroyableObject {
 		sprite = s;
 	}
 
-
-
-
 	@Override
 	public void destroySelf() {
 		destroyMe(Map.getInstance());
-
 	}
 
 

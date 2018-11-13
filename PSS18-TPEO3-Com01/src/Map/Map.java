@@ -26,8 +26,6 @@ public final class Map{
 	private int lvl;
 
 
-
-
 	private static Map instance;
 
 	public static Map newInstance(Window w){
@@ -43,6 +41,22 @@ public final class Map{
 		return instance;
 	}
 
+	public void restart() {
+		// Elimina los objetos de manera gráfica
+		for(GraphicObject ob : gameobject_to_graphicobject.values()){
+			ob.destroy();
+		}
+		gameobject_to_graphicobject.clear();
+		gameobject_to_graphicobject = new HashMap<>();
+		lvl = 0;
+		list.clear();
+		list = new LinkedList<>();
+		toDestroy.clear();
+		toDestroy = new LinkedBlockingQueue<>(500);
+		toAdd.clear();
+		toAdd = new LinkedBlockingQueue<>(500);
+	}
+
 	private Map(Window w) {
 		gameobject_to_graphicobject = new HashMap<>();
 		list = new LinkedList<>();
@@ -54,16 +68,11 @@ public final class Map{
 
 	}
 
-
-
-
-
 	public void add(GameObject o){
 		toAdd.add(o);
 	}
 
-	public void add(DestroyableObject o)
-	{
+	public void add(DestroyableObject o){
 		JLabel l = wind.add(o.getUbication(), o.getSprite());
 		GraphicObject ret =  new GraphicObject(o, l);
 		toAdd.add(ret);
@@ -74,35 +83,23 @@ public final class Map{
 		toAdd.add(u);
 	}
 
-
-
 	public void update() {
-
-		while(!toDestroy.isEmpty()){
+		while(toDestroy!=null && !toDestroy.isEmpty()){
 			list.remove(toDestroy.remove());
 		}
-		while(!toAdd.isEmpty()){
+		while(toAdd!=null && !toAdd.isEmpty()){
 			list.add(toAdd.remove());
 		}
-
 		for (IUpdateable o : list) {
 			o.update(this);
 		}
-
 	}
 
-
-
-
-	public void remove(IUpdateable upda)
-	{
+	public void remove(IUpdateable upda){
 		toDestroy.add(upda);
 	}
 
-
-
-	public void destroy(GameObject gam)
-	{
+	public void destroy(GameObject gam){
 		GraphicObject go = gameobject_to_graphicobject.getOrDefault(gam,null);
 		remove(go);
 	}
@@ -119,7 +116,6 @@ public final class Map{
 		form = new Formation(++lvl);
 		form.createEnemies();
 	}
-
 
 	public int getLevel() {
 		return lvl;

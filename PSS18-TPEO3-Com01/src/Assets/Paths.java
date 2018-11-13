@@ -31,4 +31,5 @@ public class Paths {
     public static URL POTION = Paths.class.getResource("potion.png");
     public static URL MISSILE = Paths.class.getResource("missile.png");
     public static URL MISSIL2 = Paths.class.getResource("missil2.png");
+    public static URL USERS = Paths.class.getResource("users.txt");
 }

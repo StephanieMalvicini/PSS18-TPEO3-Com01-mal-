@@ -43,8 +43,11 @@ public class Player extends Ship{
 		weapon = new BasicWeapon(damage);
 	}
 
-
-
+	
+	public static Player restart() {
+		instance = null; 
+		return getInstance(); 
+	}
 
 	
 	public void update(Map map) {
