@@ -1,16 +1,16 @@
 package GameMaster;
 
-import GUI.IUpdateable;
+import GUI.IUpdatable;
 import Map.Map;
 
 import java.util.concurrent.Callable;
 
-public class DoInFrames implements IUpdateable
+public class DoInFrames implements IUpdatable
 {
     private Callable<Boolean> Condition;
     private Runnable Action;
     private boolean excecuted;
-    private int i;
+    int i;
     public DoInFrames(int cantFrames, Runnable action)
     {
         i =0;

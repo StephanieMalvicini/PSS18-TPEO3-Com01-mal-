@@ -5,7 +5,7 @@ import Map.Map;
 
 import javax.swing.*;
 
-public class ScoreManager implements IUpdateable
+public class ScoreManager implements IUpdatable
 {
     private Etiqueta score;
     private Etiqueta vidaJugador;
@@ -18,7 +18,6 @@ public class ScoreManager implements IUpdateable
             instance = new ScoreManager();
         return instance;
 
-
     }
 
     private ScoreManager(){
@@ -29,12 +28,10 @@ public class ScoreManager implements IUpdateable
     public void modificarScore(int n){
         score.setContador(score.getContador() + n);
         score.getJLabel().setText("Score :"+ score.getContador());
-        Window.GetWindow().update();
     }
-    public void modificarVida(float n){
+    public void modificarVida(int n){
         vidaJugador.setContador(n);
         vidaJugador.getJLabel().setText(("Vida :"+vidaJugador.getContador()));
-
     }
 
     public JLabel getScore(){

@@ -1,8 +1,11 @@
 package GameObjects;
 
+import Assets.Configs;
 import Assets.SpriteDepot;
 import Collisions.EnemyBarricadeCollider;
 import Map.Map;
+
+import java.util.Random;
 
 public class EnemyBarricade extends Barricade {
 
@@ -18,6 +21,9 @@ public class EnemyBarricade extends Barricade {
     @Override
     public void destroySelf() {
         destroyMe(Map.getInstance());
+        sprite = null;
+
+
     }
 
     @Override
@@ -32,7 +38,7 @@ public class EnemyBarricade extends Barricade {
     @Override
     public void destroyMe(Map map) {
         map.destroy(this);
-        sprite = null;
+
     }
 
 

@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 public class Shield {
-    private float baseReduction;
-    private Collection<Modifiers> modifiers;
-    private float extraPower;
+    float baseReduction;
+    Collection<Modifiers> modifiers;
+    float extraPower;
 
     public Shield(float x){
         baseReduction = x;
@@ -27,12 +27,17 @@ public class Shield {
                 d = m.modify(d);
             }
         }
+        System.out.println(d);
         return d;
 
     }
 
     public void add(float p){
         extraPower += p;
+    }
+
+    public void addModif(Modifiers m){
+        modifiers.add(m);
     }
 
 }

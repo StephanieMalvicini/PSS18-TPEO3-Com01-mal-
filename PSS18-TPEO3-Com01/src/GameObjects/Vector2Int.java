@@ -1,5 +1,4 @@
 package GameObjects;
-
 public class Vector2Int {
 	private int x;
 	private int y;

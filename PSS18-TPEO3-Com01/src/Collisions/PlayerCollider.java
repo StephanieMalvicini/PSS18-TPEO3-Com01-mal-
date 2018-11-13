@@ -1,5 +1,6 @@
 package Collisions;
 
+import GameObjects.GameObject;
 import GameObjects.Player;
 
 public class PlayerCollider extends Collider{

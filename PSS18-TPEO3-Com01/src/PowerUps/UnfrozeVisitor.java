@@ -1,13 +1,50 @@
 package PowerUps;
 
 import Collisions.*;
-import Controllers.VisitableEnemyController;
 
-public class UnfrozeVisitor extends PowerUpVisitor {
+public class UnfrozeVisitor implements Visitor {
+    @Override
+    public void visitEnemy(EnemyCollider e) {
 
-    public UnfrozeVisitor(){ }
+    }
 
-    public void visitEnemyController(VisitableEnemyController e) {
-        e.Unfreeze();
+    @Override
+    public void visitPlayerBullet(PlayerBulletCollider b) {
+
+    }
+
+    @Override
+    public void visitEnemyBullet(EnemyBulletCollider b) {
+
+    }
+
+    @Override
+    public void visitPlayer(PlayerCollider p) {
+
+    }
+
+    @Override
+    public void visitEnemyBarricade(EnemyBarricadeCollider b) {
+
+    }
+
+    @Override
+    public void visitBarricade(BarricadeCollider b) {
+
+    }
+
+    @Override
+    public void visitPowerUp(PowerUpCollider b) {
+
+    }
+
+    @Override
+    public void visitKamikazeShield(KamikazeShieldCollider b) {
+
+    }
+
+    @Override
+    public void visitPiercingBullet(PiercingBulletCollider b) {
+
     }
 }

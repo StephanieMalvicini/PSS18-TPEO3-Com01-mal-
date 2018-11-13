@@ -3,7 +3,6 @@ package PowerUps;
 import Assets.SpriteDepot;
 import Collisions.*;
 import Controllers.EnemyBehaviour;
-import Controllers.PowerUpBehaviour;
 import Controllers.PowerUpMovementController;
 import Controllers.Sinusoidal;
 import GameMaster.Timer;
@@ -15,15 +14,19 @@ public class KamikazeShieldPU extends AbstractPU {
 
 
     public KamikazeShieldPU(Vector2 v){
-        ubication = v;
-        controller = new PowerUpMovementController(this, new PowerUpBehaviour());
+        controller = new PowerUpMovementController(this, new EnemyBehaviour(new Sinusoidal())); //TODO: crear movimientos de los power up
         health = 1;
         sprite = SpriteDepot.SHIELD;
+        ubication = v;
         speed = 1;
         c = new PowerUpCollider(this);
         time = 5000;
         revert = new KamikazeReverter();
         Map.getInstance().add(this);
+
+
+
+
     }
 
     @Override
@@ -37,15 +40,8 @@ public class KamikazeShieldPU extends AbstractPU {
     }
 
     @Override
-    public void update(Map map) {
-        if(health == 1){
-            updatePosition(map);
-            super.update(map);
-        }
-    }
-
-    @Override
     public void destroySelf() {
+        revert.run();
         super.destroySelf();
 
     }

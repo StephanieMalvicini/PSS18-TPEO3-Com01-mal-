@@ -14,12 +14,14 @@ public abstract class AbstractPU extends MovingObject {
         protected Runnable revert;
         public abstract void trigger();
         protected long time;
+        protected int l;
 
 
-
-        protected void updatePosition(Map map){
+        protected void updatePosition(Map map) {
                 float x = ubication.getX();
                 float y = ubication.getY();
+
+
 
                 y += dir.getY() * speed;
                 if(y < -50 || y > Configs.getConfigs().getCanvasHeight() - 220)
@@ -31,6 +33,9 @@ public abstract class AbstractPU extends MovingObject {
                 if (x > Configs.getConfigs().getCanvasWidth() + 150)
                         x = -150;
 
+
+
+
                 ubication = new Vector2(x,y);
         }
 
@@ -39,5 +44,9 @@ public abstract class AbstractPU extends MovingObject {
                 c.destroySelf();
                 sprite = new ImageIcon();
         }
+
+
+
+
 
 }

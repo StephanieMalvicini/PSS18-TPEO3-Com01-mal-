@@ -2,10 +2,10 @@ package GameObjects;
 
 import Assets.SpriteDepot;
 import Collisions.PlayerBulletCollider;
-import Map.Map;
+
+import javax.swing.*;
 
 public class BasicPlayerBullet extends PlayerBullet {
-
 	public BasicPlayerBullet(float d, Vector2 ubication) {
 		setUbication(ubication);
 		daño = d;
@@ -14,12 +14,6 @@ public class BasicPlayerBullet extends PlayerBullet {
 		sprite = SpriteDepot.LASER;
 		health = 1;
 		c = new PlayerBulletCollider(this);
-		Map.getInstance().add(this);
 	}
 
-	@Override
-	public void update(Map map) {
-		super.update(map);
-		updatePosition(map);
-	}
 }

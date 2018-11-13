@@ -1,6 +1,6 @@
 package Controllers;
 
-import GUI.IUpdateable;
+import GUI.IUpdatable;
 
-public interface IController extends IUpdateable {
+public interface IController extends IUpdatable {
 }

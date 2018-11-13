@@ -1,9 +1,9 @@
 package Collisions;
 
-
+import Collisions.Visitor;
 
 public interface Visitable {
 
-    void accept(Visitor v);
+    public void accept(Visitor v);
 
 }

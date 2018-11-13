@@ -1,12 +1,11 @@
 package Controllers;
 
-
 import GameObjects.MovingObject;
 import GameObjects.Vector2;
 
-public abstract class MovementController<E extends MovingObject>  extends IMovementController {
+public abstract class MovementController extends IMovementController {
 
-    protected E controlled;
+    protected MovingObject controlled;
 
 
 
@@ -15,10 +14,9 @@ public abstract class MovementController<E extends MovingObject>  extends IMovem
     protected void move(Vector2 vec)
     {
         controlled.setDirec(vec);
+        //controlled.setSprite(getIcon(Vector2Int.Implicit(vec.norma())));
 
     }
-
-
 
 
 }

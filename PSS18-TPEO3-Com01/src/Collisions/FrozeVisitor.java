@@ -1,13 +1,48 @@
 package Collisions;
 
-import Controllers.VisitableEnemyController;
+public class FrozeVisitor implements Visitor {
+    @Override
+    public void visitEnemy(EnemyCollider e) {
 
-public class FrozeVisitor extends PowerUpVisitor{
-
-    public FrozeVisitor(){}
-
-    public void visitEnemyController(VisitableEnemyController e) {
-        e.Freeze();
     }
 
+    @Override
+    public void visitPlayerBullet(PlayerBulletCollider b) {
+
+    }
+
+    @Override
+    public void visitEnemyBullet(EnemyBulletCollider b) {
+
+    }
+
+    @Override
+    public void visitPlayer(PlayerCollider p) {
+
+    }
+
+    @Override
+    public void visitEnemyBarricade(EnemyBarricadeCollider b) {
+
+    }
+
+    @Override
+    public void visitBarricade(BarricadeCollider b) {
+
+    }
+
+    @Override
+    public void visitPowerUp(PowerUpCollider b) {
+
+    }
+
+    @Override
+    public void visitKamikazeShield(KamikazeShieldCollider b) {
+
+    }
+
+    @Override
+    public void visitPiercingBullet(PiercingBulletCollider b) {
+
+    }
 }

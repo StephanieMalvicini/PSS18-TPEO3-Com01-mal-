@@ -4,8 +4,9 @@ public class Lemniscata extends MovementPattern {
 
 
     public Lemniscata() {
-        ampx = 24.13f;
-        ampy = 15.07f;
+        ampx = 0.13f;
+        ampy = 0.07f;
+
     }
 
     @Override

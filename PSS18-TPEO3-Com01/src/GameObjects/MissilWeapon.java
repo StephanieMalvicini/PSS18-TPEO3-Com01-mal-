@@ -1,5 +1,6 @@
 package GameObjects;
 
+import Map.Map;
 
 public class MissilWeapon extends Weapon {
 
@@ -12,7 +13,8 @@ public class MissilWeapon extends Weapon {
 
     public void shoot(){
         Vector2 ubBullet = Player.getInstance().getUbication().sum(Vector2.RIGHT(gunPosition+gunPhaseShift));
-        new MissilBullet(damage,ubBullet);
+        Bullet b = new MissilBullet(damage,ubBullet);
+        Map.getInstance().add(b);
         gunPhaseShift *= -1;
     }
 }

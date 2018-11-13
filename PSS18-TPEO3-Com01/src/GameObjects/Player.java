@@ -16,8 +16,10 @@ public class Player extends Ship{
 	protected boolean loaded;
 	protected long time;
 	protected Weapon weapon;
+
+
 	protected static Vector2 initialPosition = new Vector2(218,680);
-	protected int playerAttackSpeed = 250;
+	protected int playerAttackSpeed = 500;
 
 	private static Player instance = null;
 	private Shield shield;
@@ -28,19 +30,25 @@ public class Player extends Ship{
 		return instance;
 	}
 
+	public static Player restart() {
+		instance=null;
+		return getInstance();
+	}
+	
 	private Player() {
 		health = 200;
 		speed = playerSpeed;
 		time=0;
 		ubication = initialPosition;
 		dir = Vector2.ORIGIN();
-		damage = 40;
+		damage = 30;
 		sprite = SpriteDepot.NAVE;
 		attackSpeed = playerAttackSpeed;
 		loaded = true;
+		isFiring = false;
 		c = new PlayerCollider(this);
 		shield = new Shield(0);
-		weapon = new BasicWeapon(damage);
+		weapon = new PlayerWeapon(damage);
 	}
 
 
@@ -50,6 +58,7 @@ public class Player extends Ship{
 	public void update(Map map) {
 
 		if (health > 0) {
+			checkFire(map);
 			updatePosition(map);
 			super.update(map);
 		} else {
@@ -62,13 +71,14 @@ public class Player extends Ship{
 
 	}
 
-	public void fire() {
+	private void checkFire(Map map) {
 
 		if (time < System.currentTimeMillis())
 			loaded = true;
-		if (loaded) {
+		if (loaded && isFiring) {
 			loaded = false;
 			time = System.currentTimeMillis() + attackSpeed;
+
 			weapon.shoot();
 
 		}
@@ -120,10 +130,6 @@ public class Player extends Ship{
 	public void setWeapon(Weapon w) { //TODO modificar para que copie cualqueir modificador del arma anterior a la nueva arma
 		weapon = w;
 
-	}
-
-	public void setHealth(int i) {
-		health = i;
 	}
 }
 	

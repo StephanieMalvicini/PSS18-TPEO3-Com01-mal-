@@ -9,18 +9,17 @@ import java.util.concurrent.LinkedBlockingQueue;
 import javax.swing.JLabel;
 
 import Controllers.IController;
-import GUI.IUpdateable;
-import GUI.ScoreManager;
+import GUI.IUpdatable;
 import GUI.Window;
 import GameObjects.*;
 
-public final class Map{
+public final class Map extends SuperMap{
 
 	private HashMap<GameObject, GraphicObject> gameobject_to_graphicobject;
-	Collection<IUpdateable> list;
+	Collection<IUpdatable> list;
 
-	private	Queue<IUpdateable> toDestroy;
-	private Queue<IUpdateable> toAdd;
+	private	Queue<IUpdatable> toDestroy;
+	private Queue<IUpdatable> toAdd;
 	private Window wind;
 	private Formation form;
 	private int lvl;
@@ -39,21 +38,39 @@ public final class Map{
 
 	public static Map getInstance() {
 		if (instance == null)
-			throw new MapException("incicializa el mapa");
+			throw new MapException("incicializa el mapa pete");
 		return instance;
 	}
 
+	public void restart() {
+		for(GraphicObject ob : gameobject_to_graphicobject.values()){
+			ob.destroy();
+		}
+		gameobject_to_graphicobject.clear();
+		gameobject_to_graphicobject = new HashMap<>();
+		list = new LinkedList<>();
+		list.clear();
+		toDestroy.clear();
+		toDestroy = new LinkedBlockingQueue<>(50);
+		toAdd.clear();
+		toAdd = new LinkedBlockingQueue<>(50);
+	}
+	
 	private Map(Window w) {
 		gameobject_to_graphicobject = new HashMap<>();
 		list = new LinkedList<>();
 		lvl = 0;
 		wind = w;
-		toDestroy = new LinkedBlockingQueue<>(500);
-		toAdd = new LinkedBlockingQueue<>(500);
-		add(ScoreManager.getInstance());
+		toDestroy = new LinkedBlockingQueue<>(50);
+		toAdd = new LinkedBlockingQueue<>(50);
 
 	}
 
+
+
+	  public void run() {
+		   wind.Show();
+	    }
 
 
 
@@ -70,7 +87,7 @@ public final class Map{
 		gameobject_to_graphicobject.put(o,ret);
 	}
 
-	public void add(IUpdateable u){
+	public void add(IUpdatable u){
 		toAdd.add(u);
 	}
 
@@ -85,7 +102,7 @@ public final class Map{
 			list.add(toAdd.remove());
 		}
 
-		for (IUpdateable o : list) {
+		for (IUpdatable o : list) {
 			o.update(this);
 		}
 
@@ -94,7 +111,7 @@ public final class Map{
 
 
 
-	public void remove(IUpdateable upda)
+	public void remove(IUpdatable upda)
 	{
 		toDestroy.add(upda);
 	}
@@ -121,9 +138,7 @@ public final class Map{
 	}
 
 
-	public int getLevel() {
-		return lvl;
-	}
+
 }
 
 

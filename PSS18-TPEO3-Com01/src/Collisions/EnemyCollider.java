@@ -4,7 +4,7 @@ package Collisions;
 import GameObjects.Enemy;
 
 public class EnemyCollider extends Collider {
-    protected float daño;
+    float daño;
 
     public EnemyCollider(Enemy o, float d) {
         super(o);

@@ -1,10 +1,6 @@
 package Collisions;
 
-public class PlayerVisitor extends Visitor {
-
-    public PlayerVisitor() {
-    }
-
+public class PlayerVisitor implements Visitor {
     @Override
     public void visitEnemy(EnemyCollider e) {
         e.getO().damage(1000);
@@ -23,10 +19,6 @@ public class PlayerVisitor extends Visitor {
     }
 
     @Override
-    public void visitCommonBarricade(CommonBarricadeCollider b) {
-    }
-
-    @Override
     public void visitPlayer(PlayerCollider p) {
 
     }
@@ -36,9 +28,15 @@ public class PlayerVisitor extends Visitor {
     }
 
     @Override
+    public void visitBarricade(BarricadeCollider b) {
+
+    }
+
+    @Override
     public void visitPowerUp(PowerUpCollider b) {
+        System.out.println("activo");
         b.trigger();
-        b.getO().destroySelf();
+        b.getO().destroySelf(); //destroy it
     }
 
     @Override
