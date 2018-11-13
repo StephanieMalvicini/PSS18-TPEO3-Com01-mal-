@@ -17,11 +17,7 @@ public class Window {
     private Container gameContainer;
     private Container UIcontainer;
 
-    //Atributos para el menu de la versión 1.1
-    private JMenuBar menuBar;
-    private JMenu menu;
-    private JMenuItem menuItemReset, menuItemExit;   
-    
+
     
     public static Window GetWindow()  {
         if(instance ==null){
@@ -36,16 +32,7 @@ public class Window {
 		Icon ic2 = new ImageIcon(Paths.OTROFONDO);
 		UIcontainer = new JLabel(ic2);
 		UIcontainer.setLayout(null);
-		
-		//Creación del menu de la versión 1.1
-		menuBar = new JMenuBar();
-		menu = new JMenu("Menu");
-		menuItemReset = new JMenuItem("Reset");
-		menu.add(menuItemReset);
-		menu.addSeparator();
-		menuItemExit = new JMenuItem("Exit");
-		menu.add(menuItemExit);
-		
+
 		UIcontainer.add(ScoreManager.getInstance().getScore());
 		UIcontainer.add(ScoreManager.getInstance().getVidaJugador());
 		ScoreManager.getInstance().getScore().setBounds(20,200,100,100);
@@ -79,7 +66,6 @@ public class Window {
 		gameContainer.add(object);
 		return object;
     }
-
 
 
     public void addListener(KeyListener k) { Menu.getInstance().getFrame().addKeyListener(k); }
