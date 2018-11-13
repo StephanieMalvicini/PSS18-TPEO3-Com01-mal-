@@ -12,19 +12,19 @@ import GameObjects.Vector2;
 import GameObjects.Vector2Int;
 
 public class Window {
-
 	private static Window instance;
 	private Container gameContainer;
 	private Container UIcontainer;
 
-	public static Window GetWindow(){
-		if(instance ==null){
-			instance = new Window();
-		}
-		return instance;
-	}
-	
-	private Window() {
+
+    public static Window GetWindow()  {
+        if(instance ==null){
+           instance = new Window();
+        }
+        return instance;
+    }
+    
+    private Window() {
 		Icon ic = new ImageIcon(Paths.BACKGROUND);
 		gameContainer = new JLabel(ic);
 		Icon ic2 = new ImageIcon(Paths.OTROFONDO);

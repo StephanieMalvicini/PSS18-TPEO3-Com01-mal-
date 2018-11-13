@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Menu {
+public class Menu{
     protected static Menu instance;
     protected JButton bInicio;
     protected JFrame frame;
@@ -36,7 +36,7 @@ public class Menu {
     //Atributos para el menu de la versión 3.0
     protected JMenuItem menuItemLogOut; 
     protected boolean wasLogged = false; 
-    
+
     public static Menu getInstance(){
         if (instance==null)
             instance = new Menu();
@@ -52,11 +52,7 @@ public class Menu {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         frame.setLayout(null);
-        frame.setBounds(0,0, Configs.getConfigs().getCanvasWidth(),Configs.getConfigs().getCanvasHeight());
         c.setLayout(null);
-        frame.setLocationRelativeTo(null);
-
-        frame.setVisible(true);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setSize(Configs.getConfigs().getWindowsSize());
@@ -153,7 +149,8 @@ public class Menu {
 		
 		//Oyente Log Out
 		menuItemLogOut.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent ev) {
+			@Override
+			public void actionPerformed(ActionEvent e) {
 				wasLogged=true;  
 				//Window.GetWindow().hide();
 				l.esperar();
@@ -162,6 +159,8 @@ public class Menu {
                 update(); 
 			}
 		});
+        frame.setVisible(true);
+        frame.repaint();
     }
 
     public void update(){
@@ -177,7 +176,7 @@ public class Menu {
     		menuBar.setVisible(true);
     		logIn.hideComments();
     		Window.GetWindow().show(); 
-        	Window.GetWindow().addListener(MyListener.Instance());
+        	Window.GetWindow().addListener(MyListener.getInstance());
         	frame.requestFocus();
         	l.resumir();
     	}

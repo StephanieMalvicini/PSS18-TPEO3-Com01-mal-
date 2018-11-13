@@ -10,7 +10,6 @@ import javax.swing.*;
 
 public class PlayerMovementController extends MovementController {
 
-
 	public PlayerMovementController(Player p) {
 		r = new ImageIcon(Paths.NAVEDER);
 		l = new ImageIcon(Paths.NAVEIZQ);
@@ -36,12 +35,12 @@ public class PlayerMovementController extends MovementController {
 
 		Map.getInstance().add(this);
 	}
-
-	public void setControlled(Player p) {
-		controlled=p;
-		Map.getInstance().add(this);
-	}
 	
+	public void setControlled(Player p) {
+		controlled = p; 
+		Map.getInstance().add(this); 
+	}
+
 	public void update(Map map)
 	{
 		if (true) {
@@ -52,20 +51,13 @@ public class PlayerMovementController extends MovementController {
 			destroyMe(map);
 	}
 
-
-
-
-
-
-
-
 	public void destroyMe(Map map) {
 		map.destroy(this);
 	}
 
 	protected Vector2 armarVector()
 	{
-		MyListener input = MyListener.Instance();
+		MyListener input = MyListener.getInstance();
 
 		Vector2 vec = Vector2.ORIGIN();
 

@@ -5,28 +5,22 @@ import Map.Map;
 
 import javax.swing.*;
 
-public abstract class Bullet extends MovingObject {
+public abstract class Bullet extends Ship {
 	protected float daño;
 	
-	public float getDaño(){return daño;}
-
-
+	public float getDaño(){
+		return daño;
+	}
 
 	public void destroyMe(Map map) {
 		map.destroy(this);
 		sprite = new ImageIcon();
 	}
 
-
-
-	//public void update(){}
-
-	public void destroySelf()
-	{
+	public void destroySelf(){
 		c.destroySelf();
 		Map.getInstance().destroy(this);
 		sprite = new ImageIcon();
-		//destroyMe(Map.getInstance());//danger
 	}
 
 
@@ -43,7 +37,5 @@ public abstract class Bullet extends MovingObject {
 
 		ubication = new Vector2(x,y);
 	}
-	
-	
 	
 }

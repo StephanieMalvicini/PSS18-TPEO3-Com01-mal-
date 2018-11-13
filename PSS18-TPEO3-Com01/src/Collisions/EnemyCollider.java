@@ -4,7 +4,7 @@ package Collisions;
 import GameObjects.Enemy;
 
 public class EnemyCollider extends Collider {
-    float daño;
+    protected float daño;
 
     public EnemyCollider(Enemy o, float d) {
         super(o);
@@ -12,12 +12,8 @@ public class EnemyCollider extends Collider {
         v = new EnemyVisitor(daño);
     }
 
-
-
     @Override
     public void accept(Visitor v) {
         v.visitEnemy(this);
     }
-
-
 }

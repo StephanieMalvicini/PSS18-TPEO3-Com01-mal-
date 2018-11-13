@@ -38,9 +38,6 @@ public  abstract class Collider implements Visitable {
         ey = y + o.getSprite().getIconHeight();
         scanCollisions();
         solveCollision();
-
-
-
     }
 
     protected void solveCollision() {
